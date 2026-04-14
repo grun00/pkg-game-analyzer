@@ -29,12 +29,24 @@ RSpec.describe Match, type: :model do
       expect(Match.results.keys).to match_array(%w[win loss])
     end
 
+    it "defines first_or_second enum with uninformed, first, and second" do
+      expect(Match.first_or_seconds.keys).to match_array(%w[uninformed first second])
+    end
+
+    it "defaults first_or_second to uninformed" do
+      expect(build(:match).first_or_second).to eq("uninformed")
+    end
+
     it "raises an ArgumentError for an invalid result" do
       expect { build(:match, result: "draw") }.to raise_error(ArgumentError)
     end
 
     it "raises an ArgumentError for an invalid opponent_deck" do
       expect { build(:match, opponent_deck: "pikachu") }.to raise_error(ArgumentError)
+    end
+
+    it "raises an ArgumentError for an invalid first_or_second" do
+      expect { build(:match, first_or_second: "third") }.to raise_error(ArgumentError)
     end
   end
 

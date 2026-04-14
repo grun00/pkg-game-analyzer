@@ -23,6 +23,7 @@ class Match < ApplicationRecord
 
   enum :opponent_deck, OPPONENT_DECKS
   enum :result, { win: "win", loss: "loss" }, prefix: true
+  enum :first_or_second, { uninformed: 0, first: 1, second: 2 }, prefix: true
 
   validates :opponent_deck, presence: true
   validates :result, presence: true

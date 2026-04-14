@@ -31,6 +31,21 @@
   </div>
 
   <div>
+    <%= f.label :first_or_second, "Going First or Second (optional)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <div style="display:flex;gap:16px;">
+      <label style="color:#aaa;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <%= f.radio_button :first_or_second, "uninformed", style: "accent-color:#aaa;" %> Not informed
+      </label>
+      <label style="color:#56c2e9;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <%= f.radio_button :first_or_second, "first", style: "accent-color:#56c2e9;" %> First
+      </label>
+      <label style="color:#c956e9;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <%= f.radio_button :first_or_second, "second", style: "accent-color:#c956e9;" %> Second
+      </label>
+    </div>
+  </div>
+
+  <div>
     <%= f.label :hand_quality, "Initial Hand Quality (1 = terrible, 5 = perfect)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
     <%= f.select :hand_quality,
           (1..5).map { |n| ["#{n} #{"★" * n}", n] },

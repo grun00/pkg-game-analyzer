@@ -16,6 +16,14 @@
         <%= @match.result.capitalize %>
       </p>
     </div>
+    <% unless @match.first_or_second_uninformed? %>
+      <div>
+        <span style="color:#888;font-size:0.85rem;">Going</span>
+        <p style="margin:4px 0;color:<%= @match.first_or_second_first? ? "#56c2e9" : "#c956e9" %>;font-weight:bold;font-size:1.1rem;">
+          <%= @match.first_or_second.capitalize %>
+        </p>
+      </div>
+    <% end %>
     <div>
       <span style="color:#888;font-size:0.85rem;">Initial Hand Quality</span>
       <p style="margin:4px 0;color:#f2c94c;font-size:1.1rem;">

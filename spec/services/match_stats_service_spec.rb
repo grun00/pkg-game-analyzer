@@ -31,6 +31,11 @@ RSpec.describe MatchStatsService do
     it "returns empty recent_matches" do
       expect(stats[:recent_matches]).to be_empty
     end
+
+    it "returns by_first_or_second with first and second entries, all zeroed" do
+      expect(stats[:by_first_or_second].map { |r| r[:side] }).to eq(%i[first second])
+      expect(stats[:by_first_or_second].all? { |r| r[:total].zero? }).to be true
+    end
   end
 
   context "when the dashboard has matches" do
@@ -85,6 +90,23 @@ RSpec.describe MatchStatsService do
 
       quality_2 = stats[:by_hand_quality].find { |r| r[:quality] == 2 }
       expect(quality_2[:win_rate]).to eq(0.0)
+    end
+
+    it "calculates win_rate per side for first and second" do
+      create(:match, :win,  dashboard: dashboard, first_or_second: :first)
+      create(:match, :win,  dashboard: dashboard, first_or_second: :first)
+      create(:match, :loss, dashboard: dashboard, first_or_second: :first)
+      create(:match, :loss, dashboard: dashboard, first_or_second: :second)
+
+      first_row  = stats[:by_first_or_second].find { |r| r[:side] == :first }
+      second_row = stats[:by_first_or_second].find { |r| r[:side] == :second }
+
+      expect(first_row[:wins]).to eq(2)
+      expect(first_row[:losses]).to eq(1)
+      expect(first_row[:win_rate]).to eq(66.7)
+      expect(second_row[:wins]).to eq(0)
+      expect(second_row[:losses]).to eq(1)
+      expect(second_row[:win_rate]).to eq(0.0)
     end
 
     it "returns at most 5 recent matches ordered by played_at desc" do

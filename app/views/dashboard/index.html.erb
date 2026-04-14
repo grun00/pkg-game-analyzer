@@ -1,0 +1,78 @@
+<% content_for :title, "Dashboard – PKM Analyzer" %>
+
+<h1 style="color:#e94560;margin-bottom:8px;">Dashboard</h1>
+<p style="color:#888;margin-bottom:24px;">Welcome back, <%= current_user.email %>!</p>
+
+<% if @stats[:total].zero? %>
+  <div style="text-align:center;padding:60px 0;color:#666;">
+    <p style="font-size:1.2rem;">No matches recorded yet.</p>
+    <%= link_to "Register your first match →", new_match_path, style: "color:#e94560;" %>
+  </div>
+<% else %>
+
+  <%# ── Summary cards ── %>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;">
+    <%= render "dashboard/stat_card", label: "Total Matches", value: @stats[:total] %>
+    <%= render "dashboard/stat_card", label: "Wins",          value: @stats[:wins],    color: "#6fcf97" %>
+    <%= render "dashboard/stat_card", label: "Losses",        value: @stats[:losses],  color: "#eb5757" %>
+    <%= render "dashboard/stat_card", label: "Win Rate",      value: "#{@stats[:win_rate]}%", color: "#f2c94c" %>
+    <%= render "dashboard/stat_card", label: "Avg Hand ★",    value: @stats[:average_hand_quality] %>
+  </div>
+
+  <%# ── By deck ── %>
+  <h2 style="color:#ddd;margin-bottom:12px;">Results by Opponent Deck</h2>
+  <div style="overflow-x:auto;margin-bottom:32px;">
+    <table style="width:100%;border-collapse:collapse;color:#ccc;">
+      <thead>
+        <tr style="border-bottom:2px solid #333;">
+          <th style="text-align:left;padding:8px 12px;">Deck</th>
+          <th style="padding:8px 12px;">Total</th>
+          <th style="padding:8px 12px;color:#6fcf97;">Wins</th>
+          <th style="padding:8px 12px;color:#eb5757;">Losses</th>
+          <th style="padding:8px 12px;color:#f2c94c;">Win Rate</th>
+          <th style="padding:8px 12px;">Bar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stats[:by_deck].each do |row| %>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:8px 12px;font-weight:bold;"><%= row[:label] %></td>
+            <td style="padding:8px 12px;text-align:center;"><%= row[:total] %></td>
+            <td style="padding:8px 12px;text-align:center;color:#6fcf97;"><%= row[:wins] %></td>
+            <td style="padding:8px 12px;text-align:center;color:#eb5757;"><%= row[:losses] %></td>
+            <td style="padding:8px 12px;text-align:center;color:#f2c94c;"><%= row[:win_rate] %>%</td>
+            <td style="padding:8px 12px;min-width:120px;">
+              <div style="background:#333;border-radius:4px;height:10px;overflow:hidden;">
+                <div style="background:#6fcf97;height:100%;width:<%= row[:win_rate] %>%;"></div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%# ── By hand quality ── %>
+  <h2 style="color:#ddd;margin-bottom:12px;">Win Rate by Initial Hand Quality</h2>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
+    <% @stats[:by_hand_quality].each do |row| %>
+      <div style="background:#16213e;border-radius:10px;padding:16px 20px;min-width:110px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:4px;"><%= "★" * row[:quality] %><%= "☆" * (5 - row[:quality]) %></div>
+        <div style="color:#f2c94c;font-size:1.1rem;font-weight:bold;"><%= row[:win_rate] %>%</div>
+        <div style="color:#888;font-size:0.8rem;"><%= row[:total] %> games</div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# ── Recent matches ── %>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+    <h2 style="color:#ddd;margin:0;">Recent Matches</h2>
+    <%= link_to "View all →", matches_path, style: "color:#e94560;font-size:0.9rem;" %>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;">
+    <% @stats[:recent_matches].each do |match| %>
+      <%= render "dashboard/recent_match_row", match: match %>
+    <% end %>
+  </div>
+
+<% end %>

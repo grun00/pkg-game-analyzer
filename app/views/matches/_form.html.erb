@@ -1,0 +1,56 @@
+<%= form_with model: match, html: { style: "display:flex;flex-direction:column;gap:20px;max-width:540px;" } do |f| %>
+  <% if match.errors.any? %>
+    <div style="background:#3a1e1e;border:1px solid #eb5757;border-radius:8px;padding:14px 18px;color:#eb5757;">
+      <strong><%= pluralize(match.errors.count, "error") %> prevented this match from being saved:</strong>
+      <ul style="margin:8px 0 0 16px;">
+        <% match.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :opponent_deck, "Opponent Deck", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <%= f.select :opponent_deck,
+          Match::OPPONENT_DECKS.keys.map { |d| [d.to_s.humanize, d] },
+          { prompt: "Select a deck…" },
+          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+  </div>
+
+  <div>
+    <%= f.label :result, "Result", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <div style="display:flex;gap:16px;">
+      <label style="color:#6fcf97;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <%= f.radio_button :result, "win", style: "accent-color:#6fcf97;" %> Win
+      </label>
+      <label style="color:#eb5757;display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <%= f.radio_button :result, "loss", style: "accent-color:#eb5757;" %> Loss
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :hand_quality, "Initial Hand Quality (1 = terrible, 5 = perfect)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <%= f.select :hand_quality,
+          (1..5).map { |n| ["#{n} #{"★" * n}", n] },
+          { prompt: "Rate your hand…" },
+          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Game Notes (optional)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <%= f.text_area :description, rows: 4,
+          placeholder: "Describe how the game went…",
+          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;resize:vertical;box-sizing:border-box;" %>
+  </div>
+
+  <div>
+    <%= f.label :played_at, "Date Played", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <%= f.datetime_local_field :played_at,
+          value: match.played_at&.strftime("%Y-%m-%dT%H:%M"),
+          style: "padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+  </div>
+
+  <%= f.submit style: "background:#e94560;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;" %>
+<% end %>

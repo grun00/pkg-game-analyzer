@@ -1,0 +1,12 @@
+<% content_for :title, "Register Match – PKM Analyzer" %>
+
+<div style="margin-bottom:24px;">
+  <h1 style="color:#e94560;margin-bottom:4px;">Register a Match</h1>
+  <p style="color:#888;">Log the details of your latest game.</p>
+</div>
+
+<%= render "form", match: @match %>
+
+<div style="margin-top:16px;">
+  <%= link_to "← Back to Dashboard", root_path, style: "color:#888;" %>
+</div>

@@ -1,0 +1,37 @@
+<% content_for :title, "Match – PKM Analyzer" %>
+
+<div style="max-width:540px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+    <span style="font-size:2rem;"><%= @match.result_win? ? "✅" : "❌" %></span>
+    <div>
+      <h1 style="color:#e94560;margin:0;"><%= @match.opponent_deck.to_s.humanize %></h1>
+      <span style="color:#888;font-size:0.9rem;"><%= @match.played_at.strftime("%B %d, %Y – %H:%M") %></span>
+    </div>
+  </div>
+
+  <div style="background:#16213e;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;">
+    <div>
+      <span style="color:#888;font-size:0.85rem;">Result</span>
+      <p style="margin:4px 0;color:<%= @match.result_win? ? "#6fcf97" : "#eb5757" %>;font-weight:bold;font-size:1.1rem;">
+        <%= @match.result.capitalize %>
+      </p>
+    </div>
+    <div>
+      <span style="color:#888;font-size:0.85rem;">Initial Hand Quality</span>
+      <p style="margin:4px 0;color:#f2c94c;font-size:1.1rem;">
+        <%= "★" * @match.hand_quality %><%= "☆" * (5 - @match.hand_quality) %> (<%= @match.hand_quality %>/5)
+      </p>
+    </div>
+    <% if @match.description.present? %>
+      <div>
+        <span style="color:#888;font-size:0.85rem;">Game Notes</span>
+        <p style="margin:4px 0;color:#ccc;line-height:1.6;"><%= @match.description %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div style="margin-top:16px;display:flex;gap:16px;">
+    <%= link_to "← All Matches", matches_path, style: "color:#888;" %>
+    <%= link_to "Edit", edit_match_path(@match), style: "color:#e94560;" %>
+  </div>
+</div>

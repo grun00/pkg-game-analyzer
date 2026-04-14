@@ -2,17 +2,22 @@ class Match < ApplicationRecord
   belongs_to :user
 
   OPPONENT_DECKS = {
-    charizard_ex:        0,
-    gardevoir_ex:        1,
-    chien_pao_baxcalibur: 2,
-    lost_box:            3,
-    miraidon_ex:         4,
+    dragapult:        0,
+    dragapult_dusknoir:        1,
+    dragapult_blaziken: 2,
+    tera_box:            3,
+    team_rockets:         4,
     raging_bolt:         5,
-    roaring_moon:        6,
-    regidrago_vstar:     7,
-    iron_thorns:         8,
-    snorlax_stall:       9,
-    other:               10
+    alakazam:        6,
+    mega_lucario:     7,
+    absol:         8,
+    green_ogerpon:       9,
+    clefairy_box:               10,
+    garchomp:               11,
+    ns_zoroark:               12,
+    mega_starmie:               13,
+    kengaskhan:               14,
+    other:               15
   }.freeze
 
   enum :opponent_deck, OPPONENT_DECKS

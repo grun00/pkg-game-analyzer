@@ -5,11 +5,11 @@
   <p style="color:#888;">Update the details of this game.</p>
 </div>
 
-<%= render "form", match: @match %>
+<%= render "form", match: @match, dashboard: @dashboard %>
 
 <div style="margin-top:16px;display:flex;gap:16px;">
-  <%= link_to "← Back to Matches", matches_path, style: "color:#888;" %>
-  <%= button_to "Delete Match", match_path(@match), method: :delete,
+  <%= link_to "← Back to Matches", dashboard_matches_path(@dashboard), style: "color:#888;" %>
+  <%= button_to "Delete Match", dashboard_match_path(@dashboard, @match), method: :delete,
         data: { turbo_confirm: "Are you sure you want to delete this match?" },
         form: { style: "display:inline;" },
         style: "background:transparent;border:none;color:#eb5757;cursor:pointer;padding:0;font-size:1rem;" %>

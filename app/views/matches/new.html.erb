@@ -5,8 +5,8 @@
   <p style="color:#888;">Log the details of your latest game.</p>
 </div>
 
-<%= render "form", match: @match %>
+<%= render "form", match: @match, dashboard: @dashboard %>
 
 <div style="margin-top:16px;">
-  <%= link_to "← Back to Dashboard", root_path, style: "color:#888;" %>
+  <%= link_to "← Back to Dashboard", dashboard_path(@dashboard), style: "color:#888;" %>
 </div>

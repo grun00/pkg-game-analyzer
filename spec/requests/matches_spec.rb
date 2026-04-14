@@ -1,13 +1,14 @@
 require "rails_helper"
 
 RSpec.describe "Matches", type: :request do
-  let(:user)  { create(:user) }
-  let(:other) { create(:user) }
+  let(:user)      { create(:user) }
+  let(:other)     { create(:user) }
+  let(:dashboard) { create(:dashboard, user: user) }
 
   let(:valid_params) do
     {
       match: {
-        opponent_deck: "charizard_ex",
+        opponent_deck: "dragapult",
         result:        "win",
         description:   "Great game",
         hand_quality:  4,
@@ -21,18 +22,18 @@ RSpec.describe "Matches", type: :request do
   end
 
   context "when not authenticated" do
-    it "redirects GET /matches to sign in" do
-      get matches_path
+    it "redirects GET /dashboards/:id/matches to sign in" do
+      get dashboard_matches_path(dashboard)
       expect(response).to redirect_to(new_user_session_path)
     end
 
-    it "redirects GET /matches/new to sign in" do
-      get new_match_path
+    it "redirects GET /dashboards/:id/matches/new to sign in" do
+      get new_dashboard_match_path(dashboard)
       expect(response).to redirect_to(new_user_session_path)
     end
 
-    it "redirects POST /matches to sign in" do
-      post matches_path, params: valid_params
+    it "redirects POST /dashboards/:id/matches to sign in" do
+      post dashboard_matches_path(dashboard), params: valid_params
       expect(response).to redirect_to(new_user_session_path)
     end
   end
@@ -40,98 +41,116 @@ RSpec.describe "Matches", type: :request do
   context "when authenticated" do
     before { sign_in user }
 
-    describe "GET /matches" do
+    describe "GET /dashboards/:id/matches" do
       it "returns http success" do
-        get matches_path
+        get dashboard_matches_path(dashboard)
         expect(response).to have_http_status(:ok)
       end
 
-      it "only shows the current user's matches" do
-        own         = create(:match, user: user,  opponent_deck: :charizard_ex)
-        other_match = create(:match, user: other, opponent_deck: :gardevoir_ex)
-        get matches_path
-        expect(response.body).to include(own.opponent_deck.to_s.humanize)
-        expect(response.body).not_to include(other_match.opponent_deck.to_s.humanize)
+      it "only shows matches belonging to the dashboard" do
+        own         = create(:match, dashboard: dashboard, opponent_deck: :dragapult)
+        other_db    = create(:dashboard, user: other)
+        other_match = create(:match, dashboard: other_db, opponent_deck: :raging_bolt)
+        get dashboard_matches_path(dashboard)
+        expect(response.body).to include("Dragapult")
+        expect(response.body).not_to include("Raging bolt")
+      end
+
+      it "redirects when accessing another user's dashboard" do
+        other_db = create(:dashboard, user: other)
+        get dashboard_matches_path(other_db)
+        expect(response).to redirect_to(dashboards_path)
       end
     end
 
-    describe "GET /matches/new" do
+    describe "GET /dashboards/:id/matches/new" do
       it "returns http success" do
-        get new_match_path
+        get new_dashboard_match_path(dashboard)
         expect(response).to have_http_status(:ok)
       end
     end
 
-    describe "POST /matches" do
-      it "creates a match and redirects to dashboard" do
-        expect { post matches_path, params: valid_params }.to change(Match, :count).by(1)
-        expect(response).to redirect_to(root_path)
+    describe "POST /dashboards/:id/matches" do
+      it "creates a match and redirects to the dashboard" do
+        expect { post dashboard_matches_path(dashboard), params: valid_params }
+          .to change(Match, :count).by(1)
+        expect(response).to redirect_to(dashboard_path(dashboard))
       end
 
-      it "scopes the new match to the current user" do
-        post matches_path, params: valid_params
-        expect(Match.last.user).to eq(user)
+      it "scopes the new match to the dashboard" do
+        post dashboard_matches_path(dashboard), params: valid_params
+        expect(Match.last.dashboard).to eq(dashboard)
       end
 
-      it "re-renders :new with unprocessable_entity on invalid data" do
-        post matches_path, params: invalid_params
+      it "re-renders :new with unprocessable_content on invalid data" do
+        post dashboard_matches_path(dashboard), params: invalid_params
         expect(response).to have_http_status(:unprocessable_content)
         expect(response.body).to include("Register a Match")
       end
 
       it "does not create a match on invalid data" do
-        expect { post matches_path, params: invalid_params }.not_to change(Match, :count)
+        expect { post dashboard_matches_path(dashboard), params: invalid_params }
+          .not_to change(Match, :count)
+      end
+
+      it "cannot add a match to another user's dashboard" do
+        other_db = create(:dashboard, user: other)
+        post dashboard_matches_path(other_db), params: valid_params
+        expect(response).to redirect_to(dashboards_path)
       end
     end
 
-    describe "GET /matches/:id/edit" do
-      let(:match) { create(:match, user: user) }
+    describe "GET /dashboards/:dashboard_id/matches/:id/edit" do
+      let(:match) { create(:match, dashboard: dashboard) }
 
       it "returns http success for own match" do
-        get edit_match_path(match)
+        get edit_dashboard_match_path(dashboard, match)
         expect(response).to have_http_status(:ok)
       end
 
-      it "redirects when accessing another user's match" do
-        other_match = create(:match, user: other)
-        get edit_match_path(other_match)
-        expect(response).to redirect_to(matches_path)
+      it "redirects when accessing a match from another user's dashboard" do
+        other_db    = create(:dashboard, user: other)
+        other_match = create(:match, dashboard: other_db)
+        get edit_dashboard_match_path(other_db, other_match)
+        expect(response).to redirect_to(dashboards_path)
       end
     end
 
-    describe "PATCH /matches/:id" do
-      let(:match) { create(:match, user: user, result: "loss") }
+    describe "PATCH /dashboards/:dashboard_id/matches/:id" do
+      let(:match) { create(:match, dashboard: dashboard, result: "loss") }
 
-      it "updates the match and redirects to dashboard" do
-        patch match_path(match), params: { match: { result: "win" } }
+      it "updates the match and redirects to the dashboard" do
+        patch dashboard_match_path(dashboard, match), params: { match: { result: "win" } }
         expect(match.reload.result).to eq("win")
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(dashboard_path(dashboard))
       end
 
       it "re-renders :edit with unprocessable_content on invalid data" do
-        patch match_path(match), params: { match: { hand_quality: 9 } }
+        patch dashboard_match_path(dashboard, match), params: { match: { hand_quality: 9 } }
         expect(response).to have_http_status(:unprocessable_content)
       end
 
-      it "cannot update another user's match" do
-        other_match = create(:match, user: other, result: "loss")
-        patch match_path(other_match), params: { match: { result: "win" } }
-        expect(response).to redirect_to(matches_path)
+      it "cannot update a match from another user's dashboard" do
+        other_db    = create(:dashboard, user: other)
+        other_match = create(:match, dashboard: other_db, result: "loss")
+        patch dashboard_match_path(other_db, other_match), params: { match: { result: "win" } }
+        expect(response).to redirect_to(dashboards_path)
         expect(other_match.reload.result).to eq("loss")
       end
     end
 
-    describe "DELETE /matches/:id" do
-      let!(:match) { create(:match, user: user) }
+    describe "DELETE /dashboards/:dashboard_id/matches/:id" do
+      let!(:match) { create(:match, dashboard: dashboard) }
 
-      it "destroys the match and redirects" do
-        expect { delete match_path(match) }.to change(Match, :count).by(-1)
-        expect(response).to redirect_to(matches_path)
+      it "destroys the match and redirects to the matches list" do
+        expect { delete dashboard_match_path(dashboard, match) }.to change(Match, :count).by(-1)
+        expect(response).to redirect_to(dashboard_matches_path(dashboard))
       end
 
-      it "cannot delete another user's match" do
-        other_match = create(:match, user: other)
-        expect { delete match_path(other_match) }.not_to change(Match, :count)
+      it "cannot delete a match from another user's dashboard" do
+        other_db    = create(:dashboard, user: other)
+        other_match = create(:match, dashboard: other_db)
+        expect { delete dashboard_match_path(other_db, other_match) }.not_to change(Match, :count)
       end
     end
   end

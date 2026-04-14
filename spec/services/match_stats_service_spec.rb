@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe MatchStatsService do
-  let(:user) { create(:user) }
-  subject(:stats) { described_class.new(user.matches).call }
+  let(:dashboard) { create(:dashboard) }
+  subject(:stats) { described_class.new(dashboard.matches).call }
 
-  context "when the user has no matches" do
+  context "when the dashboard has no matches" do
     it "returns zeros for all counts" do
       expect(stats[:total]).to eq(0)
       expect(stats[:wins]).to eq(0)
@@ -33,12 +33,12 @@ RSpec.describe MatchStatsService do
     end
   end
 
-  context "when the user has matches" do
+  context "when the dashboard has matches" do
     before do
-      create(:match, :win,  user: user, opponent_deck: :charizard_ex, hand_quality: 5, played_at: 3.days.ago)
-      create(:match, :win,  user: user, opponent_deck: :charizard_ex, hand_quality: 4, played_at: 2.days.ago)
-      create(:match, :loss, user: user, opponent_deck: :charizard_ex, hand_quality: 2, played_at: 1.day.ago)
-      create(:match, :loss, user: user, opponent_deck: :gardevoir_ex, hand_quality: 3, played_at: 4.days.ago)
+      create(:match, :win,  dashboard: dashboard, opponent_deck: :dragapult, hand_quality: 5, played_at: 3.days.ago)
+      create(:match, :win,  dashboard: dashboard, opponent_deck: :dragapult, hand_quality: 4, played_at: 2.days.ago)
+      create(:match, :loss, dashboard: dashboard, opponent_deck: :dragapult, hand_quality: 2, played_at: 1.day.ago)
+      create(:match, :loss, dashboard: dashboard, opponent_deck: :raging_bolt, hand_quality: 3, played_at: 4.days.ago)
     end
 
     it "counts total matches correctly" do
@@ -63,16 +63,16 @@ RSpec.describe MatchStatsService do
     end
 
     it "groups results by deck and sorts by total descending" do
-      charizard = stats[:by_deck].find { |d| d[:deck] == :charizard_ex }
-      expect(charizard[:total]).to eq(3)
-      expect(charizard[:wins]).to eq(2)
-      expect(charizard[:losses]).to eq(1)
-      expect(charizard[:win_rate]).to eq(66.7)
+      dragapult = stats[:by_deck].find { |d| d[:deck] == :dragapult }
+      expect(dragapult[:total]).to eq(3)
+      expect(dragapult[:wins]).to eq(2)
+      expect(dragapult[:losses]).to eq(1)
+      expect(dragapult[:win_rate]).to eq(66.7)
     end
 
     it "excludes decks with no matches from by_deck" do
       deck_names = stats[:by_deck].map { |d| d[:deck] }
-      expect(deck_names).to contain_exactly(:charizard_ex, :gardevoir_ex)
+      expect(deck_names).to contain_exactly(:dragapult, :raging_bolt)
     end
 
     it "lists by_hand_quality for all 5 quality levels" do
@@ -88,7 +88,7 @@ RSpec.describe MatchStatsService do
     end
 
     it "returns at most 5 recent matches ordered by played_at desc" do
-      create_list(:match, 3, user: user, played_at: 5.days.ago)
+      create_list(:match, 3, dashboard: dashboard, played_at: 5.days.ago)
       expect(stats[:recent_matches].count).to eq(5)
     end
   end

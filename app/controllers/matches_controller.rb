@@ -1,21 +1,22 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_dashboard
   before_action :set_match, only: %i[show edit update destroy]
 
   def index
-    @matches = current_user.matches.recent
+    @matches = @dashboard.matches.recent
   end
 
   def show; end
 
   def new
-    @match = current_user.matches.build(played_at: Time.current)
+    @match = @dashboard.matches.build(played_at: Time.current)
   end
 
   def create
-    @match = current_user.matches.build(match_params)
+    @match = @dashboard.matches.build(match_params)
     if @match.save
-      redirect_to root_path, notice: "Match registered successfully!"
+      redirect_to @dashboard, notice: "Match registered successfully!"
     else
       render :new, status: :unprocessable_content
     end
@@ -25,7 +26,7 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
-      redirect_to root_path, notice: "Match updated successfully!"
+      redirect_to @dashboard, notice: "Match updated successfully!"
     else
       render :edit, status: :unprocessable_content
     end
@@ -33,15 +34,21 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
-    redirect_to matches_path, notice: "Match deleted."
+    redirect_to dashboard_matches_path(@dashboard), notice: "Match deleted."
   end
 
   private
 
-  def set_match
-    @match = current_user.matches.find(params[:id])
+  def set_dashboard
+    @dashboard = current_user.dashboards.find(params[:dashboard_id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to matches_path, alert: "Match not found."
+    redirect_to dashboards_path, alert: "Dashboard not found."
+  end
+
+  def set_match
+    @match = @dashboard.matches.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to dashboard_matches_path(@dashboard), alert: "Match not found."
   end
 
   def match_params

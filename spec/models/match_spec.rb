@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Match, type: :model do
   describe "associations" do
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:dashboard) }
   end
 
   describe "validations" do
@@ -19,8 +19,9 @@ RSpec.describe Match, type: :model do
 
   describe "enums" do
     it "defines opponent_deck enum with all expected decks" do
-      expected_decks = %w[charizard_ex gardevoir_ex chien_pao_baxcalibur lost_box miraidon_ex
-                          raging_bolt roaring_moon regidrago_vstar iron_thorns snorlax_stall other]
+      expected_decks = %w[dragapult dragapult_dusknoir dragapult_blaziken tera_box team_rockets
+                          raging_bolt alakazam mega_lucario absol green_ogerpon
+                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan other]
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
     end
 
@@ -38,12 +39,12 @@ RSpec.describe Match, type: :model do
   end
 
   describe "scopes" do
-    let(:user) { create(:user) }
+    let(:dashboard) { create(:dashboard) }
 
     before do
-      create(:match, :win,  user: user)
-      create(:match, :win,  user: user)
-      create(:match, :loss, user: user)
+      create(:match, :win,  dashboard: dashboard)
+      create(:match, :win,  dashboard: dashboard)
+      create(:match, :loss, dashboard: dashboard)
     end
 
     it ".wins returns only won matches" do
@@ -55,10 +56,10 @@ RSpec.describe Match, type: :model do
     end
 
     it ".recent orders by played_at descending" do
-      user2  = create(:user)
-      oldest = create(:match, user: user2, played_at: 10.days.ago)
-      newest = create(:match, user: user2, played_at: 1.day.ago)
-      scoped = user2.matches.recent
+      other_dashboard = create(:dashboard)
+      oldest = create(:match, dashboard: other_dashboard, played_at: 10.days.ago)
+      newest = create(:match, dashboard: other_dashboard, played_at: 1.day.ago)
+      scoped = other_dashboard.matches.recent
       expect(scoped.first).to eq(newest)
       expect(scoped.last).to eq(oldest)
     end

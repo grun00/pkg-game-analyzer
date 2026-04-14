@@ -31,7 +31,7 @@
   </div>
 
   <div style="margin-top:16px;display:flex;gap:16px;">
-    <%= link_to "← All Matches", matches_path, style: "color:#888;" %>
-    <%= link_to "Edit", edit_match_path(@match), style: "color:#e94560;" %>
+    <%= link_to "← All Matches", dashboard_matches_path(@dashboard), style: "color:#888;" %>
+    <%= link_to "Edit", edit_dashboard_match_path(@dashboard, @match), style: "color:#e94560;" %>
   </div>
 </div>

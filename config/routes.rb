@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root "dashboard#index"
+  root "dashboards#index"
 
-  resources :matches
+  resources :dashboards do
+    resources :matches
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

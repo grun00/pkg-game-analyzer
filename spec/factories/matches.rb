@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :match do
-    association :user
-    opponent_deck { :gardevoir_ex }
+    association :dashboard
+    opponent_deck { :dragapult }
     result        { "win" }
     description   { Faker::Lorem.sentence }
     hand_quality  { rand(1..5) }

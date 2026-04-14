@@ -1,22 +1,31 @@
-<% content_for :title, "Dashboard – PKM Analyzer" %>
+<% content_for :title, "#{@dashboard.name} – PKM Analyzer" %>
 
-<h1 style="color:#e94560;margin-bottom:8px;">Dashboard</h1>
-<p style="color:#888;margin-bottom:24px;">Welcome back, <%= current_user.email %>!</p>
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+  <div>
+    <p style="color:#888;margin:0 0 2px;font-size:0.85rem;"><%= link_to "← All Dashboards", dashboards_path, style: "color:#888;" %></p>
+    <h1 style="color:#e94560;margin:0;"><%= @dashboard.name %></h1>
+  </div>
+  <div style="display:flex;gap:10px;">
+    <%= link_to "All Matches", dashboard_matches_path(@dashboard), style: "color:#aaa;padding:8px 14px;border:1px solid #333;border-radius:6px;text-decoration:none;font-size:0.9rem;" %>
+    <%= link_to "+ Register Match", new_dashboard_match_path(@dashboard),
+          style: "background:#e94560;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:0.9rem;" %>
+  </div>
+</div>
 
 <% if @stats[:total].zero? %>
   <div style="text-align:center;padding:60px 0;color:#666;">
     <p style="font-size:1.2rem;">No matches recorded yet.</p>
-    <%= link_to "Register your first match →", new_match_path, style: "color:#e94560;" %>
+    <%= link_to "Register your first match →", new_dashboard_match_path(@dashboard), style: "color:#e94560;" %>
   </div>
 <% else %>
 
   <%# ── Summary cards ── %>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;">
-    <%= render "dashboard/stat_card", label: "Total Matches", value: @stats[:total] %>
-    <%= render "dashboard/stat_card", label: "Wins",          value: @stats[:wins],    color: "#6fcf97" %>
-    <%= render "dashboard/stat_card", label: "Losses",        value: @stats[:losses],  color: "#eb5757" %>
-    <%= render "dashboard/stat_card", label: "Win Rate",      value: "#{@stats[:win_rate]}%", color: "#f2c94c" %>
-    <%= render "dashboard/stat_card", label: "Avg Hand ★",    value: @stats[:average_hand_quality] %>
+    <%= render "dashboards/stat_card", label: "Total Matches", value: @stats[:total] %>
+    <%= render "dashboards/stat_card", label: "Wins",          value: @stats[:wins],    color: "#6fcf97" %>
+    <%= render "dashboards/stat_card", label: "Losses",        value: @stats[:losses],  color: "#eb5757" %>
+    <%= render "dashboards/stat_card", label: "Win Rate",      value: "#{@stats[:win_rate]}%", color: "#f2c94c" %>
+    <%= render "dashboards/stat_card", label: "Avg Hand ★",    value: @stats[:average_hand_quality] %>
   </div>
 
   <%# ── By deck ── %>
@@ -67,11 +76,11 @@
   <%# ── Recent matches ── %>
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
     <h2 style="color:#ddd;margin:0;">Recent Matches</h2>
-    <%= link_to "View all →", matches_path, style: "color:#e94560;font-size:0.9rem;" %>
+    <%= link_to "View all →", dashboard_matches_path(@dashboard), style: "color:#e94560;font-size:0.9rem;" %>
   </div>
   <div style="display:flex;flex-direction:column;gap:8px;">
     <% @stats[:recent_matches].each do |match| %>
-      <%= render "dashboard/recent_match_row", match: match %>
+      <%= render "dashboards/recent_match_row", match: match, dashboard: @dashboard %>
     <% end %>
   </div>
 

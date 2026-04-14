@@ -1,0 +1,12 @@
+<% content_for :title, "New Dashboard – PKM Analyzer" %>
+
+<div style="margin-bottom:24px;">
+  <h1 style="color:#e94560;margin-bottom:4px;">New Dashboard</h1>
+  <p style="color:#888;">Give it a name to identify what you're tracking (e.g. "Regionals", "Ranked Ladder").</p>
+</div>
+
+<%= render "form", dashboard: @dashboard %>
+
+<div style="margin-top:16px;">
+  <%= link_to "← Back to Dashboards", dashboards_path, style: "color:#888;" %>
+</div>

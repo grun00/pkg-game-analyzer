@@ -1,0 +1,21 @@
+<%= form_with model: dashboard, html: { style: "display:flex;flex-direction:column;gap:20px;max-width:480px;" } do |f| %>
+  <% if dashboard.errors.any? %>
+    <div style="background:#3a1e1e;border:1px solid #eb5757;border-radius:8px;padding:14px 18px;color:#eb5757;">
+      <strong><%= pluralize(dashboard.errors.count, "error") %>:</strong>
+      <ul style="margin:8px 0 0 16px;">
+        <% dashboard.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, "Dashboard Name", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+    <%= f.text_field :name,
+          placeholder: "e.g. Regional 2025, Ranked Ladder…",
+          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;box-sizing:border-box;" %>
+  </div>
+
+  <%= f.submit style: "background:#e94560;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;" %>
+<% end %>

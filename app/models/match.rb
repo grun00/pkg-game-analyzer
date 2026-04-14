@@ -1,5 +1,6 @@
 class Match < ApplicationRecord
-  belongs_to :user
+  belongs_to :dashboard
+  delegate :user, to: :dashboard
 
   OPPONENT_DECKS = {
     dragapult:        0,

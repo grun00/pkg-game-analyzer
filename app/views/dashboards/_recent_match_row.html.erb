@@ -3,5 +3,5 @@
   <span style="color:#ddd;font-weight:bold;flex:1;"><%= match.opponent_deck.to_s.humanize %></span>
   <span style="color:#aaa;font-size:0.85rem;">Hand: <%= "★" * match.hand_quality %></span>
   <span style="color:#666;font-size:0.8rem;"><%= match.played_at.strftime("%b %d, %Y") %></span>
-  <%= link_to "Edit", edit_match_path(match), style: "color:#e94560;font-size:0.8rem;" %>
+  <%= link_to "Edit", edit_dashboard_match_path(dashboard, match), style: "color:#e94560;font-size:0.8rem;" %>
 </div>

@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "associations" do
-    it { is_expected.to have_many(:matches).dependent(:destroy) }
+    it { is_expected.to have_many(:dashboards).dependent(:destroy) }
+    it { is_expected.to have_many(:matches).through(:dashboards) }
   end
 
   describe "validations" do
@@ -12,10 +13,11 @@ RSpec.describe User, type: :model do
   end
 
   describe "destroying a user" do
-    it "also destroys associated matches" do
-      user  = create(:user)
-      create_list(:match, 3, user: user)
-      expect { user.destroy }.to change(Match, :count).by(-3)
+    it "also destroys associated dashboards and their matches" do
+      user      = create(:user)
+      dashboard = create(:dashboard, user: user)
+      create_list(:match, 3, dashboard: dashboard)
+      expect { user.destroy }.to change(Dashboard, :count).by(-1).and change(Match, :count).by(-3)
     end
   end
 end

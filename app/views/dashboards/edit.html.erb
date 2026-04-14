@@ -1,0 +1,12 @@
+<% content_for :title, "Edit Dashboard – PKM Analyzer" %>
+
+<div style="margin-bottom:24px;">
+  <h1 style="color:#e94560;margin-bottom:4px;">Edit Dashboard</h1>
+  <p style="color:#888;">Rename "<%= @dashboard.name %>".</p>
+</div>
+
+<%= render "form", dashboard: @dashboard %>
+
+<div style="margin-top:16px;">
+  <%= link_to "← Back to Dashboard", dashboard_path(@dashboard), style: "color:#888;" %>
+</div>

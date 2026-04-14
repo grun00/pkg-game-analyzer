@@ -1,13 +1,17 @@
 <% content_for :title, "All Matches – PKM Analyzer" %>
 
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
-  <h1 style="color:#e94560;margin:0;">All Matches</h1>
-  <%= link_to "+ Register Match", new_match_path, style: "background:#e94560;color:#fff;padding:8px 18px;border-radius:8px;text-decoration:none;font-weight:bold;" %>
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+  <div>
+    <p style="color:#888;margin:0 0 2px;font-size:0.85rem;"><%= link_to "← #{@dashboard.name}", dashboard_path(@dashboard), style: "color:#888;" %></p>
+    <h1 style="color:#e94560;margin:0;">All Matches</h1>
+  </div>
+  <%= link_to "+ Register Match", new_dashboard_match_path(@dashboard),
+        style: "background:#e94560;color:#fff;padding:8px 18px;border-radius:8px;text-decoration:none;font-weight:bold;" %>
 </div>
 
 <% if @matches.empty? %>
   <div style="text-align:center;padding:60px 0;color:#666;">
-    <p>No matches yet. <%= link_to "Register one!", new_match_path, style: "color:#e94560;" %></p>
+    <p>No matches yet. <%= link_to "Register one!", new_dashboard_match_path(@dashboard), style: "color:#e94560;" %></p>
   </div>
 <% else %>
   <div style="display:flex;flex-direction:column;gap:10px;">
@@ -19,8 +23,8 @@
         <span style="color:#888;font-size:0.85rem;flex:2;"><%= truncate(match.description, length: 60) if match.description.present? %></span>
         <span style="color:#555;font-size:0.8rem;"><%= match.played_at.strftime("%b %d, %Y") %></span>
         <div style="display:flex;gap:10px;">
-          <%= link_to "View", match_path(match), style: "color:#aaa;font-size:0.85rem;" %>
-          <%= link_to "Edit", edit_match_path(match), style: "color:#e94560;font-size:0.85rem;" %>
+          <%= link_to "View", dashboard_match_path(@dashboard, match), style: "color:#aaa;font-size:0.85rem;" %>
+          <%= link_to "Edit", edit_dashboard_match_path(@dashboard, match), style: "color:#e94560;font-size:0.85rem;" %>
         </div>
       </div>
     <% end %>

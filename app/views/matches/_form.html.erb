@@ -13,7 +13,7 @@
   <div>
     <%= f.label :opponent_deck, "Opponent Deck", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
     <%= f.select :opponent_deck,
-          Match::OPPONENT_DECKS.keys.map { |d| [d.to_s.humanize, d] },
+          Match::OPPONENT_DECKS.keys.map { |d| [d.to_s.humanize, d] }.sort_by { |label, _| label },
           { prompt: "Select a deck…" },
           style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
   </div>

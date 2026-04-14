@@ -42,9 +42,9 @@ class MatchStatsService
       deck_matches = @matches.where(opponent_deck: deck)
       next if deck_matches.empty?
 
-      deck_wins   = deck_matches.wins.count
-      deck_total  = deck_matches.count
-      deck_rate   = (deck_wins.to_f / deck_total * 100).round(1)
+      deck_wins  = deck_matches.wins.count
+      deck_total = deck_matches.count
+      deck_rate  = (deck_wins.to_f / deck_total * 100).round(1)
 
       {
         deck: deck,
@@ -52,7 +52,9 @@ class MatchStatsService
         total: deck_total,
         wins: deck_wins,
         losses: deck_matches.losses.count,
-        win_rate: deck_rate
+        win_rate: deck_rate,
+        first: side_stats(deck_matches, :first),
+        second: side_stats(deck_matches, :second)
       }
     end.sort_by { |d| -d[:total] }
   end
@@ -72,6 +74,14 @@ class MatchStatsService
         win_rate: quality_rate
       }
     end
+  end
+
+  def side_stats(scope, side)
+    side_matches = scope.where(first_or_second: side)
+    total        = side_matches.count
+    wins         = side_matches.wins.count
+    { total: total, wins: wins, losses: side_matches.losses.count,
+      win_rate: total.zero? ? nil : (wins.to_f / total * 100).round(1) }
   end
 
   def by_first_or_second

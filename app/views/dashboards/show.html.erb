@@ -39,6 +39,8 @@
           <th style="padding:8px 12px;color:#6fcf97;">Wins</th>
           <th style="padding:8px 12px;color:#eb5757;">Losses</th>
           <th style="padding:8px 12px;color:#f2c94c;">Win Rate</th>
+          <th style="padding:8px 12px;color:#56c2e9;">Going 1st</th>
+          <th style="padding:8px 12px;color:#c956e9;">Going 2nd</th>
           <th style="padding:8px 12px;">Bar</th>
         </tr>
       </thead>
@@ -50,6 +52,18 @@
             <td style="padding:8px 12px;text-align:center;color:#6fcf97;"><%= row[:wins] %></td>
             <td style="padding:8px 12px;text-align:center;color:#eb5757;"><%= row[:losses] %></td>
             <td style="padding:8px 12px;text-align:center;color:#f2c94c;"><%= row[:win_rate] %>%</td>
+            <% [:first, :second].each do |side| %>
+              <% color = side == :first ? "#56c2e9" : "#c956e9" %>
+              <% data  = row[side] %>
+              <td style="padding:8px 12px;text-align:center;">
+                <% if data[:win_rate].nil? %>
+                  <span style="color:#444;">—</span>
+                <% else %>
+                  <span style="color:<%= color %>;font-weight:bold;"><%= data[:win_rate] %>%</span>
+                  <span style="color:#666;font-size:0.75rem;display:block;"><%= data[:wins] %>W–<%= data[:losses] %>L</span>
+                <% end %>
+              </td>
+            <% end %>
             <td style="padding:8px 12px;min-width:120px;">
               <div style="background:#333;border-radius:4px;height:10px;overflow:hidden;">
                 <div style="background:#6fcf97;height:100%;width:<%= row[:win_rate] %>%;"></div>

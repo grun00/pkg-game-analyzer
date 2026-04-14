@@ -18,6 +18,11 @@ class Match < ApplicationRecord
     ns_zoroark:               12,
     mega_starmie:               13,
     kengaskhan:               14,
+    festival_lead:            16,
+    grimmsnarl:               17,
+    monkidori_froslass:       18,
+    team_rocket_honchcrow:    19,
+    crustle:                  20,
     other:               15
   }.freeze
 

@@ -80,6 +80,22 @@ RSpec.describe MatchStatsService do
       expect(deck_names).to contain_exactly(:dragapult, :raging_bolt)
     end
 
+    it "includes first/second breakdown per deck with nil win_rate when no data" do
+      dragapult = stats[:by_deck].find { |d| d[:deck] == :dragapult }
+      expect(dragapult[:first][:win_rate]).to be_nil
+      expect(dragapult[:second][:win_rate]).to be_nil
+    end
+
+    it "calculates first/second win rate per deck when data is present" do
+      create(:match, :win,  dashboard: dashboard, opponent_deck: :dragapult, first_or_second: :first)
+      create(:match, :loss, dashboard: dashboard, opponent_deck: :dragapult, first_or_second: :first)
+      create(:match, :win,  dashboard: dashboard, opponent_deck: :dragapult, first_or_second: :second)
+
+      dragapult = stats[:by_deck].find { |d| d[:deck] == :dragapult }
+      expect(dragapult[:first][:win_rate]).to eq(50.0)
+      expect(dragapult[:second][:win_rate]).to eq(100.0)
+    end
+
     it "lists by_hand_quality for all 5 quality levels" do
       expect(stats[:by_hand_quality].map { |r| r[:quality] }).to eq([1, 2, 3, 4, 5])
     end

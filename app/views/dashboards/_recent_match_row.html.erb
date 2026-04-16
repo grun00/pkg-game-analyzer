@@ -1,7 +1,7 @@
-<div style="background:#16213e;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:16px;">
-  <span style="font-size:1.2rem;"><%= match.result_win? ? "✅" : "❌" %></span>
-  <span style="color:#ddd;font-weight:bold;flex:1;"><%= match.opponent_deck.to_s.humanize %></span>
-  <span style="color:#aaa;font-size:0.85rem;">Hand: <%= "★" * match.hand_quality %></span>
-  <span style="color:#666;font-size:0.8rem;"><%= match.played_at.strftime("%b %d, %Y") %></span>
-  <%= link_to "Edit", edit_dashboard_match_path(dashboard, match), style: "color:#e94560;font-size:0.8rem;" %>
+<div class="match-row <%= match.result_win? ? 'row-win' : 'row-loss' %>">
+  <span class="match-ind <%= match.result_win? ? 'c-green' : 'c-red' %>"><%= match.result_win? ? "[WIN]" : "[LOSS]" %></span>
+  <span class="match-deck"><%= match.opponent_deck.to_s.humanize %></span>
+  <span class="match-hand"><%= "★" * match.hand_quality %><%= "☆" * (5 - match.hand_quality) %></span>
+  <span class="match-date"><%= match.played_at.strftime("%b %d, %Y") %></span>
+  <%= link_to "EDIT", edit_dashboard_match_path(dashboard, match), class: "btn-ghost btn-sm c-dim" %>
 </div>

@@ -1,21 +1,20 @@
-<% content_for :title, "My Dashboards – PKM Analyzer" %>
+<% content_for :title, "My Dashboards – TRAINER_OS" %>
 
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+<div class="page-hd">
   <div>
-    <h1 style="color:#e94560;margin:0 0 4px;">My Dashboards</h1>
-    <p style="color:#888;margin:0;">Each dashboard tracks its own set of matches.</p>
+    <h1 class="page-title cursor">My Dashboards</h1>
+    <p class="page-sub">each dashboard tracks its own set of matches</p>
   </div>
-  <%= link_to "+ New Dashboard", new_dashboard_path,
-        style: "background:#e94560;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;white-space:nowrap;" %>
+  <%= link_to "+ NEW DASHBOARD", new_dashboard_path, class: "btn btn-g" %>
 </div>
 
 <% if @dashboards.empty? %>
-  <div style="text-align:center;padding:80px 0;color:#666;">
-    <p style="font-size:1.2rem;margin-bottom:12px;">No dashboards yet.</p>
-    <%= link_to "Create your first dashboard →", new_dashboard_path, style: "color:#e94560;" %>
+  <div class="empty">
+    <p>No dashboards found.</p>
+    <%= link_to "[ INITIALIZE FIRST DASHBOARD ]", new_dashboard_path, class: "btn btn-g" %>
   </div>
 <% else %>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+  <div class="db-grid">
     <% @dashboards.each do |dashboard| %>
       <%= render "dashboards/dashboard_card", dashboard: dashboard %>
     <% end %>

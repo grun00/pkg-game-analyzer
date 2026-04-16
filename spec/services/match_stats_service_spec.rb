@@ -129,5 +129,30 @@ RSpec.describe MatchStatsService do
       create_list(:match, 3, dashboard: dashboard, played_at: 5.days.ago)
       expect(stats[:recent_matches].count).to eq(5)
     end
+
+    it "returns by_defeat_reason with counts for all reasons and unspecified" do
+      create(:match, :loss, dashboard: dashboard, reason_for_defeat: :minor_misplay)
+      create(:match, :loss, dashboard: dashboard, reason_for_defeat: :minor_misplay)
+      create(:match, :loss, dashboard: dashboard, reason_for_defeat: :major_misplay)
+      # existing 2 loss matches have nil reason
+
+      result = stats[:by_defeat_reason]
+      minor = result[:reasons].find { |r| r[:reason] == :minor_misplay }
+      major = result[:reasons].find { |r| r[:reason] == :major_misplay }
+      unknown = result[:reasons].find { |r| r[:reason] == :unknown }
+
+      expect(minor[:count]).to eq(2)
+      expect(major[:count]).to eq(1)
+      expect(unknown[:count]).to eq(0)
+      expect(result[:unspecified]).to eq(2)
+    end
+
+    it "does not count wins in by_defeat_reason" do
+      create(:match, :win, dashboard: dashboard, reason_for_defeat: nil)
+
+      result = stats[:by_defeat_reason]
+      total_reason_count = result[:reasons].sum { |r| r[:count] } + result[:unspecified]
+      expect(total_reason_count).to eq(stats[:losses])
+    end
   end
 end

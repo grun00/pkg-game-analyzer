@@ -1,8 +1,8 @@
-<%= form_with model: [@dashboard, match], html: { style: "display:flex;flex-direction:column;gap:20px;max-width:540px;" } do |f| %>
+<%= form_with model: [@dashboard, match], html: { class: "term-form" } do |f| %>
   <% if match.errors.any? %>
-    <div style="background:#3a1e1e;border:1px solid #eb5757;border-radius:8px;padding:14px 18px;color:#eb5757;">
+    <div class="form-errors">
       <strong><%= pluralize(match.errors.count, "error") %> prevented this match from being saved:</strong>
-      <ul style="margin:8px 0 0 16px;">
+      <ul>
         <% match.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
@@ -10,62 +10,87 @@
     </div>
   <% end %>
 
-  <div>
-    <%= f.label :opponent_deck, "Opponent Deck", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+  <div class="form-grp">
+    <%= f.label :opponent_deck, "Opponent Deck", class: "form-lbl" %>
     <%= f.select :opponent_deck,
           Match::OPPONENT_DECKS.keys.map { |d| [d.to_s.humanize, d] }.sort_by { |label, _| label },
           { prompt: "Select a deck…" },
-          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+          class: "form-ctrl select" %>
   </div>
 
-  <div>
-    <%= f.label :result, "Result", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
-    <div style="display:flex;gap:16px;">
-      <label style="color:#6fcf97;display:flex;align-items:center;gap:6px;cursor:pointer;">
-        <%= f.radio_button :result, "win", style: "accent-color:#6fcf97;" %> Win
+  <div class="form-grp">
+    <%= f.label :result, "Result", class: "form-lbl" %>
+    <div class="form-radios">
+      <label class="form-radio c-green">
+        <%= f.radio_button :result, "win",  id: "match_result_win",  style: "accent-color:var(--green);" %> WIN
       </label>
-      <label style="color:#eb5757;display:flex;align-items:center;gap:6px;cursor:pointer;">
-        <%= f.radio_button :result, "loss", style: "accent-color:#eb5757;" %> Loss
+      <label class="form-radio c-red">
+        <%= f.radio_button :result, "loss", id: "match_result_loss", style: "accent-color:var(--red);" %> LOSS
       </label>
     </div>
   </div>
 
-  <div>
-    <%= f.label :first_or_second, "Going First or Second (optional)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
-    <div style="display:flex;gap:16px;">
-      <label style="color:#aaa;display:flex;align-items:center;gap:6px;cursor:pointer;">
-        <%= f.radio_button :first_or_second, "uninformed", style: "accent-color:#aaa;" %> Not informed
+  <div class="form-grp" id="defeat-reason-group" style="display:none;">
+    <%= f.label :reason_for_defeat, "Reason for Defeat", class: "form-lbl" %>
+    <div class="form-radios">
+      <% Match::DEFEAT_REASONS.keys.each do |reason| %>
+        <label class="form-radio c-red">
+          <%= f.radio_button :reason_for_defeat, reason, style: "accent-color:var(--red);" %>
+          <%= reason.to_s.humanize %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-grp">
+    <%= f.label :first_or_second, "Going First or Second (optional)", class: "form-lbl" %>
+    <div class="form-radios">
+      <label class="form-radio c-dim">
+        <%= f.radio_button :first_or_second, "uninformed", style: "accent-color:var(--gmid);" %> N/A
       </label>
-      <label style="color:#56c2e9;display:flex;align-items:center;gap:6px;cursor:pointer;">
-        <%= f.radio_button :first_or_second, "first", style: "accent-color:#56c2e9;" %> First
+      <label class="form-radio c-blue">
+        <%= f.radio_button :first_or_second, "first", style: "accent-color:var(--blue);" %> 1ST
       </label>
-      <label style="color:#c956e9;display:flex;align-items:center;gap:6px;cursor:pointer;">
-        <%= f.radio_button :first_or_second, "second", style: "accent-color:#c956e9;" %> Second
+      <label class="form-radio c-pink">
+        <%= f.radio_button :first_or_second, "second", style: "accent-color:var(--pink);" %> 2ND
       </label>
     </div>
   </div>
 
-  <div>
-    <%= f.label :hand_quality, "Initial Hand Quality (1 = terrible, 5 = perfect)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+  <div class="form-grp">
+    <%= f.label :hand_quality, "Initial Hand Quality (1=terrible / 5=perfect)", class: "form-lbl" %>
     <%= f.select :hand_quality,
           (1..5).map { |n| ["#{n} #{"★" * n}", n] },
           { prompt: "Rate your hand…" },
-          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+          class: "form-ctrl select" %>
   </div>
 
-  <div>
-    <%= f.label :description, "Game Notes (optional)", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+  <div class="form-grp">
+    <%= f.label :description, "Game Notes (optional)", class: "form-lbl" %>
     <%= f.text_area :description, rows: 4,
           placeholder: "Describe how the game went…",
-          style: "width:100%;padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;resize:vertical;box-sizing:border-box;" %>
+          class: "form-ctrl", style: "resize:vertical;" %>
   </div>
 
-  <div>
-    <%= f.label :played_at, "Date Played", style: "display:block;color:#ccc;margin-bottom:6px;font-weight:bold;" %>
+  <div class="form-grp">
+    <%= f.label :played_at, "Date Played", class: "form-lbl" %>
     <%= f.datetime_local_field :played_at,
           value: match.played_at&.strftime("%Y-%m-%dT%H:%M"),
-          style: "padding:10px;background:#16213e;color:#ddd;border:1px solid #333;border-radius:6px;" %>
+          class: "form-ctrl" %>
   </div>
 
-  <%= f.submit style: "background:#e94560;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;" %>
+  <%= f.submit "[ SUBMIT ]", class: "form-submit" %>
 <% end %>
+
+<script>
+  (function () {
+    var group  = document.getElementById('defeat-reason-group');
+    var radios = document.querySelectorAll('input[name="match[result]"]');
+    function sync() {
+      var checked = document.querySelector('input[name="match[result]"]:checked');
+      group.style.display = (checked && checked.value === 'loss') ? 'flex' : 'none';
+    }
+    radios.forEach(function(r) { r.addEventListener('change', sync); });
+    sync();
+  })();
+</script>

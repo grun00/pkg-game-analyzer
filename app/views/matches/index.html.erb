@@ -1,30 +1,30 @@
-<% content_for :title, "All Matches – PKM Analyzer" %>
+<% content_for :title, "All Matches – TRAINER_OS" %>
 
-<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+<div class="page-hd">
   <div>
-    <p style="color:#888;margin:0 0 2px;font-size:0.85rem;"><%= link_to "← #{@dashboard.name}", dashboard_path(@dashboard), style: "color:#888;" %></p>
-    <h1 style="color:#e94560;margin:0;">All Matches</h1>
+    <p class="breadcrumb"><%= link_to "← #{@dashboard.name}", dashboard_path(@dashboard) %></p>
+    <h1 class="page-title">Match Log</h1>
   </div>
-  <%= link_to "+ Register Match", new_dashboard_match_path(@dashboard),
-        style: "background:#e94560;color:#fff;padding:8px 18px;border-radius:8px;text-decoration:none;font-weight:bold;" %>
+  <%= link_to "+ LOG MATCH", new_dashboard_match_path(@dashboard), class: "btn btn-g" %>
 </div>
 
 <% if @matches.empty? %>
-  <div style="text-align:center;padding:60px 0;color:#666;">
-    <p>No matches yet. <%= link_to "Register one!", new_dashboard_match_path(@dashboard), style: "color:#e94560;" %></p>
+  <div class="empty">
+    <p>No battle records found.</p>
+    <%= link_to "[ LOG FIRST MATCH ]", new_dashboard_match_path(@dashboard), class: "btn btn-g" %>
   </div>
 <% else %>
-  <div style="display:flex;flex-direction:column;gap:10px;">
+  <div class="match-log">
     <% @matches.each do |match| %>
-      <div style="background:#16213e;border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <span style="font-size:1.2rem;"><%= match.result_win? ? "✅" : "❌" %></span>
-        <span style="color:#ddd;font-weight:bold;flex:1;min-width:140px;"><%= match.opponent_deck.to_s.humanize %></span>
-        <span style="color:#aaa;font-size:0.85rem;">Hand: <%= "★" * match.hand_quality %><%= "☆" * (5 - match.hand_quality) %></span>
-        <span style="color:#888;font-size:0.85rem;flex:2;"><%= truncate(match.description, length: 60) if match.description.present? %></span>
-        <span style="color:#555;font-size:0.8rem;"><%= match.played_at.strftime("%b %d, %Y") %></span>
-        <div style="display:flex;gap:10px;">
-          <%= link_to "View", dashboard_match_path(@dashboard, match), style: "color:#aaa;font-size:0.85rem;" %>
-          <%= link_to "Edit", edit_dashboard_match_path(@dashboard, match), style: "color:#e94560;font-size:0.85rem;" %>
+      <div class="match-row <%= match.result_win? ? 'row-win' : 'row-loss' %>">
+        <span class="match-ind <%= match.result_win? ? 'c-green' : 'c-red' %>"><%= match.result_win? ? "[WIN]" : "[LOSS]" %></span>
+        <span class="match-deck"><%= match.opponent_deck.to_s.humanize %></span>
+        <span class="match-hand"><%= "★" * match.hand_quality %><%= "☆" * (5 - match.hand_quality) %></span>
+        <span class="match-note"><%= truncate(match.description, length: 55) if match.description.present? %></span>
+        <span class="match-date"><%= match.played_at.strftime("%b %d, %Y") %></span>
+        <div style="display:flex;gap:12px;">
+          <%= link_to "VIEW", dashboard_match_path(@dashboard, match), class: "btn-ghost c-dim btn-sm" %>
+          <%= link_to "EDIT", edit_dashboard_match_path(@dashboard, match), class: "btn-ghost c-green btn-sm" %>
         </div>
       </div>
     <% end %>

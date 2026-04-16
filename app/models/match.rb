@@ -23,12 +23,18 @@ class Match < ApplicationRecord
     monkidori_froslass:       18,
     team_rocket_honchcrow:    19,
     crustle:                  20,
+    okidogi:                  21,
+    ceruledge:                22,
+    slowpoke:                 23,
     other:               15
   }.freeze
+
+  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3 }.freeze
 
   enum :opponent_deck, OPPONENT_DECKS
   enum :result, { win: "win", loss: "loss" }, prefix: true
   enum :first_or_second, { uninformed: 0, first: 1, second: 2 }, prefix: true
+  enum :reason_for_defeat, DEFEAT_REASONS, prefix: true
 
   validates :opponent_deck, presence: true
   validates :result, presence: true

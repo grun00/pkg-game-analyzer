@@ -2,24 +2,23 @@
    wins   = dashboard.matches.wins.count
    rate   = total.zero? ? 0.0 : (wins.to_f / total * 100).round(1) %>
 
-<div style="background:#16213e;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
-    <h2 style="color:#ddd;margin:0;font-size:1.1rem;"><%= dashboard.name %></h2>
-    <div style="display:flex;gap:8px;flex-shrink:0;">
-      <%= link_to "Edit", edit_dashboard_path(dashboard), style: "color:#888;font-size:0.8rem;" %>
-      <%= button_to "Delete", dashboard_path(dashboard), method: :delete,
+<div class="db-card">
+  <div class="db-card-hd">
+    <span class="db-card-name cursor"><%= dashboard.name %></span>
+    <div class="db-card-acts">
+      <%= link_to "EDIT", edit_dashboard_path(dashboard), class: "btn-ghost c-dim" %>
+      <%= button_to "DEL", dashboard_path(dashboard), method: :delete,
             data: { turbo_confirm: "Delete '#{dashboard.name}'? This will remove all its matches." },
             form: { style: "display:inline;" },
-            style: "background:transparent;border:none;color:#eb5757;font-size:0.8rem;cursor:pointer;padding:0;" %>
+            class: "btn-ghost c-red" %>
     </div>
   </div>
 
-  <div style="display:flex;gap:16px;color:#aaa;font-size:0.9rem;">
-    <span><strong style="color:#fff;"><%= total %></strong> matches</span>
-    <span><strong style="color:#6fcf97;"><%= wins %></strong> wins</span>
-    <span><strong style="color:#f2c94c;"><%= rate %>%</strong> win rate</span>
+  <div class="db-card-stats">
+    <span><span class="c-green fw"><%= total %></span> matches</span>
+    <span><span class="c-green fw"><%= wins %></span>W</span>
+    <span><span class="c-gold fw"><%= rate %>%</span></span>
   </div>
 
-  <%= link_to "View Dashboard →", dashboard_path(dashboard),
-        style: "background:#0f3460;color:#e94560;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:0.9rem;text-align:center;" %>
+  <%= link_to "[ ACCESS DASHBOARD ]", dashboard_path(dashboard), class: "db-card-link" %>
 </div>

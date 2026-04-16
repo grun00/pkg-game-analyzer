@@ -1,16 +1,19 @@
-<% content_for :title, "Edit Match – PKM Analyzer" %>
+<% content_for :title, "Edit Match – TRAINER_OS" %>
 
-<div style="margin-bottom:24px;">
-  <h1 style="color:#e94560;margin-bottom:4px;">Edit Match</h1>
-  <p style="color:#888;">Update the details of this game.</p>
+<div class="page-hd">
+  <div>
+    <p class="breadcrumb"><%= link_to "← All Matches", dashboard_matches_path(@dashboard) %></p>
+    <h1 class="page-title">Edit Match</h1>
+    <p class="page-sub">update the details of this battle</p>
+  </div>
 </div>
 
 <%= render "form", match: @match, dashboard: @dashboard %>
 
-<div style="margin-top:16px;display:flex;gap:16px;">
-  <%= link_to "← Back to Matches", dashboard_matches_path(@dashboard), style: "color:#888;" %>
-  <%= button_to "Delete Match", dashboard_match_path(@dashboard, @match), method: :delete,
-        data: { turbo_confirm: "Are you sure you want to delete this match?" },
+<div style="margin-top:24px;display:flex;gap:24px;align-items:center;">
+  <%= link_to "← BACK TO MATCHES", dashboard_matches_path(@dashboard), class: "btn-ghost c-dim" %>
+  <%= button_to "[ DELETE MATCH ]", dashboard_match_path(@dashboard, @match), method: :delete,
+        data: { turbo_confirm: "Permanently delete this match record?" },
         form: { style: "display:inline;" },
-        style: "background:transparent;border:none;color:#eb5757;cursor:pointer;padding:0;font-size:1rem;" %>
+        class: "btn-ghost c-red" %>
 </div>

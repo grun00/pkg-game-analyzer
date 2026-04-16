@@ -21,7 +21,7 @@ RSpec.describe Match, type: :model do
     it "defines opponent_deck enum with all expected decks" do
       expected_decks = %w[dragapult dragapult_dusknoir dragapult_blaziken tera_box team_rockets
                           raging_bolt alakazam mega_lucario absol green_ogerpon
-                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle other]
+                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke other]
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
     end
 
@@ -31,6 +31,18 @@ RSpec.describe Match, type: :model do
 
     it "defines first_or_second enum with uninformed, first, and second" do
       expect(Match.first_or_seconds.keys).to match_array(%w[uninformed first second])
+    end
+
+    it "defines reason_for_defeat enum with all expected reasons" do
+      expect(Match.reason_for_defeats.keys).to match_array(%w[unknown minor_misplay major_misplay disconnected])
+    end
+
+    it "defaults reason_for_defeat to nil" do
+      expect(build(:match).reason_for_defeat).to be_nil
+    end
+
+    it "raises an ArgumentError for an invalid reason_for_defeat" do
+      expect { build(:match, reason_for_defeat: "bad_play") }.to raise_error(ArgumentError)
     end
 
     it "defaults first_or_second to uninformed" do

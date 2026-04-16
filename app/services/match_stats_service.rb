@@ -13,6 +13,7 @@ class MatchStatsService
       by_hand_quality: by_hand_quality,
       average_hand_quality: average_hand_quality,
       by_first_or_second: by_first_or_second,
+      by_defeat_reason: by_defeat_reason,
       recent_matches: recent_matches
     }
   end
@@ -105,6 +106,15 @@ class MatchStatsService
     return 0.0 if total.zero?
 
     @matches.average(:hand_quality).to_f.round(2)
+  end
+
+  def by_defeat_reason
+    losses_scope = @matches.losses
+    reasons = Match::DEFEAT_REASONS.keys.map do |reason|
+      { reason: reason, label: reason.to_s.humanize, count: losses_scope.where(reason_for_defeat: reason).count }
+    end
+    unspecified = losses_scope.where(reason_for_defeat: nil).count
+    { reasons: reasons, unspecified: unspecified }
   end
 
   def recent_matches

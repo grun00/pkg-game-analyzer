@@ -52,6 +52,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:opponent_deck, :result, :description, :hand_quality, :played_at, :first_or_second, :reason_for_defeat)
+    params.require(:match).permit(:opponent_deck, :result, :description, :hand_quality, :played_at, :first_or_second, :reason_for_defeat, :number_of_mulligans)
   end
 end

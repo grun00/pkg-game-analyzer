@@ -58,6 +58,13 @@
   </div>
 
   <div class="form-grp">
+    <%= f.label :number_of_mulligans, "Number of Mulligans (optional)", class: "form-lbl" %>
+    <%= f.number_field :number_of_mulligans, min: 0, step: 1,
+          placeholder: "0",
+          class: "form-ctrl", style: "max-width:120px;" %>
+  </div>
+
+  <div class="form-grp">
     <%= f.label :hand_quality, "Initial Hand Quality (1=terrible / 5=perfect)", class: "form-lbl" %>
     <%= f.select :hand_quality,
           (1..5).map { |n| ["#{n} #{"★" * n}", n] },

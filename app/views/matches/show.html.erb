@@ -32,6 +32,13 @@
     </div>
   </div>
 
+  <% if @match.number_of_mulligans.present? %>
+    <div>
+      <div class="detail-lbl">Mulligans</div>
+      <div class="detail-val c-gold"><%= @match.number_of_mulligans %></div>
+    </div>
+  <% end %>
+
   <% if @match.result_loss? && @match.reason_for_defeat.present? %>
     <div>
       <div class="detail-lbl">Reason for Defeat</div>

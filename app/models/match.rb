@@ -41,6 +41,7 @@ class Match < ApplicationRecord
   validates :hand_quality, presence: true,
                            numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :played_at, presence: true
+  validates :number_of_mulligans, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   scope :wins,   -> { where(result: "win") }
   scope :losses, -> { where(result: "loss") }

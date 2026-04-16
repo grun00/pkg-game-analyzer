@@ -15,6 +15,23 @@ RSpec.describe Match, type: :model do
                           .only_integer
                           .is_greater_than_or_equal_to(1)
                           .is_less_than_or_equal_to(5) }
+
+    it "allows number_of_mulligans to be nil" do
+      expect(build(:match, number_of_mulligans: nil)).to be_valid
+    end
+
+    it "allows number_of_mulligans of 0 or more" do
+      expect(build(:match, number_of_mulligans: 0)).to be_valid
+      expect(build(:match, number_of_mulligans: 5)).to be_valid
+    end
+
+    it "rejects negative number_of_mulligans" do
+      expect(build(:match, number_of_mulligans: -1)).not_to be_valid
+    end
+
+    it "rejects non-integer number_of_mulligans" do
+      expect(build(:match, number_of_mulligans: 1.5)).not_to be_valid
+    end
   end
 
   describe "enums" do

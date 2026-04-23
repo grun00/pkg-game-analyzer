@@ -26,10 +26,11 @@ class Match < ApplicationRecord
     okidogi:                  21,
     ceruledge:                22,
     slowpoke:                 23,
+    slop_box:                 24,
     other:               15
   }.freeze
 
-  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3 }.freeze
+  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3, unlucky: 4 }.freeze
 
   enum :opponent_deck, OPPONENT_DECKS
   enum :result, { win: "win", loss: "loss" }, prefix: true

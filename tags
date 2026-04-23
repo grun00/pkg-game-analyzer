@@ -95,13 +95,144 @@
 !_TAG_ROLE_DESCRIPTION!Sh!heredoc	endmarker	/end marker/
 !_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/
 !_TAG_ROLE_DESCRIPTION!Yaml!anchor	alias	/alias/
+*	app/assets/stylesheets/theme.css	/^*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}$/;"	s
+*::after	app/assets/stylesheets/theme.css	/^*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}$/;"	s
+*::before	app/assets/stylesheets/theme.css	/^*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}$/;"	s
+.auth-bar	app/assets/stylesheets/theme.css	/^.auth-bar{background:var(--bg-hl);border-bottom:1px solid var(--green);padding:7px 14px;font-siz/;"	c
+.auth-body	app/assets/stylesheets/theme.css	/^.auth-body{padding:28px;display:flex;flex-direction:column;gap:18px}$/;"	c
+.auth-box	app/assets/stylesheets/theme.css	/^.auth-box{background:var(--bg-card);border:1px solid var(--green)}$/;"	c
+.auth-links	app/assets/stylesheets/theme.css	/^.auth-links{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--border);paddin/;"	c
+.auth-links a	app/assets/stylesheets/theme.css	/^.auth-links a{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}.au/;"	s
+.auth-links a::before	app/assets/stylesheets/theme.css	/^.auth-links a{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}.au/;"	s
+.auth-links a:hover	app/assets/stylesheets/theme.css	/^.auth-links a{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}.au/;"	s
+.auth-title	app/assets/stylesheets/theme.css	/^.auth-title{font-family:'VT323',monospace;font-size:1.6rem;letter-spacing:3px;text-transform:upp/;"	c
+.auth-wrap	app/assets/stylesheets/theme.css	/^.auth-wrap{max-width:440px;margin:60px auto}$/;"	c
+.bar	app/assets/stylesheets/theme.css	/^.bar{background:var(--bg-hl);height:6px;min-width:80px;overflow:hidden}.bar-fill{height:100%;bac/;"	c
+.bar-fill	app/assets/stylesheets/theme.css	/^.bar{background:var(--bg-hl);height:6px;min-width:80px;overflow:hidden}.bar-fill{height:100%;bac/;"	c
+.breadcrumb	app/assets/stylesheets/theme.css	/^.breadcrumb{color:var(--gdim);font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margi/;"	c
+.breadcrumb a	app/assets/stylesheets/theme.css	/^.breadcrumb a{color:var(--gmid)}.breadcrumb a:hover{color:var(--green)}$/;"	s
+.breadcrumb a:hover	app/assets/stylesheets/theme.css	/^.breadcrumb a{color:var(--gmid)}.breadcrumb a:hover{color:var(--green)}$/;"	s
+.btn	app/assets/stylesheets/theme.css	/^.btn{display:inline-block;background:transparent;border:1px solid;font-family:inherit;font-size:/;"	c
+.btn-b	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:var(/;"	c
+.btn-b:hover	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:var(/;"	c
+.btn-g	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:v/;"	c
+.btn-g:hover	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:v/;"	c
+.btn-ghost	app/assets/stylesheets/theme.css	/^.btn-ghost{background:transparent;border:none;font-family:inherit;font-size:.72rem;text-transfor/;"	c
+.btn-r	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:var(--b/;"	c
+.btn-r:hover	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:var(--b/;"	c
+.btn-sm	app/assets/stylesheets/theme.css	/^.btn-sm{padding:3px 10px;font-size:.72rem}$/;"	c
+.c-blue	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-dim	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-gold	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-green	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-mute	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-pink	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.c-red	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.cursor::after	app/assets/stylesheets/theme.css	/^.cursor::after{content:'_';animation:blink 1s infinite}$/;"	c
+.db-card	app/assets/stylesheets/theme.css	/^.db-card{background:var(--bg-card);border:1px solid var(--border);border-top:2px solid var(--gre/;"	c
+.db-card-acts	app/assets/stylesheets/theme.css	/^.db-card-acts{display:flex;gap:10px}$/;"	c
+.db-card-hd	app/assets/stylesheets/theme.css	/^.db-card-hd{display:flex;justify-content:space-between;align-items:flex-start}$/;"	c
+.db-card-link	app/assets/stylesheets/theme.css	/^.db-card-link{border:1px solid var(--green);color:var(--green);text-align:center;padding:6px;fon/;"	c
+.db-card-link:hover	app/assets/stylesheets/theme.css	/^.db-card-link:hover{background:var(--green);color:var(--bg)}$/;"	c
+.db-card-name	app/assets/stylesheets/theme.css	/^.db-card-name{font-family:'VT323',monospace;font-size:1.3rem;letter-spacing:2px;text-transform:u/;"	c
+.db-card-stats	app/assets/stylesheets/theme.css	/^.db-card-stats{display:flex;gap:14px;font-size:.78rem;border-top:1px solid var(--bg-hl);padding-/;"	c
+.db-grid	app/assets/stylesheets/theme.css	/^.db-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}$/;"	c
+.detail-lbl	app/assets/stylesheets/theme.css	/^.detail-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:2px;color:var(--gmid);margi/;"	c
+.detail-val	app/assets/stylesheets/theme.css	/^.detail-val{font-family:'VT323',monospace;font-size:1.5rem}$/;"	c
+.devise-errors	app/assets/stylesheets/theme.css	/^.devise-errors{background:rgba(255,0,64,.05);border:1px solid var(--red);padding:14px;color:var(/;"	c
+.devise-errors h2	app/assets/stylesheets/theme.css	/^.devise-errors h2{font-size:.82rem;margin-bottom:6px}.devise-errors ul{margin-left:16px}$/;"	s
+.devise-errors ul	app/assets/stylesheets/theme.css	/^.devise-errors h2{font-size:.82rem;margin-bottom:6px}.devise-errors ul{margin-left:16px}$/;"	s
+.empty	app/assets/stylesheets/theme.css	/^.empty{text-align:center;padding:80px 0}$/;"	c
+.empty p	app/assets/stylesheets/theme.css	/^.empty p{color:var(--gdim);font-size:.9rem;text-transform:uppercase;letter-spacing:2px}.empty p:/;"	s
+.empty p::before	app/assets/stylesheets/theme.css	/^.empty p{color:var(--gdim);font-size:.9rem;text-transform:uppercase;letter-spacing:2px}.empty p:/;"	s
+.flash	app/assets/stylesheets/theme.css	/^.flash{padding:8px 24px;font-size:.8rem;border-left:3px solid}$/;"	c
+.flash-err	app/assets/stylesheets/theme.css	/^.flash-err{border-color:var(--red);background:rgba(255,0,64,.04);color:var(--red)}.flash-err::be/;"	c
+.flash-err::before	app/assets/stylesheets/theme.css	/^.flash-err{border-color:var(--red);background:rgba(255,0,64,.04);color:var(--red)}.flash-err::be/;"	c
+.flash-ok	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(0,255,65,.04);color:var(--green)}.flash-ok::/;"	c
+.flash-ok::before	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(0,255,65,.04);color:var(--green)}.flash-ok::/;"	c
+.form-ctrl	app/assets/stylesheets/theme.css	/^.form-ctrl{background:transparent;border:0;border-bottom:1px solid var(--green);color:var(--gree/;"	c
+.form-ctrl::placeholder	app/assets/stylesheets/theme.css	/^.form-ctrl:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}.form-ctrl::placeholder/;"	c
+.form-ctrl:focus	app/assets/stylesheets/theme.css	/^.form-ctrl:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}.form-ctrl::placeholder/;"	c
+.form-errors	app/assets/stylesheets/theme.css	/^.form-errors{background:rgba(255,0,64,.05);border:1px solid var(--red);padding:14px;color:var(--/;"	c
+.form-errors ul	app/assets/stylesheets/theme.css	/^.form-errors ul{margin:6px 0 0 16px}$/;"	s
+.form-grp	app/assets/stylesheets/theme.css	/^.form-grp{display:flex;flex-direction:column;gap:8px}$/;"	c
+.form-lbl	app/assets/stylesheets/theme.css	/^.form-lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--gmid)}.form-lb/;"	c
+.form-lbl::before	app/assets/stylesheets/theme.css	/^.form-lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--gmid)}.form-lb/;"	c
+.form-radio	app/assets/stylesheets/theme.css	/^.form-radio{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;text-transfo/;"	c
+.form-radios	app/assets/stylesheets/theme.css	/^.form-radios{display:flex;gap:20px;flex-wrap:wrap}$/;"	c
+.form-submit	app/assets/stylesheets/theme.css	/^.form-submit{background:transparent;border:1px solid var(--green);color:var(--green);font-family/;"	c
+.form-submit:hover	app/assets/stylesheets/theme.css	/^.form-submit:hover{background:var(--green);color:var(--bg)}$/;"	c
+.fw	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
+.glitch	app/assets/stylesheets/theme.css	/^.glitch{animation:glitch 4s infinite}$/;"	c
+.hq-card	app/assets/stylesheets/theme.css	/^.hq-card{background:var(--bg-card);border:1px solid var(--border);padding:14px 18px;text-align:c/;"	c
+.hq-count	app/assets/stylesheets/theme.css	/^.hq-rate{font-family:'VT323',monospace;font-size:1.6rem;color:var(--gold)}.hq-count{font-size:.6/;"	c
+.hq-grid	app/assets/stylesheets/theme.css	/^.hq-grid{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}$/;"	c
+.hq-rate	app/assets/stylesheets/theme.css	/^.hq-rate{font-family:'VT323',monospace;font-size:1.6rem;color:var(--gold)}.hq-count{font-size:.6/;"	c
+.hq-stars	app/assets/stylesheets/theme.css	/^.hq-stars{font-size:.85rem;letter-spacing:1px;color:var(--gold);margin-bottom:4px}$/;"	c
 .losses returns only lost matches	spec/models/match_spec.rb	/^    it ".losses returns only lost matches" do$/;"	i	describe:Match type.scopes
+.main	app/assets/stylesheets/theme.css	/^.main{max-width:1200px;margin:0 auto;padding:32px 20px}$/;"	c
+.match-date	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
+.match-deck	app/assets/stylesheets/theme.css	/^.match-deck{color:#c0ffc0;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;flex:1;min/;"	c
+.match-detail	app/assets/stylesheets/theme.css	/^.match-detail{background:var(--bg-card);border:1px solid var(--border);padding:24px;display:flex/;"	c
+.match-hand	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
+.match-ind	app/assets/stylesheets/theme.css	/^.match-ind{font-family:'VT323',monospace;font-size:1.1rem;min-width:44px}$/;"	c
+.match-log	app/assets/stylesheets/theme.css	/^.match-log{display:flex;flex-direction:column}$/;"	c
+.match-note	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
+.match-row	app/assets/stylesheets/theme.css	/^.match-row{background:var(--bg-card);border-left:3px solid;border-bottom:1px solid var(--bg-hl);/;"	c
+.nav	app/assets/stylesheets/theme.css	/^.nav{background:var(--bg-card);border-bottom:1px solid var(--green);padding:10px 24px;display:fl/;"	c
+.nav-brand	app/assets/stylesheets/theme.css	/^.nav-brand{font-family:'VT323',monospace;font-size:1.6rem;letter-spacing:4px;color:var(--green);/;"	c
+.nav-btn	app/assets/stylesheets/theme.css	/^.nav-btn{background:transparent;border:1px solid;font-family:inherit;font-size:.78rem;text-trans/;"	c
+.nav-btn-b	app/assets/stylesheets/theme.css	/^.nav-btn-b{border-color:var(--blue);color:var(--blue)}.nav-btn-b:hover{background:var(--blue);co/;"	c
+.nav-btn-b:hover	app/assets/stylesheets/theme.css	/^.nav-btn-b{border-color:var(--blue);color:var(--blue)}.nav-btn-b:hover{background:var(--blue);co/;"	c
+.nav-btn-g	app/assets/stylesheets/theme.css	/^.nav-btn-g{border-color:var(--green);color:var(--green)}.nav-btn-g:hover{background:var(--green)/;"	c
+.nav-btn-g:hover	app/assets/stylesheets/theme.css	/^.nav-btn-g{border-color:var(--green);color:var(--green)}.nav-btn-g:hover{background:var(--green)/;"	c
+.nav-btn-r	app/assets/stylesheets/theme.css	/^.nav-btn-r{border-color:var(--red);color:var(--red)}.nav-btn-r:hover{background:var(--red);color/;"	c
+.nav-btn-r:hover	app/assets/stylesheets/theme.css	/^.nav-btn-r{border-color:var(--red);color:var(--red)}.nav-btn-r:hover{background:var(--red);color/;"	c
+.nav-link	app/assets/stylesheets/theme.css	/^.nav-link{color:var(--gmid);font-size:.8rem;text-transform:uppercase;letter-spacing:1px}$/;"	c
+.nav-link::after	app/assets/stylesheets/theme.css	/^.nav-link::before{content:'[ '}.nav-link::after{content:' ]'}$/;"	c
+.nav-link::before	app/assets/stylesheets/theme.css	/^.nav-link::before{content:'[ '}.nav-link::after{content:' ]'}$/;"	c
+.nav-link:hover	app/assets/stylesheets/theme.css	/^.nav-link:hover{color:var(--green)}$/;"	c
+.nav-links	app/assets/stylesheets/theme.css	/^.nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}$/;"	c
+.nav-user	app/assets/stylesheets/theme.css	/^.nav-user{color:var(--gdim);font-size:.75rem}$/;"	c
+.page-hd	app/assets/stylesheets/theme.css	/^.page-hd{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16/;"	c
+.page-sub	app/assets/stylesheets/theme.css	/^.page-sub{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-/;"	c
+.page-title	app/assets/stylesheets/theme.css	/^.page-title{font-family:'VT323',monospace;font-size:2.4rem;letter-spacing:3px;text-transform:upp/;"	c
 .recent orders by played_at descending	spec/models/match_spec.rb	/^    it ".recent orders by played_at descending" do$/;"	i	describe:Match type.scopes
+.row-loss	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}$/;"	c
+.row-win	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}$/;"	c
+.sec-lbl	app/assets/stylesheets/theme.css	/^.sec-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue);border-b/;"	c
+.sec-lbl::before	app/assets/stylesheets/theme.css	/^.sec-lbl::before{content:'\/\/ ';color:var(--gmid)}$/;"	c
+.side-card	app/assets/stylesheets/theme.css	/^.side-card{background:var(--bg-card);border:1px solid var(--border);border-top:2px solid;padding/;"	c
+.side-card-1	app/assets/stylesheets/theme.css	/^.side-card-1{border-top-color:var(--blue)}.side-card-2{border-top-color:var(--pink)}.side-card-n/;"	c
+.side-card-2	app/assets/stylesheets/theme.css	/^.side-card-1{border-top-color:var(--blue)}.side-card-2{border-top-color:var(--pink)}.side-card-n/;"	c
+.side-card-n	app/assets/stylesheets/theme.css	/^.side-card-1{border-top-color:var(--blue)}.side-card-2{border-top-color:var(--pink)}.side-card-n/;"	c
+.side-grid	app/assets/stylesheets/theme.css	/^.side-grid{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}$/;"	c
+.side-lbl	app/assets/stylesheets/theme.css	/^.side-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}$/;"	c
+.side-rate	app/assets/stylesheets/theme.css	/^.side-rate{font-family:'VT323',monospace;font-size:2.2rem;color:var(--gold)}.side-rec{font-size:/;"	c
+.side-rec	app/assets/stylesheets/theme.css	/^.side-rate{font-family:'VT323',monospace;font-size:2.2rem;color:var(--gold)}.side-rec{font-size:/;"	c
+.stat-card	app/assets/stylesheets/theme.css	/^.stat-card{background:var(--bg-card);border:1px solid var(--border);border-top:2px solid var(--g/;"	c
+.stat-grid	app/assets/stylesheets/theme.css	/^.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin/;"	c
+.stat-lbl	app/assets/stylesheets/theme.css	/^.stat-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:2px;color:var(--gmid);margin-/;"	c
+.stat-val	app/assets/stylesheets/theme.css	/^.stat-val{font-family:'VT323',monospace;font-size:2.6rem}$/;"	c
+.tc	app/assets/stylesheets/theme.css	/^.tc{text-align:center}$/;"	c
+.term-form	app/assets/stylesheets/theme.css	/^.term-form{display:flex;flex-direction:column;gap:22px;max-width:560px}$/;"	c
+.term-table	app/assets/stylesheets/theme.css	/^.term-table{width:100%;border-collapse:collapse;font-size:.82rem}$/;"	c
+.term-table td	app/assets/stylesheets/theme.css	/^.term-table td{padding:8px 10px;border-bottom:1px solid var(--bg-hl)}$/;"	s
+.term-table th	app/assets/stylesheets/theme.css	/^.term-table th{padding:8px 10px;font-size:.62rem;text-transform:uppercase;letter-spacing:1px;col/;"	s
+.term-table tr:hover td	app/assets/stylesheets/theme.css	/^.term-table tr:hover td{background:var(--bg-card)}$/;"	s
 .wins returns only won matches	spec/models/match_spec.rb	/^    it ".wins returns only won matches" do$/;"	i	describe:Match type.scopes
+::-webkit-scrollbar	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
+::-webkit-scrollbar-thumb	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
+::-webkit-scrollbar-thumb:hover	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
+::-webkit-scrollbar-track	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
+:root	app/assets/stylesheets/theme.css	/^:root{--bg:#050510;--bg-card:#0a0a1a;--bg-hl:#0d0d20;--green:#00ff41;--gdim:#1a4a2a;--gmid:#2a6b/;"	s
 APP_NAME	bin/setup	/^APP_NAME = "pkm-game-analyzer"$/;"	C
 APP_PATH	bin/rails	/^APP_PATH = File.expand_path("..\/config\/application", __dir__)$/;"	C
 APP_ROOT	bin/setup	/^APP_ROOT = File.expand_path("..", __dir__)$/;"	C
 AddDashboardToMatches	db/migrate/20260414133633_add_dashboard_to_matches.rb	/^class AddDashboardToMatches < ActiveRecord::Migration[7.2]$/;"	c
+AddFirstOrSecondToMatches	db/migrate/20260414144051_add_first_or_second_to_matches.rb	/^class AddFirstOrSecondToMatches < ActiveRecord::Migration[7.2]$/;"	c
+AddNumberOfMulligansToMatches	db/migrate/20260416003022_add_number_of_mulligans_to_matches.rb	/^class AddNumberOfMulligansToMatches < ActiveRecord::Migration[7.2]$/;"	c
+AddReasonForDefeatToMatches	db/migrate/20260416002159_add_reason_for_defeat_to_matches.rb	/^class AddReasonForDefeatToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AnonymousClass84762e030101	app/javascript/controllers/hello_controller.js	/^export default class extends Controller {$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	module:PkmGameAnalyzer
 ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
@@ -115,6 +246,7 @@ Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCabl
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	module:ApplicationCable
 CreateDashboards	db/migrate/20260414133626_create_dashboards.rb	/^class CreateDashboards < ActiveRecord::Migration[7.2]$/;"	c
 CreateMatches	db/migrate/20260414131926_create_matches.rb	/^class CreateMatches < ActiveRecord::Migration[7.2]$/;"	c
+DEFEAT_REASONS	app/models/match.rb	/^  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3 }.freeze$/;"	C	class:Match
 DELETE /dashboards/:dashboard_id/matches/:id	spec/requests/matches_spec.rb	/^    describe "DELETE \/dashboards\/:dashboard_id\/matches\/:id" do$/;"	d	context:Matches type.when authenticated
 DELETE /dashboards/:id	spec/requests/dashboard_spec.rb	/^    describe "DELETE \/dashboards\/:id" do$/;"	d	context:Dashboards type.when authenticated
 Dashboard	app/models/dashboard.rb	/^class Dashboard < ApplicationRecord$/;"	c
@@ -153,6 +285,10 @@ We're sorry, but something went wrong (500)	public/500.html	/^  <title>We're sor
 We're sorry, but something went wrong.	public/500.html	/^      <h1>We're sorry, but something went wrong.<\/h1>$/;"	h
 Your browser is not supported (406)	public/406-unsupported-browser.html	/^  <title>Your browser is not supported (406)<\/title>$/;"	j
 Your browser is not supported.	public/406-unsupported-browser.html	/^      <h1>Your browser is not supported.<\/h1>$/;"	h
+a	app/assets/stylesheets/theme.css	/^a{color:var(--green);text-decoration:none}$/;"	s
+a:hover	app/assets/stylesheets/theme.css	/^a:hover{color:var(--blue)}$/;"	s
+allows number_of_mulligans of 0 or more	spec/models/match_spec.rb	/^    it "allows number_of_mulligans of 0 or more" do$/;"	i	describe:Match type.validations
+allows number_of_mulligans to be nil	spec/models/match_spec.rb	/^    it "allows number_of_mulligans to be nil" do$/;"	i	describe:Match type.validations
 already_authenticated	config/locales/devise.en.yml	/^      already_authenticated: "You are already signed in."$/;"	k	keyInMiddle:en.devise.failure
 already_confirmed	config/locales/devise.en.yml	/^      already_confirmed: "was already confirmed, please try signing in"$/;"	k	keyInMiddle:en.errors.messages
 already_signed_out	config/locales/devise.en.yml	/^      already_signed_out: "Signed out successfully."$/;"	k	keyInMiddle:en.devise.sessions
@@ -164,11 +300,17 @@ associations	spec/models/dashboard_spec.rb	/^  describe "associations" do$/;"	d	
 associations	spec/models/match_spec.rb	/^  describe "associations" do$/;"	d	describe:Match type
 associations	spec/models/user_spec.rb	/^  describe "associations" do$/;"	d	describe:User type
 average_hand_quality	app/services/match_stats_service.rb	/^  def average_hand_quality$/;"	f	class:MatchStatsService
+body	app/assets/stylesheets/theme.css	/^body{background:var(--bg);color:var(--green);font-family:'Share Tech Mono','Courier New',monospa/;"	s
+body::after	app/assets/stylesheets/theme.css	/^body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transpar/;"	s
 by_deck	app/services/match_stats_service.rb	/^  def by_deck$/;"	f	class:MatchStatsService
+by_defeat_reason	app/services/match_stats_service.rb	/^  def by_defeat_reason$/;"	f	class:MatchStatsService
+by_first_or_second	app/services/match_stats_service.rb	/^  def by_first_or_second$/;"	f	class:MatchStatsService
 by_hand_quality	app/services/match_stats_service.rb	/^  def by_hand_quality$/;"	f	class:MatchStatsService
 calculates average hand quality	spec/services/match_stats_service_spec.rb	/^    it "calculates average hand quality" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+calculates first/second win rate per deck when data is present	spec/services/match_stats_service_spec.rb	/^    it "calculates first\/second win rate per deck when data is present" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 calculates win rate as a percentage	spec/services/match_stats_service_spec.rb	/^    it "calculates win rate as a percentage" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 calculates win_rate correctly per hand quality	spec/services/match_stats_service_spec.rb	/^    it "calculates win_rate correctly per hand quality" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+calculates win_rate per side for first and second	spec/services/match_stats_service_spec.rb	/^    it "calculates win_rate per side for first and second" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 call	app/services/match_stats_service.rb	/^  def call$/;"	f	class:MatchStatsService
 cannot add a match to another user's dashboard	spec/requests/matches_spec.rb	/^      it "cannot add a match to another user's dashboard" do$/;"	i	describe:Matches type.when authenticated.POST /dashboards/:id/matches
 cannot delete a match from another user's dashboard	spec/requests/matches_spec.rb	/^      it "cannot delete a match from another user's dashboard" do$/;"	i	describe:Matches type.when authenticated.DELETE /dashboards/:dashboard_id/matches/:id
@@ -180,6 +322,9 @@ change	db/migrate/20260414131926_create_matches.rb	/^  def change$/;"	f	class:Cr
 change	db/migrate/20260414133626_create_dashboards.rb	/^  def change$/;"	f	class:CreateDashboards
 change	db/migrate/20260414133633_add_dashboard_to_matches.rb	/^  def change$/;"	f	class:AddDashboardToMatches
 change	db/migrate/20260414133639_remove_user_from_matches.rb	/^  def change$/;"	f	class:RemoveUserFromMatches
+change	db/migrate/20260414144051_add_first_or_second_to_matches.rb	/^  def change$/;"	f	class:AddFirstOrSecondToMatches
+change	db/migrate/20260416002159_add_reason_for_defeat_to_matches.rb	/^  def change$/;"	f	class:AddReasonForDefeatToMatches
+change	db/migrate/20260416003022_add_number_of_mulligans_to_matches.rb	/^  def change$/;"	f	class:AddNumberOfMulligansToMatches
 confirmation_period_expired	config/locales/devise.en.yml	/^      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new/;"	k	keyInMiddle:en.errors.messages
 confirmed	config/locales/devise.en.yml	/^      confirmed: "Your email address has been successfully confirmed."$/;"	k	keyInMiddle:en.devise.confirmations
 connect	app/javascript/controllers/hello_controller.js	/^  connect() {$/;"	m	class:AnonymousClass84762e030101
@@ -192,7 +337,11 @@ creates a dashboard and redirects to its show page	spec/requests/dashboard_spec.
 creates a match and redirects to the dashboard	spec/requests/matches_spec.rb	/^      it "creates a match and redirects to the dashboard" do$/;"	i	describe:Matches type.when authenticated.POST /dashboards/:id/matches
 dashboard_params	app/controllers/dashboards_controller.rb	/^  def dashboard_params$/;"	f	class:DashboardsController
 default	config/database.yml	/^default: &default$/;"	a
+defaults first_or_second to uninformed	spec/models/match_spec.rb	/^    it "defaults first_or_second to uninformed" do$/;"	i	describe:Match type.enums
+defaults reason_for_defeat to nil	spec/models/match_spec.rb	/^    it "defaults reason_for_defeat to nil" do$/;"	i	describe:Match type.enums
+defines first_or_second enum with uninformed, first, and second	spec/models/match_spec.rb	/^    it "defines first_or_second enum with uninformed, first, and second" do$/;"	i	describe:Match type.enums
 defines opponent_deck enum with all expected decks	spec/models/match_spec.rb	/^    it "defines opponent_deck enum with all expected decks" do$/;"	i	describe:Match type.enums
+defines reason_for_defeat enum with all expected reasons	spec/models/match_spec.rb	/^    it "defines reason_for_defeat enum with all expected reasons" do$/;"	i	describe:Match type.enums
 defines result enum with win and loss	spec/models/match_spec.rb	/^    it "defines result enum with win and loss" do$/;"	i	describe:Match type.enums
 destroy	app/controllers/dashboards_controller.rb	/^  def destroy$/;"	f	class:DashboardsController
 destroy	app/controllers/matches_controller.rb	/^  def destroy$/;"	f	class:MatchesController
@@ -239,6 +388,7 @@ devise.sessions.signed_out	config/locales/devise.en.yml	/^      signed_out: "Sig
 devise.unlocks.send_instructions	config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions for how to unlock your acc/;"	k	locale:en
 devise.unlocks.send_paranoid_instructions	config/locales/devise.en.yml	/^      send_paranoid_instructions: "If your account exists, you will receive an email with instru/;"	k	locale:en
 devise.unlocks.unlocked	config/locales/devise.en.yml	/^      unlocked: "Your account has been unlocked successfully. Please sign in to continue."$/;"	k	locale:en
+does not count wins in by_defeat_reason	spec/services/match_stats_service_spec.rb	/^    it "does not count wins in by_defeat_reason" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 does not create a match on invalid data	spec/requests/matches_spec.rb	/^      it "does not create a match on invalid data" do$/;"	i	describe:Matches type.when authenticated.POST /dashboards/:id/matches
 does not show stats from another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "does not show stats from another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id (show/stats)
 edit	app/controllers/dashboards_controller.rb	/^  def edit; end$/;"	f	class:DashboardsController
@@ -303,11 +453,15 @@ factory	spec/models/dashboard_spec.rb	/^  describe "factory" do$/;"	d	describe:D
 factory	spec/models/match_spec.rb	/^  describe "factory" do$/;"	d	describe:Match type
 failure	config/locales/devise.en.yml	/^      failure: "Could not authenticate you from %{kind} because \\"%{reason}\\"."$/;"	k	keyInMiddle:en.devise.omniauth_callbacks
 groups results by deck and sorts by total descending	spec/services/match_stats_service_spec.rb	/^    it "groups results by deck and sorts by total descending" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+h1	app/assets/stylesheets/theme.css	/^h1{font-family:'VT323',monospace;font-size:2.4rem;letter-spacing:3px;text-transform:uppercase}$/;"	s
+h2	app/assets/stylesheets/theme.css	/^h2{font-family:'VT323',monospace;font-size:1.6rem;letter-spacing:2px;text-transform:uppercase;co/;"	s
 hello	config/locales/en.yml	/^  hello: "Hello world"$/;"	k	locale:en
 inactive	config/locales/devise.en.yml	/^      inactive: "Your account is not activated yet."$/;"	k	keyInMiddle:en.devise.failure
+includes first/second breakdown per deck with nil win_rate when no data	spec/services/match_stats_service_spec.rb	/^    it "includes first\/second breakdown per deck with nil win_rate when no data" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 index	app/controllers/dashboards_controller.rb	/^  def index$/;"	f	class:DashboardsController
 index	app/controllers/matches_controller.rb	/^  def index$/;"	f	class:MatchesController
 initialize	app/services/match_stats_service.rb	/^  def initialize(matches)$/;"	f	class:MatchStatsService
+input[type="datetime-local"] .form-ctrl	app/assets/stylesheets/theme.css	/^input[type="datetime-local"].form-ctrl{color-scheme:dark}$/;"	c
 invalid	config/locales/devise.en.yml	/^      invalid: "Invalid %{authentication_keys} or password."$/;"	k	keyInMiddle:en.devise.failure
 is valid with default attributes	spec/models/dashboard_spec.rb	/^    it "is valid with default attributes" do$/;"	i	describe:Dashboard type.factory
 is valid with default attributes	spec/models/match_spec.rb	/^    it "is valid with default attributes" do$/;"	i	describe:Match type.factory
@@ -327,8 +481,11 @@ not_locked	config/locales/devise.en.yml	/^      not_locked: "was not locked"$/;"
 ns8255f2ba0101	public/icon.svg	/^<svg width="100" height="100" xmlns="http:\/\/www.w3.org\/2000\/svg">$/;"	n	uri:http://www.w3.org/2000/svg
 one	config/locales/devise.en.yml	/^        one: "1 error prohibited this %{resource} from being saved:"$/;"	k	keyInMiddle:en.errors.messages.not_saved
 only shows matches belonging to the dashboard	spec/requests/matches_spec.rb	/^      it "only shows matches belonging to the dashboard" do$/;"	i	describe:Matches type.when authenticated.GET /dashboards/:id/matches
+option	app/assets/stylesheets/theme.css	/^option{background:var(--bg-card)}$/;"	s
 other	config/locales/devise.en.yml	/^        other: "%{count} errors prohibited this %{resource} from being saved:"$/;"	k	keyInMiddle:en.errors.messages.not_saved
+raises an ArgumentError for an invalid first_or_second	spec/models/match_spec.rb	/^    it "raises an ArgumentError for an invalid first_or_second" do$/;"	i	describe:Match type.enums
 raises an ArgumentError for an invalid opponent_deck	spec/models/match_spec.rb	/^    it "raises an ArgumentError for an invalid opponent_deck" do$/;"	i	describe:Match type.enums
+raises an ArgumentError for an invalid reason_for_defeat	spec/models/match_spec.rb	/^    it "raises an ArgumentError for an invalid reason_for_defeat" do$/;"	i	describe:Match type.enums
 raises an ArgumentError for an invalid result	spec/models/match_spec.rb	/^    it "raises an ArgumentError for an invalid result" do$/;"	i	describe:Match type.enums
 re-renders :edit with unprocessable_content on invalid data	spec/requests/matches_spec.rb	/^      it "re-renders :edit with unprocessable_content on invalid data" do$/;"	i	describe:Matches type.when authenticated.PATCH /dashboards/:dashboard_id/matches/:id
 re-renders :new with unprocessable_content on invalid data	spec/requests/matches_spec.rb	/^      it "re-renders :new with unprocessable_content on invalid data" do$/;"	i	describe:Matches type.when authenticated.POST /dashboards/:id/matches
@@ -343,9 +500,13 @@ redirects when accessing a match from another user's dashboard	spec/requests/mat
 redirects when accessing another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id (show/stats)
 redirects when accessing another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/edit
 redirects when accessing another user's dashboard	spec/requests/matches_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Matches type.when authenticated.GET /dashboards/:id/matches
+rejects negative number_of_mulligans	spec/models/match_spec.rb	/^    it "rejects negative number_of_mulligans" do$/;"	i	describe:Match type.validations
+rejects non-integer number_of_mulligans	spec/models/match_spec.rb	/^    it "rejects non-integer number_of_mulligans" do$/;"	i	describe:Match type.validations
 returns 0.0 average hand quality	spec/services/match_stats_service_spec.rb	/^    it "returns 0.0 average hand quality" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns 0.0 win rate	spec/services/match_stats_service_spec.rb	/^    it "returns 0.0 win rate" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns at most 5 recent matches ordered by played_at desc	spec/services/match_stats_service_spec.rb	/^    it "returns at most 5 recent matches ordered by played_at desc" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+returns by_defeat_reason with counts for all reasons and unspecified	spec/services/match_stats_service_spec.rb	/^    it "returns by_defeat_reason with counts for all reasons and unspecified" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+returns by_first_or_second with first and second entries, all zeroed	spec/services/match_stats_service_spec.rb	/^    it "returns by_first_or_second with first and second entries, all zeroed" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns by_hand_quality for all 5 ratings with zero totals	spec/services/match_stats_service_spec.rb	/^    it "returns by_hand_quality for all 5 ratings with zero totals" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns empty by_deck list	spec/services/match_stats_service_spec.rb	/^    it "returns empty by_deck list" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns empty recent_matches	spec/services/match_stats_service_spec.rb	/^    it "returns empty recent_matches" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
@@ -360,6 +521,7 @@ returns zeros for all counts	spec/services/match_stats_service_spec.rb	/^    it 
 scopes	spec/models/match_spec.rb	/^  describe "scopes" do$/;"	d	describe:Match type
 scopes the new dashboard to the current user	spec/requests/dashboard_spec.rb	/^      it "scopes the new dashboard to the current user" do$/;"	i	describe:Dashboards type.when authenticated.POST /dashboards
 scopes the new match to the dashboard	spec/requests/matches_spec.rb	/^      it "scopes the new match to the dashboard" do$/;"	i	describe:Matches type.when authenticated.POST /dashboards/:id/matches
+select.form-ctrl	app/assets/stylesheets/theme.css	/^select.form-ctrl{background:var(--bg-card);cursor:pointer}$/;"	c
 send_instructions	config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions for how to confirm your em/;"	k	keyInMiddle:en.devise.confirmations
 send_instructions	config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions for how to unlock your acc/;"	k	keyInMiddle:en.devise.unlocks
 send_instructions	config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions on how to reset your passw/;"	k	keyInMiddle:en.devise.passwords
@@ -373,6 +535,7 @@ show	app/controllers/dashboards_controller.rb	/^  def show$/;"	f	class:Dashboard
 show	app/controllers/matches_controller.rb	/^  def show; end$/;"	f	class:MatchesController
 shows stats when the dashboard has matches	spec/requests/dashboard_spec.rb	/^      it "shows stats when the dashboard has matches" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id (show/stats)
 shows the empty state when the dashboard has no matches	spec/requests/dashboard_spec.rb	/^      it "shows the empty state when the dashboard has no matches" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id (show/stats)
+side_stats	app/services/match_stats_service.rb	/^  def side_stats(scope, side)$/;"	f	class:MatchStatsService
 signed_in	config/locales/devise.en.yml	/^      signed_in: "Signed in successfully."$/;"	k	keyInMiddle:en.devise.sessions
 signed_out	config/locales/devise.en.yml	/^      signed_out: "Signed out successfully."$/;"	k	keyInMiddle:en.devise.sessions
 signed_up	config/locales/devise.en.yml	/^      signed_up: "Welcome! You have signed up successfully."$/;"	k	keyInMiddle:en.devise.registrations

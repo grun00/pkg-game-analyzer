@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: pkm_game_analyzer_production
-  username: pkm_game_analyzer
-  password: <%= ENV["PKM_GAME_ANALYZER_DATABASE_PASSWORD"] %>
+  # Railway provides the full connection string via DATABASE_URL.
+  # Reference the Postgres service's variable in the web service's env.
+  url: <%= ENV["DATABASE_URL"] %>

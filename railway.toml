@@ -1,0 +1,13 @@
+# Railway configuration for pkm_game_analyzer
+# Builds from the existing production Dockerfile. The Dockerfile's ENTRYPOINT runs
+# `bin/rails db:prepare` (migrations) before booting Puma, which binds to 0.0.0.0:$PORT.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/up"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

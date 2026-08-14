@@ -45,15 +45,16 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  # Can be used together with config.force_ssl for Strict-Transport-Security and secure cookies.
-  # config.assume_ssl = true
+  # Railway terminates TLS at its edge and forwards HTTP to the container, so enable
+  # this in production via RAILS_ASSUME_SSL to get correct scheme detection.
+  config.assume_ssl = ENV["RAILS_ASSUME_SSL"].present?
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # Disabled for local-network HTTP access via Docker.
-  config.force_ssl = false
+  # Enabled on Railway via RAILS_FORCE_SSL; left off for local-network HTTP access via Docker.
+  config.force_ssl = ENV["RAILS_FORCE_SSL"].present?
 
   # Skip http-to-https redirect for the default health check endpoint.
-  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+  config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
@@ -96,7 +97,14 @@ Rails.application.configure do
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
-  # Host checking disabled — app is served on a trusted local network.
-  # Re-enable and restrict config.hosts before exposing to the internet.
-  config.hosts = nil
+  # Host authorization. Set RAILS_ALLOWED_HOSTS (comma-separated) on Railway to
+  # restrict requests to your domain(s), e.g. "myapp.up.railway.app,example.com".
+  # When unset, host checking is disabled (trusted local network / Docker).
+  allowed_hosts = ENV.fetch("RAILS_ALLOWED_HOSTS", "").split(",").map(&:strip).reject(&:empty?)
+  if allowed_hosts.any?
+    config.hosts = allowed_hosts
+    config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  else
+    config.hosts = nil
+  end
 end

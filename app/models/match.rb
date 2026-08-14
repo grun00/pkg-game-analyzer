@@ -27,6 +27,7 @@ class Match < ApplicationRecord
     ceruledge:                22,
     slowpoke:                 23,
     slop_box:                 24,
+    greninja_ex:              25,
     other:               15
   }.freeze
 

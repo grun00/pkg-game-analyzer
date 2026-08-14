@@ -38,7 +38,7 @@ RSpec.describe Match, type: :model do
     it "defines opponent_deck enum with all expected decks" do
       expected_decks = %w[dragapult dragapult_dusknoir dragapult_blaziken tera_box team_rockets
                           raging_bolt alakazam mega_lucario absol green_ogerpon
-                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke slop_box other]
+                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke slop_box greninja_ex other]
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
     end
 

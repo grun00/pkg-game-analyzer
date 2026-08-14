@@ -246,7 +246,7 @@ Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCabl
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	module:ApplicationCable
 CreateDashboards	db/migrate/20260414133626_create_dashboards.rb	/^class CreateDashboards < ActiveRecord::Migration[7.2]$/;"	c
 CreateMatches	db/migrate/20260414131926_create_matches.rb	/^class CreateMatches < ActiveRecord::Migration[7.2]$/;"	c
-DEFEAT_REASONS	app/models/match.rb	/^  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3 }.freeze$/;"	C	class:Match
+DEFEAT_REASONS	app/models/match.rb	/^  DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3, unlucky: 4/;"	C	class:Match
 DELETE /dashboards/:dashboard_id/matches/:id	spec/requests/matches_spec.rb	/^    describe "DELETE \/dashboards\/:dashboard_id\/matches\/:id" do$/;"	d	context:Matches type.when authenticated
 DELETE /dashboards/:id	spec/requests/dashboard_spec.rb	/^    describe "DELETE \/dashboards\/:id" do$/;"	d	context:Dashboards type.when authenticated
 Dashboard	app/models/dashboard.rb	/^class Dashboard < ApplicationRecord$/;"	c

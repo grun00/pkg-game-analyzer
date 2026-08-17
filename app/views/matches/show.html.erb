@@ -3,7 +3,7 @@
 <div class="page-hd">
   <div>
     <p class="breadcrumb"><%= link_to "← Match Log", dashboard_matches_path(@dashboard) %></p>
-    <h1 class="page-title <%= @match.result_win? ? 'c-green' : 'c-red' %>"><%= @match.opponent_deck.to_s.humanize %></h1>
+    <h1 class="page-title <%= match_result_color_class(@match) %>"><%= @match.opponent_deck.to_s.humanize %></h1>
     <p class="page-sub"><%= @match.played_at.strftime("%B %d, %Y – %H:%M") %></p>
   </div>
   <%= link_to "EDIT", edit_dashboard_match_path(@dashboard, @match), class: "btn btn-g btn-sm" %>
@@ -12,7 +12,7 @@
 <div class="match-detail">
   <div>
     <div class="detail-lbl">Result</div>
-    <div class="detail-val <%= @match.result_win? ? 'c-green' : 'c-red' %>"><%= @match.result.upcase %></div>
+    <div class="detail-val <%= match_result_color_class(@match) %>"><%= @match.result.upcase %></div>
   </div>
 
   <% unless @match.first_or_second_uninformed? %>

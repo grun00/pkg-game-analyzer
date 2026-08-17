@@ -9,6 +9,7 @@ FactoryBot.define do
 
     trait :win  do result { "win" }  end
     trait :loss do result { "loss" } end
+    trait :tie  do result { "tie" }  end
 
     trait :perfect_hand do hand_quality { 5 } end
     trait :bad_hand     do hand_quality { 1 } end

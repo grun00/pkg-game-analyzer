@@ -58,7 +58,19 @@ RSpec.describe MatchStatsService do
       expect(stats[:losses]).to eq(2)
     end
 
+    it "counts ties correctly" do
+      expect(stats[:ties]).to eq(0)
+    end
+
     it "calculates win rate as a percentage" do
+      expect(stats[:win_rate]).to eq(50.0)
+    end
+
+    it "excludes ties from win rate" do
+      create(:match, :tie, dashboard: dashboard, opponent_deck: :dragapult, hand_quality: 3)
+      # wins=2, losses=2, ties=1 -> win_rate = 2 / (2 + 2) = 50.0, ties counted separately
+      expect(stats[:ties]).to eq(1)
+      expect(stats[:total]).to eq(5)
       expect(stats[:win_rate]).to eq(50.0)
     end
 

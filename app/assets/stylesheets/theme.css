@@ -55,7 +55,7 @@ input[type="datetime-local"].form-ctrl{color-scheme:light}
 .side-rate{font-family:'VT323',monospace;font-size:2.2rem;color:var(--gold)}.side-rec{font-size:.62rem;color:var(--gmid);margin-top:2px}
 .match-log{display:flex;flex-direction:column}
 .match-row{background:var(--bg-card);border-left:3px solid;border-bottom:1px solid var(--bg-hl);padding:10px 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--text-card)}
-.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}
+.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}.row-tie{border-left-color:var(--blue)}
 .match-ind{font-family:'VT323',monospace;font-size:1.1rem;min-width:44px}
 .match-deck{color:var(--text-card);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;flex:1;min-width:120px}
 .match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;flex:2}.match-date{color:var(--gdim);font-size:.7rem}

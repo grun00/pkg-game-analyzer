@@ -24,6 +24,7 @@
     <%= render "dashboards/stat_card", label: "Total Matches", value: @stats[:total], css_class: "c-green" %>
     <%= render "dashboards/stat_card", label: "Wins",          value: @stats[:wins],  css_class: "c-green" %>
     <%= render "dashboards/stat_card", label: "Losses",        value: @stats[:losses], css_class: "c-red" %>
+    <%= render "dashboards/stat_card", label: "Ties",          value: @stats[:ties], css_class: "c-blue" %>
     <%= render "dashboards/stat_card", label: "Win Rate",      value: "#{@stats[:win_rate]}%", css_class: "c-gold" %>
     <%= render "dashboards/stat_card", label: "Avg Hand ★",    value: @stats[:average_hand_quality], css_class: "c-blue" %>
   </div>
@@ -38,6 +39,7 @@
           <th class="tc">Total</th>
           <th class="tc c-green">W</th>
           <th class="tc c-red">L</th>
+          <th class="tc">T</th>
           <th class="tc c-gold">Win%</th>
           <th class="tc c-blue">1st%</th>
           <th class="tc c-pink">2nd%</th>
@@ -51,6 +53,7 @@
             <td class="tc"><%= row[:total] %></td>
             <td class="tc c-green"><%= row[:wins] %></td>
             <td class="tc c-red"><%= row[:losses] %></td>
+            <td class="tc"><%= row[:ties] %></td>
             <td class="tc c-gold"><%= row[:win_rate] %>%</td>
             <% [:first, :second].each do |side| %>
               <% data = row[side] %>

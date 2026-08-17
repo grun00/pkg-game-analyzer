@@ -42,8 +42,8 @@ RSpec.describe Match, type: :model do
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
     end
 
-    it "defines result enum with win and loss" do
-      expect(Match.results.keys).to match_array(%w[win loss])
+    it "defines result enum with win, loss, and tie" do
+      expect(Match.results.keys).to match_array(%w[win loss tie])
     end
 
     it "defines first_or_second enum with uninformed, first, and second" do

@@ -100,7 +100,7 @@
 *::before	app/assets/stylesheets/theme.css	/^*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}$/;"	s
 .auth-bar	app/assets/stylesheets/theme.css	/^.auth-bar{background:var(--bg-hl);border-bottom:1px solid var(--green);padding:7px 14px;font-siz/;"	c
 .auth-body	app/assets/stylesheets/theme.css	/^.auth-body{padding:28px;display:flex;flex-direction:column;gap:18px}$/;"	c
-.auth-box	app/assets/stylesheets/theme.css	/^.auth-box{background:var(--bg-card);border:1px solid var(--green)}$/;"	c
+.auth-box	app/assets/stylesheets/theme.css	/^.auth-box{background:var(--bg-card);border:1px solid var(--green);color:var(--text-card)}$/;"	c
 .auth-links	app/assets/stylesheets/theme.css	/^.auth-links{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--border);paddin/;"	c
 .auth-links a	app/assets/stylesheets/theme.css	/^.auth-links a{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}.au/;"	s
 .auth-links a::before	app/assets/stylesheets/theme.css	/^.auth-links a{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}.au/;"	s
@@ -113,13 +113,13 @@
 .breadcrumb a	app/assets/stylesheets/theme.css	/^.breadcrumb a{color:var(--gmid)}.breadcrumb a:hover{color:var(--green)}$/;"	s
 .breadcrumb a:hover	app/assets/stylesheets/theme.css	/^.breadcrumb a{color:var(--gmid)}.breadcrumb a:hover{color:var(--green)}$/;"	s
 .btn	app/assets/stylesheets/theme.css	/^.btn{display:inline-block;background:transparent;border:1px solid;font-family:inherit;font-size:/;"	c
-.btn-b	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:var(/;"	c
-.btn-b:hover	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:var(/;"	c
-.btn-g	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:v/;"	c
-.btn-g:hover	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:v/;"	c
+.btn-b	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:#000/;"	c
+.btn-b:hover	app/assets/stylesheets/theme.css	/^.btn-b{border-color:var(--blue);color:var(--blue)}.btn-b:hover{background:var(--blue);color:#000/;"	c
+.btn-g	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:#/;"	c
+.btn-g:hover	app/assets/stylesheets/theme.css	/^.btn-g{border-color:var(--green);color:var(--green)}.btn-g:hover{background:var(--green);color:#/;"	c
 .btn-ghost	app/assets/stylesheets/theme.css	/^.btn-ghost{background:transparent;border:none;font-family:inherit;font-size:.72rem;text-transfor/;"	c
-.btn-r	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:var(--b/;"	c
-.btn-r:hover	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:var(--b/;"	c
+.btn-r	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:#000}$/;"	c
+.btn-r:hover	app/assets/stylesheets/theme.css	/^.btn-r{border-color:var(--red);color:var(--red)}.btn-r:hover{background:var(--red);color:#000}$/;"	c
 .btn-sm	app/assets/stylesheets/theme.css	/^.btn-sm{padding:3px 10px;font-size:.72rem}$/;"	c
 .c-blue	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
 .c-dim	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
@@ -133,7 +133,7 @@
 .db-card-acts	app/assets/stylesheets/theme.css	/^.db-card-acts{display:flex;gap:10px}$/;"	c
 .db-card-hd	app/assets/stylesheets/theme.css	/^.db-card-hd{display:flex;justify-content:space-between;align-items:flex-start}$/;"	c
 .db-card-link	app/assets/stylesheets/theme.css	/^.db-card-link{border:1px solid var(--green);color:var(--green);text-align:center;padding:6px;fon/;"	c
-.db-card-link:hover	app/assets/stylesheets/theme.css	/^.db-card-link:hover{background:var(--green);color:var(--bg)}$/;"	c
+.db-card-link:hover	app/assets/stylesheets/theme.css	/^.db-card-link:hover{background:var(--green);color:#000}$/;"	c
 .db-card-name	app/assets/stylesheets/theme.css	/^.db-card-name{font-family:'VT323',monospace;font-size:1.3rem;letter-spacing:2px;text-transform:u/;"	c
 .db-card-stats	app/assets/stylesheets/theme.css	/^.db-card-stats{display:flex;gap:14px;font-size:.78rem;border-top:1px solid var(--bg-hl);padding-/;"	c
 .db-grid	app/assets/stylesheets/theme.css	/^.db-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}$/;"	c
@@ -148,9 +148,9 @@
 .flash	app/assets/stylesheets/theme.css	/^.flash{padding:8px 24px;font-size:.8rem;border-left:3px solid}$/;"	c
 .flash-err	app/assets/stylesheets/theme.css	/^.flash-err{border-color:var(--red);background:rgba(255,0,64,.04);color:var(--red)}.flash-err::be/;"	c
 .flash-err::before	app/assets/stylesheets/theme.css	/^.flash-err{border-color:var(--red);background:rgba(255,0,64,.04);color:var(--red)}.flash-err::be/;"	c
-.flash-ok	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(0,255,65,.04);color:var(--green)}.flash-ok::/;"	c
-.flash-ok::before	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(0,255,65,.04);color:var(--green)}.flash-ok::/;"	c
-.form-ctrl	app/assets/stylesheets/theme.css	/^.form-ctrl{background:transparent;border:0;border-bottom:1px solid var(--green);color:var(--gree/;"	c
+.flash-ok	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(255,0,232,.04);color:var(--green)}.flash-ok:/;"	c
+.flash-ok::before	app/assets/stylesheets/theme.css	/^.flash-ok{border-color:var(--green);background:rgba(255,0,232,.04);color:var(--green)}.flash-ok:/;"	c
+.form-ctrl	app/assets/stylesheets/theme.css	/^.form-ctrl{background:transparent;border:0;border-bottom:1px solid var(--green);color:var(--text/;"	c
 .form-ctrl::placeholder	app/assets/stylesheets/theme.css	/^.form-ctrl:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}.form-ctrl::placeholder/;"	c
 .form-ctrl:focus	app/assets/stylesheets/theme.css	/^.form-ctrl:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}.form-ctrl::placeholder/;"	c
 .form-errors	app/assets/stylesheets/theme.css	/^.form-errors{background:rgba(255,0,64,.05);border:1px solid var(--red);padding:14px;color:var(--/;"	c
@@ -161,7 +161,7 @@
 .form-radio	app/assets/stylesheets/theme.css	/^.form-radio{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;text-transfo/;"	c
 .form-radios	app/assets/stylesheets/theme.css	/^.form-radios{display:flex;gap:20px;flex-wrap:wrap}$/;"	c
 .form-submit	app/assets/stylesheets/theme.css	/^.form-submit{background:transparent;border:1px solid var(--green);color:var(--green);font-family/;"	c
-.form-submit:hover	app/assets/stylesheets/theme.css	/^.form-submit:hover{background:var(--green);color:var(--bg)}$/;"	c
+.form-submit:hover	app/assets/stylesheets/theme.css	/^.form-submit:hover{background:var(--green);color:#000}$/;"	c
 .fw	app/assets/stylesheets/theme.css	/^.c-green{color:var(--green)}.c-red{color:var(--red)}.c-gold{color:var(--gold)}.c-blue{color:var(/;"	c
 .glitch	app/assets/stylesheets/theme.css	/^.glitch{animation:glitch 4s infinite}$/;"	c
 .hq-card	app/assets/stylesheets/theme.css	/^.hq-card{background:var(--bg-card);border:1px solid var(--border);padding:14px 18px;text-align:c/;"	c
@@ -172,14 +172,14 @@
 .losses returns only lost matches	spec/models/match_spec.rb	/^    it ".losses returns only lost matches" do$/;"	i	describe:Match type.scopes
 .main	app/assets/stylesheets/theme.css	/^.main{max-width:1200px;margin:0 auto;padding:32px 20px}$/;"	c
 .match-date	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
-.match-deck	app/assets/stylesheets/theme.css	/^.match-deck{color:#c0ffc0;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;flex:1;min/;"	c
+.match-deck	app/assets/stylesheets/theme.css	/^.match-deck{color:var(--text-card);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;f/;"	c
 .match-detail	app/assets/stylesheets/theme.css	/^.match-detail{background:var(--bg-card);border:1px solid var(--border);padding:24px;display:flex/;"	c
 .match-hand	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
 .match-ind	app/assets/stylesheets/theme.css	/^.match-ind{font-family:'VT323',monospace;font-size:1.1rem;min-width:44px}$/;"	c
 .match-log	app/assets/stylesheets/theme.css	/^.match-log{display:flex;flex-direction:column}$/;"	c
 .match-note	app/assets/stylesheets/theme.css	/^.match-hand{color:var(--gold);font-size:.75rem}.match-note{color:var(--gmid);font-size:.75rem;fl/;"	c
 .match-row	app/assets/stylesheets/theme.css	/^.match-row{background:var(--bg-card);border-left:3px solid;border-bottom:1px solid var(--bg-hl);/;"	c
-.nav	app/assets/stylesheets/theme.css	/^.nav{background:var(--bg-card);border-bottom:1px solid var(--green);padding:10px 24px;display:fl/;"	c
+.nav	app/assets/stylesheets/theme.css	/^.nav{background:var(--nav-bg);border-bottom:1px solid var(--green);padding:10px 24px;display:fle/;"	c
 .nav-brand	app/assets/stylesheets/theme.css	/^.nav-brand{font-family:'VT323',monospace;font-size:1.6rem;letter-spacing:4px;color:var(--green);/;"	c
 .nav-btn	app/assets/stylesheets/theme.css	/^.nav-btn{background:transparent;border:1px solid;font-family:inherit;font-size:.78rem;text-trans/;"	c
 .nav-btn-b	app/assets/stylesheets/theme.css	/^.nav-btn-b{border-color:var(--blue);color:var(--blue)}.nav-btn-b:hover{background:var(--blue);co/;"	c
@@ -198,9 +198,10 @@
 .page-sub	app/assets/stylesheets/theme.css	/^.page-sub{color:var(--gmid);font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-/;"	c
 .page-title	app/assets/stylesheets/theme.css	/^.page-title{font-family:'VT323',monospace;font-size:2.4rem;letter-spacing:3px;text-transform:upp/;"	c
 .recent orders by played_at descending	spec/models/match_spec.rb	/^    it ".recent orders by played_at descending" do$/;"	i	describe:Match type.scopes
-.row-loss	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}$/;"	c
-.row-win	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}$/;"	c
-.sec-lbl	app/assets/stylesheets/theme.css	/^.sec-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue);border-b/;"	c
+.row-loss	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}.row-tie{border-l/;"	c
+.row-tie	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}.row-tie{border-l/;"	c
+.row-win	app/assets/stylesheets/theme.css	/^.row-win{border-left-color:var(--green)}.row-loss{border-left-color:var(--red)}.row-tie{border-l/;"	c
+.sec-lbl	app/assets/stylesheets/theme.css	/^.sec-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--green);border-/;"	c
 .sec-lbl::before	app/assets/stylesheets/theme.css	/^.sec-lbl::before{content:'\/\/ ';color:var(--gmid)}$/;"	c
 .side-card	app/assets/stylesheets/theme.css	/^.side-card{background:var(--bg-card);border:1px solid var(--border);border-top:2px solid;padding/;"	c
 .side-card-1	app/assets/stylesheets/theme.css	/^.side-card-1{border-top-color:var(--blue)}.side-card-2{border-top-color:var(--pink)}.side-card-n/;"	c
@@ -216,16 +217,18 @@
 .stat-val	app/assets/stylesheets/theme.css	/^.stat-val{font-family:'VT323',monospace;font-size:2.6rem}$/;"	c
 .tc	app/assets/stylesheets/theme.css	/^.tc{text-align:center}$/;"	c
 .term-form	app/assets/stylesheets/theme.css	/^.term-form{display:flex;flex-direction:column;gap:22px;max-width:560px}$/;"	c
-.term-table	app/assets/stylesheets/theme.css	/^.term-table{width:100%;border-collapse:collapse;font-size:.82rem}$/;"	c
-.term-table td	app/assets/stylesheets/theme.css	/^.term-table td{padding:8px 10px;border-bottom:1px solid var(--bg-hl)}$/;"	s
+.term-table	app/assets/stylesheets/theme.css	/^.term-table{width:100%;border-collapse:collapse;font-size:.82rem;background:var(--bg-card)}$/;"	c
+.term-table td	app/assets/stylesheets/theme.css	/^.term-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle}$/;"	s
+.term-table td.tc	app/assets/stylesheets/theme.css	/^.term-table th.tc,.term-table td.tc{text-align:center}$/;"	c
 .term-table th	app/assets/stylesheets/theme.css	/^.term-table th{padding:8px 10px;font-size:.62rem;text-transform:uppercase;letter-spacing:1px;col/;"	s
-.term-table tr:hover td	app/assets/stylesheets/theme.css	/^.term-table tr:hover td{background:var(--bg-card)}$/;"	s
+.term-table th.tc	app/assets/stylesheets/theme.css	/^.term-table th.tc,.term-table td.tc{text-align:center}$/;"	c
+.term-table tr:hover td	app/assets/stylesheets/theme.css	/^.term-table tr:hover td{background:#e2e2e8}$/;"	s
 .wins returns only won matches	spec/models/match_spec.rb	/^    it ".wins returns only won matches" do$/;"	i	describe:Match type.scopes
 ::-webkit-scrollbar	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
 ::-webkit-scrollbar-thumb	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
 ::-webkit-scrollbar-thumb:hover	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
 ::-webkit-scrollbar-track	app/assets/stylesheets/theme.css	/^::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar/;"	s
-:root	app/assets/stylesheets/theme.css	/^:root{--bg:#050510;--bg-card:#0a0a1a;--bg-hl:#0d0d20;--green:#00ff41;--gdim:#1a4a2a;--gmid:#2a6b/;"	s
+:root	app/assets/stylesheets/theme.css	/^:root{--bg:#ffffff;--bg-card:#f5f5f7;--bg-hl:#ececf0;--text:#000000;--text-card:#000000;--nav-bg/;"	s
 APP_NAME	bin/setup	/^APP_NAME = "pkm-game-analyzer"$/;"	C
 APP_PATH	bin/rails	/^APP_PATH = File.expand_path("..\/config\/application", __dir__)$/;"	C
 APP_ROOT	bin/setup	/^APP_ROOT = File.expand_path("..", __dir__)$/;"	C
@@ -286,7 +289,7 @@ We're sorry, but something went wrong.	public/500.html	/^      <h1>We're sorry, 
 Your browser is not supported (406)	public/406-unsupported-browser.html	/^  <title>Your browser is not supported (406)<\/title>$/;"	j
 Your browser is not supported.	public/406-unsupported-browser.html	/^      <h1>Your browser is not supported.<\/h1>$/;"	h
 a	app/assets/stylesheets/theme.css	/^a{color:var(--green);text-decoration:none}$/;"	s
-a:hover	app/assets/stylesheets/theme.css	/^a:hover{color:var(--blue)}$/;"	s
+a:hover	app/assets/stylesheets/theme.css	/^a:hover{color:#000}$/;"	s
 allows number_of_mulligans of 0 or more	spec/models/match_spec.rb	/^    it "allows number_of_mulligans of 0 or more" do$/;"	i	describe:Match type.validations
 allows number_of_mulligans to be nil	spec/models/match_spec.rb	/^    it "allows number_of_mulligans to be nil" do$/;"	i	describe:Match type.validations
 already_authenticated	config/locales/devise.en.yml	/^      already_authenticated: "You are already signed in."$/;"	k	keyInMiddle:en.devise.failure
@@ -300,7 +303,7 @@ associations	spec/models/dashboard_spec.rb	/^  describe "associations" do$/;"	d	
 associations	spec/models/match_spec.rb	/^  describe "associations" do$/;"	d	describe:Match type
 associations	spec/models/user_spec.rb	/^  describe "associations" do$/;"	d	describe:User type
 average_hand_quality	app/services/match_stats_service.rb	/^  def average_hand_quality$/;"	f	class:MatchStatsService
-body	app/assets/stylesheets/theme.css	/^body{background:var(--bg);color:var(--green);font-family:'Share Tech Mono','Courier New',monospa/;"	s
+body	app/assets/stylesheets/theme.css	/^body{background:var(--bg);color:var(--text);font-family:'Share Tech Mono','Courier New',monospac/;"	s
 body::after	app/assets/stylesheets/theme.css	/^body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transpar/;"	s
 by_deck	app/services/match_stats_service.rb	/^  def by_deck$/;"	f	class:MatchStatsService
 by_defeat_reason	app/services/match_stats_service.rb	/^  def by_defeat_reason$/;"	f	class:MatchStatsService
@@ -329,6 +332,7 @@ confirmation_period_expired	config/locales/devise.en.yml	/^      confirmation_pe
 confirmed	config/locales/devise.en.yml	/^      confirmed: "Your email address has been successfully confirmed."$/;"	k	keyInMiddle:en.devise.confirmations
 connect	app/javascript/controllers/hello_controller.js	/^  connect() {$/;"	m	class:AnonymousClass84762e030101
 counts losses correctly	spec/services/match_stats_service_spec.rb	/^    it "counts losses correctly" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+counts ties correctly	spec/services/match_stats_service_spec.rb	/^    it "counts ties correctly" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 counts total matches correctly	spec/services/match_stats_service_spec.rb	/^    it "counts total matches correctly" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 counts wins correctly	spec/services/match_stats_service_spec.rb	/^    it "counts wins correctly" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 create	app/controllers/dashboards_controller.rb	/^  def create$/;"	f	class:DashboardsController
@@ -342,7 +346,7 @@ defaults reason_for_defeat to nil	spec/models/match_spec.rb	/^    it "defaults r
 defines first_or_second enum with uninformed, first, and second	spec/models/match_spec.rb	/^    it "defines first_or_second enum with uninformed, first, and second" do$/;"	i	describe:Match type.enums
 defines opponent_deck enum with all expected decks	spec/models/match_spec.rb	/^    it "defines opponent_deck enum with all expected decks" do$/;"	i	describe:Match type.enums
 defines reason_for_defeat enum with all expected reasons	spec/models/match_spec.rb	/^    it "defines reason_for_defeat enum with all expected reasons" do$/;"	i	describe:Match type.enums
-defines result enum with win and loss	spec/models/match_spec.rb	/^    it "defines result enum with win and loss" do$/;"	i	describe:Match type.enums
+defines result enum with win, loss, and tie	spec/models/match_spec.rb	/^    it "defines result enum with win, loss, and tie" do$/;"	i	describe:Match type.enums
 destroy	app/controllers/dashboards_controller.rb	/^  def destroy$/;"	f	class:DashboardsController
 destroy	app/controllers/matches_controller.rb	/^  def destroy$/;"	f	class:MatchesController
 destroyed	config/locales/devise.en.yml	/^      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again so/;"	k	keyInMiddle:en.devise.registrations
@@ -448,6 +452,7 @@ errors.messages.not_locked	config/locales/devise.en.yml	/^      not_locked: "was
 errors.messages.not_saved.one	config/locales/devise.en.yml	/^        one: "1 error prohibited this %{resource} from being saved:"$/;"	k	locale:en
 errors.messages.not_saved.other	config/locales/devise.en.yml	/^        other: "%{count} errors prohibited this %{resource} from being saved:"$/;"	k	locale:en
 excludes decks with no matches from by_deck	spec/services/match_stats_service_spec.rb	/^    it "excludes decks with no matches from by_deck" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+excludes ties from win rate	spec/services/match_stats_service_spec.rb	/^    it "excludes ties from win rate" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 expired	config/locales/devise.en.yml	/^      expired: "has expired, please request a new one"$/;"	k	keyInMiddle:en.errors.messages
 factory	spec/models/dashboard_spec.rb	/^  describe "factory" do$/;"	d	describe:Dashboard type
 factory	spec/models/match_spec.rb	/^  describe "factory" do$/;"	d	describe:Match type
@@ -461,7 +466,7 @@ includes first/second breakdown per deck with nil win_rate when no data	spec/ser
 index	app/controllers/dashboards_controller.rb	/^  def index$/;"	f	class:DashboardsController
 index	app/controllers/matches_controller.rb	/^  def index$/;"	f	class:MatchesController
 initialize	app/services/match_stats_service.rb	/^  def initialize(matches)$/;"	f	class:MatchStatsService
-input[type="datetime-local"] .form-ctrl	app/assets/stylesheets/theme.css	/^input[type="datetime-local"].form-ctrl{color-scheme:dark}$/;"	c
+input[type="datetime-local"] .form-ctrl	app/assets/stylesheets/theme.css	/^input[type="datetime-local"].form-ctrl{color-scheme:light}$/;"	c
 invalid	config/locales/devise.en.yml	/^      invalid: "Invalid %{authentication_keys} or password."$/;"	k	keyInMiddle:en.devise.failure
 is valid with default attributes	spec/models/dashboard_spec.rb	/^    it "is valid with default attributes" do$/;"	i	describe:Dashboard type.factory
 is valid with default attributes	spec/models/match_spec.rb	/^    it "is valid with default attributes" do$/;"	i	describe:Match type.factory
@@ -472,6 +477,9 @@ locked	config/locales/devise.en.yml	/^      locked: "Your account is locked."$/;
 loss trait produces a losing match	spec/models/match_spec.rb	/^    it "loss trait produces a losing match" do$/;"	i	describe:Match type.factory
 losses	app/services/match_stats_service.rb	/^  def losses$/;"	f	class:MatchStatsService
 match_params	app/controllers/matches_controller.rb	/^  def match_params$/;"	f	class:MatchesController
+match_result_color_class	app/helpers/application_helper.rb	/^  def match_result_color_class(match)$/;"	f	module:ApplicationHelper
+match_result_label	app/helpers/application_helper.rb	/^  def match_result_label(match)$/;"	f	module:ApplicationHelper
+match_result_row_class	app/helpers/application_helper.rb	/^  def match_result_row_class(match)$/;"	f	module:ApplicationHelper
 new	app/controllers/dashboards_controller.rb	/^  def new$/;"	f	class:DashboardsController
 new	app/controllers/matches_controller.rb	/^  def new$/;"	f	class:MatchesController
 no_token	config/locales/devise.en.yml	/^      no_token: "You can't access this page without coming from a password reset email. If you d/;"	k	keyInMiddle:en.devise.passwords
@@ -549,6 +557,7 @@ subject	config/locales/devise.en.yml	/^        subject: "Reset password instruct
 subject	config/locales/devise.en.yml	/^        subject: "Unlock instructions"$/;"	k	keyInMiddle:en.devise.mailer.unlock_instructions
 success	config/locales/devise.en.yml	/^      success: "Successfully authenticated from %{kind} account."$/;"	k	keyInMiddle:en.devise.omniauth_callbacks
 system!	bin/setup	/^def system!(*args)$/;"	f
+ties	app/services/match_stats_service.rb	/^  def ties$/;"	f	class:MatchStatsService
 timeout	config/locales/devise.en.yml	/^      timeout: "Your session expired. Please sign in again to continue."$/;"	k	keyInMiddle:en.devise.failure
 total	app/services/match_stats_service.rb	/^  def total$/;"	f	class:MatchStatsService
 unauthenticated	config/locales/devise.en.yml	/^      unauthenticated: "You need to sign in or sign up before continuing."$/;"	k	keyInMiddle:en.devise.failure

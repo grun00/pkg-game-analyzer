@@ -35,7 +35,7 @@ class Match < ApplicationRecord
   DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3, unlucky: 4 }.freeze
 
   enum :opponent_deck, OPPONENT_DECKS
-  enum :result, { win: "win", loss: "loss" }, prefix: true
+  enum :result, { win: "win", loss: "loss", tie: "tie" }, prefix: true
   enum :first_or_second, { uninformed: 0, first: 1, second: 2 }, prefix: true
   enum :reason_for_defeat, DEFEAT_REASONS, prefix: true
 
@@ -48,5 +48,6 @@ class Match < ApplicationRecord
 
   scope :wins,   -> { where(result: "win") }
   scope :losses, -> { where(result: "loss") }
+  scope :ties,   -> { where(result: "tie") }
   scope :recent, -> { order(played_at: :desc) }
 end

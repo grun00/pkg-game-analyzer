@@ -16,8 +16,8 @@
 <% else %>
   <div class="match-log">
     <% @matches.each do |match| %>
-      <div class="match-row <%= match.result_win? ? 'row-win' : 'row-loss' %>">
-        <span class="match-ind <%= match.result_win? ? 'c-green' : 'c-red' %>"><%= match.result_win? ? "[WIN]" : "[LOSS]" %></span>
+      <div class="match-row <%= match_result_row_class(match) %>">
+        <span class="match-ind <%= match_result_color_class(match) %>"><%= match_result_label(match) %></span>
         <span class="match-deck"><%= match.opponent_deck.to_s.humanize %></span>
         <span class="match-hand"><%= "★" * match.hand_quality %><%= "☆" * (5 - match.hand_quality) %></span>
         <span class="match-note"><%= truncate(match.description, length: 55) if match.description.present? %></span>

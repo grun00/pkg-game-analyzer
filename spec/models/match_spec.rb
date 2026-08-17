@@ -50,6 +50,16 @@ RSpec.describe Match, type: :model do
       expect(Match.first_or_seconds.keys).to match_array(%w[uninformed first second])
     end
 
+    it "defines game_mode enum with in_person and tcg_live" do
+      expect(Match.game_modes.keys).to match_array(%w[in_person tcg_live])
+    end
+
+    it "defaults game_mode to in_person" do
+      match = Match.create!(dashboard: create(:dashboard), opponent_deck: :dragapult,
+                            result: "win", hand_quality: 3, played_at: Time.current)
+      expect(match.reload.game_mode).to eq("in_person")
+    end
+
     it "defines reason_for_defeat enum with all expected reasons" do
       expect(Match.reason_for_defeats.keys).to match_array(%w[unknown minor_misplay major_misplay disconnected unlucky])
     end

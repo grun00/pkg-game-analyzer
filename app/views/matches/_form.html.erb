@@ -19,6 +19,18 @@
   </div>
 
   <div class="form-grp">
+    <%= f.label :game_mode, "Game Mode", class: "form-lbl" %>
+    <div class="form-radios">
+      <label class="form-radio c-pink">
+        <%= f.radio_button :game_mode, "in_person", style: "accent-color:var(--pink);" %> In Person
+      </label>
+      <label class="form-radio c-blue">
+        <%= f.radio_button :game_mode, "tcg_live", style: "accent-color:var(--blue);" %> TCG Live
+      </label>
+    </div>
+  </div>
+
+  <div class="form-grp">
     <%= f.label :result, "Result", class: "form-lbl" %>
     <div class="form-radios">
       <label class="form-radio c-green">

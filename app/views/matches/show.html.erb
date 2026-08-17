@@ -15,6 +15,13 @@
     <div class="detail-val <%= match_result_color_class(@match) %>"><%= @match.result.upcase %></div>
   </div>
 
+  <div>
+    <div class="detail-lbl">Game Mode</div>
+    <div class="detail-val <%= @match.game_mode_in_person? ? 'c-pink' : 'c-blue' %>">
+      <%= @match.game_mode_in_person? ? "IN PERSON" : "TCG LIVE" %>
+    </div>
+  </div>
+
   <% unless @match.first_or_second_uninformed? %>
     <div>
       <div class="detail-lbl">Going</div>

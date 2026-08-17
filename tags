@@ -234,6 +234,7 @@ APP_PATH	bin/rails	/^APP_PATH = File.expand_path("..\/config\/application", __di
 APP_ROOT	bin/setup	/^APP_ROOT = File.expand_path("..", __dir__)$/;"	C
 AddDashboardToMatches	db/migrate/20260414133633_add_dashboard_to_matches.rb	/^class AddDashboardToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddFirstOrSecondToMatches	db/migrate/20260414144051_add_first_or_second_to_matches.rb	/^class AddFirstOrSecondToMatches < ActiveRecord::Migration[7.2]$/;"	c
+AddGameModeToMatches	db/migrate/20260817011929_add_game_mode_to_matches.rb	/^class AddGameModeToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddNumberOfMulligansToMatches	db/migrate/20260416003022_add_number_of_mulligans_to_matches.rb	/^class AddNumberOfMulligansToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddReasonForDefeatToMatches	db/migrate/20260416002159_add_reason_for_defeat_to_matches.rb	/^class AddReasonForDefeatToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AnonymousClass84762e030101	app/javascript/controllers/hello_controller.js	/^export default class extends Controller {$/;"	c
@@ -257,6 +258,7 @@ Dashboard type	spec/models/dashboard_spec.rb	/^RSpec.describe Dashboard, type: :
 Dashboards type	spec/requests/dashboard_spec.rb	/^RSpec.describe "Dashboards", type: :request do$/;"	d
 DashboardsController	app/controllers/dashboards_controller.rb	/^class DashboardsController < ApplicationController$/;"	c
 DeviseCreateUsers	db/migrate/20260414131857_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[7.2]$/;"	c
+GAME_MODES	app/models/match.rb	/^  GAME_MODES = { in_person: 0, tcg_live: 1 }.freeze$/;"	C	class:Match
 GET / (index)	spec/requests/dashboard_spec.rb	/^    describe "GET \/ (index)" do$/;"	d	context:Dashboards type.when authenticated
 GET /dashboards/:dashboard_id/matches/:id/edit	spec/requests/matches_spec.rb	/^    describe "GET \/dashboards\/:dashboard_id\/matches\/:id\/edit" do$/;"	d	context:Matches type.when authenticated
 GET /dashboards/:id (show/stats)	spec/requests/dashboard_spec.rb	/^    describe "GET \/dashboards\/:id (show\/stats)" do$/;"	d	context:Dashboards type.when authenticated
@@ -328,6 +330,7 @@ change	db/migrate/20260414133639_remove_user_from_matches.rb	/^  def change$/;"	
 change	db/migrate/20260414144051_add_first_or_second_to_matches.rb	/^  def change$/;"	f	class:AddFirstOrSecondToMatches
 change	db/migrate/20260416002159_add_reason_for_defeat_to_matches.rb	/^  def change$/;"	f	class:AddReasonForDefeatToMatches
 change	db/migrate/20260416003022_add_number_of_mulligans_to_matches.rb	/^  def change$/;"	f	class:AddNumberOfMulligansToMatches
+change	db/migrate/20260817011929_add_game_mode_to_matches.rb	/^  def change$/;"	f	class:AddGameModeToMatches
 confirmation_period_expired	config/locales/devise.en.yml	/^      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new/;"	k	keyInMiddle:en.errors.messages
 confirmed	config/locales/devise.en.yml	/^      confirmed: "Your email address has been successfully confirmed."$/;"	k	keyInMiddle:en.devise.confirmations
 connect	app/javascript/controllers/hello_controller.js	/^  connect() {$/;"	m	class:AnonymousClass84762e030101
@@ -342,8 +345,10 @@ creates a match and redirects to the dashboard	spec/requests/matches_spec.rb	/^ 
 dashboard_params	app/controllers/dashboards_controller.rb	/^  def dashboard_params$/;"	f	class:DashboardsController
 default	config/database.yml	/^default: &default$/;"	a
 defaults first_or_second to uninformed	spec/models/match_spec.rb	/^    it "defaults first_or_second to uninformed" do$/;"	i	describe:Match type.enums
+defaults game_mode to in_person	spec/models/match_spec.rb	/^    it "defaults game_mode to in_person" do$/;"	i	describe:Match type.enums
 defaults reason_for_defeat to nil	spec/models/match_spec.rb	/^    it "defaults reason_for_defeat to nil" do$/;"	i	describe:Match type.enums
 defines first_or_second enum with uninformed, first, and second	spec/models/match_spec.rb	/^    it "defines first_or_second enum with uninformed, first, and second" do$/;"	i	describe:Match type.enums
+defines game_mode enum with in_person and tcg_live	spec/models/match_spec.rb	/^    it "defines game_mode enum with in_person and tcg_live" do$/;"	i	describe:Match type.enums
 defines opponent_deck enum with all expected decks	spec/models/match_spec.rb	/^    it "defines opponent_deck enum with all expected decks" do$/;"	i	describe:Match type.enums
 defines reason_for_defeat enum with all expected reasons	spec/models/match_spec.rb	/^    it "defines reason_for_defeat enum with all expected reasons" do$/;"	i	describe:Match type.enums
 defines result enum with win, loss, and tie	spec/models/match_spec.rb	/^    it "defines result enum with win, loss, and tie" do$/;"	i	describe:Match type.enums

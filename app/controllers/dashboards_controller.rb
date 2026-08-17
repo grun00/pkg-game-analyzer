@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_dashboard, only: %i[show edit update destroy]
+  before_action :set_dashboard, only: %i[show edit update destroy export]
 
   def index
     @dashboards = current_user.dashboards.order(created_at: :desc)
@@ -36,6 +36,13 @@ class DashboardsController < ApplicationController
   def destroy
     @dashboard.destroy
     redirect_to dashboards_path, notice: "Dashboard deleted."
+  end
+
+  def export
+    filename = "#{@dashboard.name.parameterize}-matches-#{Date.current.iso8601}.csv"
+    send_data @dashboard.matches.to_csv,
+              filename: filename,
+              type: "text/csv"
   end
 
   private

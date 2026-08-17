@@ -14,6 +14,12 @@ RSpec.describe "Dashboards", type: :request do
       get dashboards_path
       expect(response).to redirect_to(new_user_session_path)
     end
+
+    it "redirects GET /dashboards/:id/export to sign in" do
+      dashboard = create(:dashboard)
+      get export_dashboard_path(dashboard)
+      expect(response).to redirect_to(new_user_session_path)
+    end
   end
 
   context "when authenticated" do
@@ -141,6 +147,41 @@ RSpec.describe "Dashboards", type: :request do
       it "cannot delete another user's dashboard" do
         other_db = create(:dashboard, user: other)
         expect { delete dashboard_path(other_db) }.not_to change(Dashboard, :count)
+      end
+    end
+
+    describe "GET /dashboards/:id/export" do
+      let(:dashboard) { create(:dashboard, user: user) }
+
+      it "returns a CSV file" do
+        create(:match, :win, dashboard: dashboard, opponent_deck: :dragapult)
+        get export_dashboard_path(dashboard, format: :csv)
+        expect(response).to have_http_status(:ok)
+        expect(response.media_type).to eq("text/csv")
+        expect(response.headers["Content-Disposition"]).to include("attachment")
+      end
+
+      it "includes the header row and match data" do
+        create(:match, :win, dashboard: dashboard, opponent_deck: :dragapult, hand_quality: 4)
+        get export_dashboard_path(dashboard, format: :csv)
+        expect(response.body).to include("opponent_deck,result,game_mode")
+        expect(response.body).to include("Dragapult")
+        expect(response.body).to include("win")
+      end
+
+      it "only exports matches belonging to the dashboard" do
+        create(:match, dashboard: dashboard, opponent_deck: :dragapult)
+        other_db = create(:dashboard, user: other)
+        create(:match, dashboard: other_db, opponent_deck: :raging_bolt)
+        get export_dashboard_path(dashboard, format: :csv)
+        expect(response.body).to include("Dragapult")
+        expect(response.body).not_to include("Raging bolt")
+      end
+
+      it "redirects when exporting another user's dashboard" do
+        other_db = create(:dashboard, user: other)
+        get export_dashboard_path(other_db, format: :csv)
+        expect(response).to redirect_to(dashboards_path)
       end
     end
   end

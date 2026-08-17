@@ -8,6 +8,7 @@
   <div style="display:flex;gap:10px;">
     <%= link_to "ALL MATCHES", dashboard_matches_path(@dashboard), class: "btn btn-b btn-sm" %>
     <%= link_to "+ LOG MATCH", new_dashboard_match_path(@dashboard), class: "btn btn-g btn-sm" %>
+    <%= link_to "EXPORT CSV", export_dashboard_path(@dashboard, format: :csv), class: "btn btn-b btn-sm" %>
   </div>
 </div>
 

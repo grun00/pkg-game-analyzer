@@ -1,6 +1,13 @@
+require "csv"
+
 class Match < ApplicationRecord
   belongs_to :dashboard
   delegate :user, to: :dashboard
+
+  CSV_HEADERS = %w[
+    id opponent_deck result game_mode first_or_second reason_for_defeat
+    hand_quality number_of_mulligans description played_at created_at updated_at
+  ].freeze
 
   OPPONENT_DECKS = {
     dragapult:        0,
@@ -53,4 +60,28 @@ class Match < ApplicationRecord
   scope :losses, -> { where(result: "loss") }
   scope :ties,   -> { where(result: "tie") }
   scope :recent, -> { order(played_at: :desc) }
+
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << CSV_HEADERS
+      recent.each { |match| csv << match.to_csv_row }
+    end
+  end
+
+  def to_csv_row
+    [
+      id,
+      opponent_deck.to_s.humanize,
+      result,
+      game_mode.to_s.humanize,
+      first_or_second,
+      reason_for_defeat,
+      hand_quality,
+      number_of_mulligans,
+      description,
+      played_at&.iso8601,
+      created_at&.iso8601,
+      updated_at&.iso8601
+    ]
+  end
 end

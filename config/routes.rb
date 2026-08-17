@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root "dashboards#index"
 
   resources :dashboards do
+    member do
+      get :export
+    end
     resources :matches
   end
 

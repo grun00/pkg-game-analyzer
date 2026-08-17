@@ -232,11 +232,14 @@
 APP_NAME	bin/setup	/^APP_NAME = "pkm-game-analyzer"$/;"	C
 APP_PATH	bin/rails	/^APP_PATH = File.expand_path("..\/config\/application", __dir__)$/;"	C
 APP_ROOT	bin/setup	/^APP_ROOT = File.expand_path("..", __dir__)$/;"	C
+Accounts & Data Isolation	README.md	/^### Accounts & Data Isolation$/;"	S	section:PKM Game Analyzer""Key Features
 AddDashboardToMatches	db/migrate/20260414133633_add_dashboard_to_matches.rb	/^class AddDashboardToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddFirstOrSecondToMatches	db/migrate/20260414144051_add_first_or_second_to_matches.rb	/^class AddFirstOrSecondToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddGameModeToMatches	db/migrate/20260817011929_add_game_mode_to_matches.rb	/^class AddGameModeToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddNumberOfMulligansToMatches	db/migrate/20260416003022_add_number_of_mulligans_to_matches.rb	/^class AddNumberOfMulligansToMatches < ActiveRecord::Migration[7.2]$/;"	c
 AddReasonForDefeatToMatches	db/migrate/20260416002159_add_reason_for_defeat_to_matches.rb	/^class AddReasonForDefeatToMatches < ActiveRecord::Migration[7.2]$/;"	c
+Adding a new opponent deck archetype	README.md	/^### Adding a new opponent deck archetype$/;"	S	section:PKM Game Analyzer""Configuration
+Analytics Dashboard	README.md	/^### Analytics Dashboard$/;"	S	section:PKM Game Analyzer""Key Features
 AnonymousClass84762e030101	app/javascript/controllers/hello_controller.js	/^export default class extends Controller {$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	module:PkmGameAnalyzer
 ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
@@ -246,7 +249,9 @@ ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/
 ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
 ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
 ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+CSV_HEADERS	app/models/match.rb	/^  CSV_HEADERS = %w[$/;"	C	class:Match
 Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	module:ApplicationCable
+Configuration	README.md	/^## Configuration$/;"	s	chapter:PKM Game Analyzer
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	module:ApplicationCable
 CreateDashboards	db/migrate/20260414133626_create_dashboards.rb	/^class CreateDashboards < ActiveRecord::Migration[7.2]$/;"	c
 CreateMatches	db/migrate/20260414131926_create_matches.rb	/^class CreateMatches < ActiveRecord::Migration[7.2]$/;"	c
@@ -257,16 +262,22 @@ Dashboard	app/models/dashboard.rb	/^class Dashboard < ApplicationRecord$/;"	c
 Dashboard type	spec/models/dashboard_spec.rb	/^RSpec.describe Dashboard, type: :model do$/;"	d
 Dashboards type	spec/requests/dashboard_spec.rb	/^RSpec.describe "Dashboards", type: :request do$/;"	d
 DashboardsController	app/controllers/dashboards_controller.rb	/^class DashboardsController < ApplicationController$/;"	c
+Database configuration	README.md	/^### Database configuration$/;"	S	section:PKM Game Analyzer""Getting Started
 DeviseCreateUsers	db/migrate/20260414131857_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[7.2]$/;"	c
 GAME_MODES	app/models/match.rb	/^  GAME_MODES = { in_person: 0, tcg_live: 1 }.freeze$/;"	C	class:Match
 GET / (index)	spec/requests/dashboard_spec.rb	/^    describe "GET \/ (index)" do$/;"	d	context:Dashboards type.when authenticated
 GET /dashboards/:dashboard_id/matches/:id/edit	spec/requests/matches_spec.rb	/^    describe "GET \/dashboards\/:dashboard_id\/matches\/:id\/edit" do$/;"	d	context:Matches type.when authenticated
 GET /dashboards/:id (show/stats)	spec/requests/dashboard_spec.rb	/^    describe "GET \/dashboards\/:id (show\/stats)" do$/;"	d	context:Dashboards type.when authenticated
 GET /dashboards/:id/edit	spec/requests/dashboard_spec.rb	/^    describe "GET \/dashboards\/:id\/edit" do$/;"	d	context:Dashboards type.when authenticated
+GET /dashboards/:id/export	spec/requests/dashboard_spec.rb	/^    describe "GET \/dashboards\/:id\/export" do$/;"	d	context:Dashboards type.when authenticated
 GET /dashboards/:id/matches	spec/requests/matches_spec.rb	/^    describe "GET \/dashboards\/:id\/matches" do$/;"	d	context:Matches type.when authenticated
 GET /dashboards/:id/matches/new	spec/requests/matches_spec.rb	/^    describe "GET \/dashboards\/:id\/matches\/new" do$/;"	d	context:Matches type.when authenticated
 GET /dashboards/new	spec/requests/dashboard_spec.rb	/^    describe "GET \/dashboards\/new" do$/;"	d	context:Dashboards type.when authenticated
+Getting Started	README.md	/^## Getting Started$/;"	s	chapter:PKM Game Analyzer
+Key Features	README.md	/^## Key Features$/;"	s	chapter:PKM Game Analyzer
+Manual setup (alternative)	README.md	/^### Manual setup (alternative)$/;"	S	section:PKM Game Analyzer""Getting Started
 Match	app/models/match.rb	/^class Match < ApplicationRecord$/;"	c
+Match Logging	README.md	/^### Match Logging$/;"	S	section:PKM Game Analyzer""Key Features
 Match type	spec/models/match_spec.rb	/^RSpec.describe Match, type: :model do$/;"	d
 MatchStatsService	app/services/match_stats_service.rb	/^class MatchStatsService$/;"	c
 MatchStatsService	spec/services/match_stats_service_spec.rb	/^RSpec.describe MatchStatsService do$/;"	d
@@ -275,11 +286,18 @@ MatchesController	app/controllers/matches_controller.rb	/^class MatchesControlle
 OPPONENT_DECKS	app/models/match.rb	/^  OPPONENT_DECKS = {$/;"	C	class:Match
 PATCH /dashboards/:dashboard_id/matches/:id	spec/requests/matches_spec.rb	/^    describe "PATCH \/dashboards\/:dashboard_id\/matches\/:id" do$/;"	d	context:Matches type.when authenticated
 PATCH /dashboards/:id	spec/requests/dashboard_spec.rb	/^    describe "PATCH \/dashboards\/:id" do$/;"	d	context:Dashboards type.when authenticated
+PKM Game Analyzer	README.md	/^# PKM Game Analyzer$/;"	c
 POST /dashboards	spec/requests/dashboard_spec.rb	/^    describe "POST \/dashboards" do$/;"	d	context:Dashboards type.when authenticated
 POST /dashboards/:id/matches	spec/requests/matches_spec.rb	/^    describe "POST \/dashboards\/:id\/matches" do$/;"	d	context:Matches type.when authenticated
 PkmGameAnalyzer	config/application.rb	/^module PkmGameAnalyzer$/;"	m
-README	README.md	/^# README$/;"	c
+Prerequisites	README.md	/^### Prerequisites$/;"	S	section:PKM Game Analyzer""Getting Started
+Project Overview	README.md	/^## Project Overview$/;"	s	chapter:PKM Game Analyzer
 RemoveUserFromMatches	db/migrate/20260414133639_remove_user_from_matches.rb	/^class RemoveUserFromMatches < ActiveRecord::Migration[7.2]$/;"	c
+Running the server	README.md	/^### Running the server$/;"	S	section:PKM Game Analyzer""Getting Started
+Setup	README.md	/^### Setup$/;"	S	section:PKM Game Analyzer""Getting Started
+Static analysis (optional)	README.md	/^### Static analysis (optional)$/;"	S	section:PKM Game Analyzer""Testing
+Technical Stack	README.md	/^## Technical Stack$/;"	s	chapter:PKM Game Analyzer
+Testing	README.md	/^## Testing$/;"	s	chapter:PKM Game Analyzer
 The change you wanted was rejected (422)	public/422.html	/^  <title>The change you wanted was rejected (422)<\/title>$/;"	j
 The change you wanted was rejected.	public/422.html	/^      <h1>The change you wanted was rejected.<\/h1>$/;"	h
 The page you were looking for doesn't exist (404)	public/404.html	/^  <title>The page you were looking for doesn't exist (404)<\/title>$/;"	j
@@ -459,6 +477,7 @@ errors.messages.not_saved.other	config/locales/devise.en.yml	/^        other: "%
 excludes decks with no matches from by_deck	spec/services/match_stats_service_spec.rb	/^    it "excludes decks with no matches from by_deck" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 excludes ties from win rate	spec/services/match_stats_service_spec.rb	/^    it "excludes ties from win rate" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 expired	config/locales/devise.en.yml	/^      expired: "has expired, please request a new one"$/;"	k	keyInMiddle:en.errors.messages
+export	app/controllers/dashboards_controller.rb	/^  def export$/;"	f	class:DashboardsController
 factory	spec/models/dashboard_spec.rb	/^  describe "factory" do$/;"	d	describe:Dashboard type
 factory	spec/models/match_spec.rb	/^  describe "factory" do$/;"	d	describe:Match type
 failure	config/locales/devise.en.yml	/^      failure: "Could not authenticate you from %{kind} because \\"%{reason}\\"."$/;"	k	keyInMiddle:en.devise.omniauth_callbacks
@@ -468,6 +487,7 @@ h2	app/assets/stylesheets/theme.css	/^h2{font-family:'VT323',monospace;font-size
 hello	config/locales/en.yml	/^  hello: "Hello world"$/;"	k	locale:en
 inactive	config/locales/devise.en.yml	/^      inactive: "Your account is not activated yet."$/;"	k	keyInMiddle:en.devise.failure
 includes first/second breakdown per deck with nil win_rate when no data	spec/services/match_stats_service_spec.rb	/^    it "includes first\/second breakdown per deck with nil win_rate when no data" do$/;"	i	context:MatchStatsService.when the dashboard has matches
+includes the header row and match data	spec/requests/dashboard_spec.rb	/^      it "includes the header row and match data" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/export
 index	app/controllers/dashboards_controller.rb	/^  def index$/;"	f	class:DashboardsController
 index	app/controllers/matches_controller.rb	/^  def index$/;"	f	class:MatchesController
 initialize	app/services/match_stats_service.rb	/^  def initialize(matches)$/;"	f	class:MatchStatsService
@@ -493,6 +513,7 @@ not_found_in_database	config/locales/devise.en.yml	/^      not_found_in_database
 not_locked	config/locales/devise.en.yml	/^      not_locked: "was not locked"$/;"	k	keyInMiddle:en.errors.messages
 ns8255f2ba0101	public/icon.svg	/^<svg width="100" height="100" xmlns="http:\/\/www.w3.org\/2000\/svg">$/;"	n	uri:http://www.w3.org/2000/svg
 one	config/locales/devise.en.yml	/^        one: "1 error prohibited this %{resource} from being saved:"$/;"	k	keyInMiddle:en.errors.messages.not_saved
+only exports matches belonging to the dashboard	spec/requests/dashboard_spec.rb	/^      it "only exports matches belonging to the dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/export
 only shows matches belonging to the dashboard	spec/requests/matches_spec.rb	/^      it "only shows matches belonging to the dashboard" do$/;"	i	describe:Matches type.when authenticated.GET /dashboards/:id/matches
 option	app/assets/stylesheets/theme.css	/^option{background:var(--bg-card)}$/;"	s
 other	config/locales/devise.en.yml	/^        other: "%{count} errors prohibited this %{resource} from being saved:"$/;"	k	keyInMiddle:en.errors.messages.not_saved
@@ -506,6 +527,7 @@ re-renders new with unprocessable_content when name is blank	spec/requests/dashb
 recent_matches	app/services/match_stats_service.rb	/^  def recent_matches$/;"	f	class:MatchStatsService
 redirects GET / to sign in	spec/requests/dashboard_spec.rb	/^    it "redirects GET \/ to sign in" do$/;"	i	context:Dashboards type.when not authenticated
 redirects GET /dashboards to sign in	spec/requests/dashboard_spec.rb	/^    it "redirects GET \/dashboards to sign in" do$/;"	i	context:Dashboards type.when not authenticated
+redirects GET /dashboards/:id/export to sign in	spec/requests/dashboard_spec.rb	/^    it "redirects GET \/dashboards\/:id\/export to sign in" do$/;"	i	context:Dashboards type.when not authenticated
 redirects GET /dashboards/:id/matches to sign in	spec/requests/matches_spec.rb	/^    it "redirects GET \/dashboards\/:id\/matches to sign in" do$/;"	i	context:Matches type.when not authenticated
 redirects GET /dashboards/:id/matches/new to sign in	spec/requests/matches_spec.rb	/^    it "redirects GET \/dashboards\/:id\/matches\/new to sign in" do$/;"	i	context:Matches type.when not authenticated
 redirects POST /dashboards/:id/matches to sign in	spec/requests/matches_spec.rb	/^    it "redirects POST \/dashboards\/:id\/matches to sign in" do$/;"	i	context:Matches type.when not authenticated
@@ -513,10 +535,12 @@ redirects when accessing a match from another user's dashboard	spec/requests/mat
 redirects when accessing another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id (show/stats)
 redirects when accessing another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/edit
 redirects when accessing another user's dashboard	spec/requests/matches_spec.rb	/^      it "redirects when accessing another user's dashboard" do$/;"	i	describe:Matches type.when authenticated.GET /dashboards/:id/matches
+redirects when exporting another user's dashboard	spec/requests/dashboard_spec.rb	/^      it "redirects when exporting another user's dashboard" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/export
 rejects negative number_of_mulligans	spec/models/match_spec.rb	/^    it "rejects negative number_of_mulligans" do$/;"	i	describe:Match type.validations
 rejects non-integer number_of_mulligans	spec/models/match_spec.rb	/^    it "rejects non-integer number_of_mulligans" do$/;"	i	describe:Match type.validations
 returns 0.0 average hand quality	spec/services/match_stats_service_spec.rb	/^    it "returns 0.0 average hand quality" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
 returns 0.0 win rate	spec/services/match_stats_service_spec.rb	/^    it "returns 0.0 win rate" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
+returns a CSV file	spec/requests/dashboard_spec.rb	/^      it "returns a CSV file" do$/;"	i	describe:Dashboards type.when authenticated.GET /dashboards/:id/export
 returns at most 5 recent matches ordered by played_at desc	spec/services/match_stats_service_spec.rb	/^    it "returns at most 5 recent matches ordered by played_at desc" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 returns by_defeat_reason with counts for all reasons and unspecified	spec/services/match_stats_service_spec.rb	/^    it "returns by_defeat_reason with counts for all reasons and unspecified" do$/;"	i	context:MatchStatsService.when the dashboard has matches
 returns by_first_or_second with first and second entries, all zeroed	spec/services/match_stats_service_spec.rb	/^    it "returns by_first_or_second with first and second entries, all zeroed" do$/;"	i	context:MatchStatsService.when the dashboard has no matches
@@ -564,6 +588,8 @@ success	config/locales/devise.en.yml	/^      success: "Successfully authenticate
 system!	bin/setup	/^def system!(*args)$/;"	f
 ties	app/services/match_stats_service.rb	/^  def ties$/;"	f	class:MatchStatsService
 timeout	config/locales/devise.en.yml	/^      timeout: "Your session expired. Please sign in again to continue."$/;"	k	keyInMiddle:en.devise.failure
+to_csv	app/models/match.rb	/^  def self.to_csv$/;"	S	class:Match
+to_csv_row	app/models/match.rb	/^  def to_csv_row$/;"	f	class:Match
 total	app/services/match_stats_service.rb	/^  def total$/;"	f	class:MatchStatsService
 unauthenticated	config/locales/devise.en.yml	/^      unauthenticated: "You need to sign in or sign up before continuing."$/;"	k	keyInMiddle:en.devise.failure
 unconfirmed	config/locales/devise.en.yml	/^      unconfirmed: "You have to confirm your email address before continuing."$/;"	k	keyInMiddle:en.devise.failure

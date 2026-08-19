@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    path: "api/v1",
+    defaults: { format: :json },
+    path_names: { sign_in: "login", sign_out: "logout", registration: "signup" },
+    controllers: {
+      sessions: "api/v1/sessions",
+      registrations: "api/v1/registrations"
+    }
 
-  root "dashboards#index"
-
-  resources :dashboards do
-    member do
-      get :export
+  namespace :api do
+    namespace :v1 do
+      get "meta", to: "meta#index"                # enum options
+      resources :dashboards, only: %i[index show create update destroy] do
+        member do
+          get :export
+          get :stats
+        end
+        resources :matches, only: %i[index show create update destroy]
+      end
     end
-    resources :matches
   end
 
   get "up" => "rails/health#show", as: :rails_health_check
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 end

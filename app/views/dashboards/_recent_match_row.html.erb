@@ -1,7 +1,0 @@
-<div class="match-row <%= match_result_row_class(match) %>">
-  <span class="match-ind <%= match_result_color_class(match) %>"><%= match_result_label(match) %></span>
-  <span class="match-deck"><%= match.opponent_deck.to_s.humanize %></span>
-  <span class="match-hand"><%= "★" * match.hand_quality %><%= "☆" * (5 - match.hand_quality) %></span>
-  <span class="match-date"><%= match.played_at.strftime("%b %d, %Y") %></span>
-  <%= link_to "EDIT", edit_dashboard_match_path(dashboard, match), class: "btn-ghost btn-sm c-dim" %>
-</div>

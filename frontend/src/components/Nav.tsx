@@ -44,6 +44,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <Link to="/dashboards" className="nav-brand glitch">
+        <img src="/logo.png" alt="" className="nav-brand-logo" aria-hidden="true" />
         {t("brand")}
       </Link>
       <div className="nav-links">

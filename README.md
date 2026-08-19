@@ -1,10 +1,10 @@
-# PKM Game Analyzer
+# WhiplashGameStats
 
-> A terminal-themed **TRAINER_OS** for tracking and analyzing your Pokémon TCG matches.
+> A terminal-themed app for tracking and analyzing your Pokémon TCG matches.
 
-PKM Game Analyzer is a Ruby on Rails 7.2 application that lets competitive Pokémon
+WhiplashGameStats is a Ruby on Rails 7.2 application that lets competitive Pokémon
 Trading Card Game players log their games and turn raw match history into actionable
-insights. Every screen is styled as **TRAINER_OS**, a retro CRT/terminal interface
+insights. Every screen is styled as a retro CRT/terminal interface
 (monospace `VT323` typography, phosphor-green accents, and bracketed `[ ACTIONS ]`)
 that makes reviewing your play feel like operating a handheld battle computer.
 
@@ -14,14 +14,14 @@ that makes reviewing your play feel like operating a handheld battle computer.
 
 Serious TCG improvement depends on honest record keeping: *which decks are beating you,
 how good your opening hands actually are, and whether you perform better going first or
-second.* PKM Game Analyzer centralizes all of that.
+second.* WhiplashGameStats centralizes all of that.
 
 Players organize their games into **dashboards** (for example, one per format,
 tournament, or deck they are piloting). Each dashboard aggregates its **matches** into a
 live analytics view, so the moment a game is logged the win rates, matchup spreads, and
 turn-order splits update automatically.
 
-The **TRAINER_OS** interface presents this data as a competitive command console —
+The **WhiplashGameStats** interface presents this data as a competitive command console —
 summary stat cards, a per-deck results table with inline win-rate bars, and a scrolling
 match log — keeping the focus on the numbers that drive better deckbuilding and play.
 

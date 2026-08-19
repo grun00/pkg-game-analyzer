@@ -49,7 +49,6 @@ i18n
     resources,
     fallbackLng: DEFAULT_LNG,
     supportedLngs: SUPPORTED_LNGS as unknown as string[],
-    nonExplicitSupportedLngs: true,
     ns: ["common", "auth", "dashboards", "matches", "enums"],
     defaultNS: "common",
     detection: {

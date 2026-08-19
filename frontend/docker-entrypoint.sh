@@ -13,6 +13,14 @@ if [ -z "${RESOLVER:-}" ]; then
   : "${RESOLVER:=127.0.0.11}"
 fi
 
+# nginx requires IPv6 resolver addresses to be wrapped in [] (otherwise the
+# trailing ::N is parsed as a port). Railway's DNS is IPv6 (e.g. fd12::10).
+# Strip any existing brackets first, then re-wrap if the address is IPv6.
+RESOLVER="$(printf '%s' "$RESOLVER" | tr -d '[]')"
+case "$RESOLVER" in
+  *:*) RESOLVER="[$RESOLVER]" ;;
+esac
+
 export BACKEND_URL PORT RESOLVER
 
 template="/etc/nginx/templates/default.conf.template"

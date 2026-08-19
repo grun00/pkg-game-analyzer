@@ -33,3 +33,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Local planning docs (not committed)
+/roadmap.md
+/tags

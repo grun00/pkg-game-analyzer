@@ -2,10 +2,19 @@
   "brand": "WhiplashGameStats",
   "nav": {
     "dashboards": "Dashboards",
+    "creatorDashboard": "Creator Dashboard",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "signOut": "Sign out",
     "signedOut": "Signed out"
+  },
+  "roles": {
+    "regular": "Regular",
+    "contentCreator": "Content creator"
+  },
+  "creator": {
+    "title": "Creator Dashboard",
+    "comingSoon": "// creator tools coming soon"
   },
   "lang": {
     "label": "Language",

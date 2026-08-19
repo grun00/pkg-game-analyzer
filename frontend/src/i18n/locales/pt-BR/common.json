@@ -2,10 +2,19 @@
   "brand": "WhiplashGameStats",
   "nav": {
     "dashboards": "Painéis",
+    "creatorDashboard": "Painel do criador",
     "signIn": "Entrar",
     "signUp": "Cadastrar",
     "signOut": "Sair",
     "signedOut": "Sessão encerrada"
+  },
+  "roles": {
+    "regular": "Comum",
+    "contentCreator": "Criador de conteúdo"
+  },
+  "creator": {
+    "title": "Painel do criador",
+    "comingSoon": "// ferramentas do criador em breve"
   },
   "lang": {
     "label": "Idioma",

@@ -17,6 +17,7 @@ RSpec.describe "Api::V1::Sessions", type: :request do
       expect(response.headers["Authorization"]).to match(/\ABearer .+/)
       expect(json.dig("user", "id")).to eq(user.id)
       expect(json.dig("user", "email")).to eq(user.email)
+      expect(json.dig("user", "role")).to eq("regular")
     end
 
     it "rejects invalid credentials" do

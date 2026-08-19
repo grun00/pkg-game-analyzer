@@ -1,6 +1,9 @@
+export type Role = "regular" | "content_creator";
+
 export interface User {
   id: number;
   email: string;
+  role: Role;
 }
 
 export interface Dashboard {

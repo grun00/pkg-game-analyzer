@@ -1,6 +1,8 @@
 module Api
   module V1
     class SessionsController < Devise::SessionsController
+      include UserSerialization
+
       skip_before_action :verify_authenticity_token
       respond_to :json
 
@@ -12,10 +14,6 @@ module Api
 
       def respond_to_on_destroy(*)
         head :no_content
-      end
-
-      def user_json(u)
-        { id: u.id, email: u.email }
       end
     end
   end

@@ -12,6 +12,20 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:password) }
   end
 
+  describe "enums" do
+    it "defines role enum with regular and content_creator" do
+      expect(User.roles.keys).to match_array(%w[regular content_creator])
+    end
+
+    it "defaults new users to regular" do
+      expect(create(:user).role).to eq("regular")
+    end
+
+    it "supports the content_creator trait" do
+      expect(create(:user, :content_creator).role_content_creator?).to be(true)
+    end
+  end
+
   describe "destroying a user" do
     it "also destroys associated dashboards and their matches" do
       user      = create(:user)

@@ -12,6 +12,13 @@ module JwtHelpers
   def auth_headers(user)
     { "Authorization" => jwt_token_for(user) }
   end
+
+  # Encodes a JWT directly (without hitting the login route) so it works even in
+  # specs that redraw the application's routes.
+  def encoded_auth_headers(user)
+    token, = Warden::JWTAuth::UserEncoder.new.call(user, :user, nil)
+    { "Authorization" => "Bearer #{token}" }
+  end
 end
 
 RSpec.configure do |config|

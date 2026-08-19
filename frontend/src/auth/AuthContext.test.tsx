@@ -30,7 +30,7 @@ describe("AuthContext", () => {
   it("stores the JWT from the Authorization header on login", async () => {
     post.mockResolvedValueOnce({
       headers: { authorization: "Bearer abc.def.ghi" },
-      data: { user: { id: 1, email: "trainer@pkm.test" } },
+      data: { user: { id: 1, email: "trainer@pkm.test", role: "regular" } },
     });
 
     const { result } = renderHook(() => useAuth(), { wrapper });
@@ -43,13 +43,17 @@ describe("AuthContext", () => {
       user: { email: "trainer@pkm.test", password: "password123" },
     });
     expect(localStorage.getItem("jwt")).toBe("abc.def.ghi");
-    expect(result.current.user).toEqual({ id: 1, email: "trainer@pkm.test" });
+    expect(result.current.user).toEqual({
+      id: 1,
+      email: "trainer@pkm.test",
+      role: "regular",
+    });
   });
 
   it("sends password_confirmation on register", async () => {
     post.mockResolvedValueOnce({
       headers: { authorization: "Bearer tok" },
-      data: { user: { id: 2, email: "new@pkm.test" } },
+      data: { user: { id: 2, email: "new@pkm.test", role: "regular" } },
     });
 
     const { result } = renderHook(() => useAuth(), { wrapper });

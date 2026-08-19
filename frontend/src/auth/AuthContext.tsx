@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from "react";
 import client from "../api/client";
-import type { User } from "../types";
+import type { Role, User } from "../types";
 
 interface AuthState {
   user: User | null;
@@ -99,4 +99,10 @@ export function useAuth(): AuthState {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return ctx;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useRole(): { role: Role | null; isCreator: boolean } {
+  const { user } = useAuth();
+  return { role: user?.role ?? null, isCreator: user?.role === "content_creator" };
 }

@@ -1,6 +1,8 @@
 pt-BR:
   errors:
     not_found: "Não encontrado"
+    forbidden: "Você não tem permissão para realizar esta ação"
+    invalid_role: "Função inválida"
   activerecord:
     models:
       match: "Partida"
@@ -64,6 +66,9 @@ pt-BR:
       major_misplay: "Erro grave"
       disconnected: "Desconectado"
       unlucky: "Azar"
+    role:
+      regular: "Comum"
+      content_creator: "Criador de conteúdo"
   match:
     csv_headers:
       id: "id"

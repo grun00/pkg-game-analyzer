@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useAuth } from "../auth/AuthContext";
+import { useAuth, useRole } from "../auth/AuthContext";
 import { useFlash } from "./Flash";
 import { SUPPORTED_LNGS } from "../i18n";
 
@@ -32,6 +32,7 @@ function LangSwitcher() {
 export default function Nav() {
   const { t } = useTranslation("common");
   const { user, logout } = useAuth();
+  const { isCreator } = useRole();
   const navigate = useNavigate();
   const { notify } = useFlash();
 
@@ -54,6 +55,11 @@ export default function Nav() {
             <Link to="/dashboards" className="nav-link">
               {t("nav.dashboards")}
             </Link>
+            {isCreator && (
+              <Link to="/creator" className="nav-link">
+                {t("nav.creatorDashboard")}
+              </Link>
+            )}
             <span className="nav-user">{user.email}</span>
             <button
               type="button"

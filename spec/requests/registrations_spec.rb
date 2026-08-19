@@ -19,6 +19,7 @@ RSpec.describe "Api::V1::Registrations", type: :request do
 
       expect(response).to have_http_status(:created)
       expect(json.dig("user", "email")).to eq("new-trainer@pokemon.test")
+      expect(json.dig("user", "role")).to eq("regular")
     end
 
     it "returns errors when password confirmation does not match" do

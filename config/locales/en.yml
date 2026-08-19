@@ -30,6 +30,8 @@
 en:
   errors:
     not_found: "Not found"
+    forbidden: "You are not allowed to perform this action"
+    invalid_role: "Invalid role"
   activerecord:
     models:
       match: "Match"
@@ -93,6 +95,9 @@ en:
       major_misplay: "Major misplay"
       disconnected: "Disconnected"
       unlucky: "Unlucky"
+    role:
+      regular: "Regular"
+      content_creator: "Content creator"
   match:
     csv_headers:
       id: "id"

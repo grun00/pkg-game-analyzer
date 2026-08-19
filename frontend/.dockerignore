@@ -1,0 +1,24 @@
+# Keep the build context small and reproducible (npm ci rebuilds from lockfile).
+node_modules
+dist
+dist-ssr
+
+# Logs and local env.
+*.log
+npm-debug.log*
+*.local
+.env*
+
+# Editor / OS cruft.
+.vscode
+.idea
+.DS_Store
+
+# Docker files themselves.
+Dockerfile
+.dockerignore
+
+# Tests aren't needed in the production image build.
+**/*.test.ts
+**/*.test.tsx
+src/test

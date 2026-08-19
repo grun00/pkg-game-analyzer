@@ -1,6 +1,16 @@
-# Railway configuration for pkm_game_analyzer
-# Builds from the existing production Dockerfile. The Dockerfile's ENTRYPOINT runs
-# `bin/rails db:prepare` (migrations) before booting Puma, which binds to 0.0.0.0:$PORT.
+# Railway configuration for the pkm_game_analyzer BACKEND (Rails API) service.
+#
+# Two-service deploy from this one repo:
+#   - backend  service: Root Directory = repo root, Config Path = railway.toml (this file)
+#   - frontend service: Root Directory = frontend,  Config Path = frontend/railway.toml
+#
+# The Dockerfile's ENTRYPOINT runs `bin/rails db:prepare` (migrations) before
+# booting Puma, which binds to 0.0.0.0:$PORT.
+#
+# Recommended backend env vars (set in the Railway service, never commit secrets):
+#   RAILS_MASTER_KEY, DATABASE_URL (from the Postgres plugin),
+#   RAILS_ASSUME_SSL=1, RAILS_FORCE_SSL=1, RAILS_ALLOWED_HOSTS=<backend-domain>
+# CORS is NOT needed because the frontend nginx proxies /api same-origin.
 
 [build]
 builder = "DOCKERFILE"

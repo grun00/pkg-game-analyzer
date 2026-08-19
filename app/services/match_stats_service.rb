@@ -58,7 +58,7 @@ class MatchStatsService
 
       {
         deck: deck,
-        label: deck.to_s.humanize,
+        label: I18n.t("enums.opponent_deck.#{deck}"),
         total: deck_total,
         wins: deck_wins,
         losses: deck_losses,
@@ -129,7 +129,8 @@ class MatchStatsService
   def by_defeat_reason
     losses_scope = @matches.losses
     reasons = Match::DEFEAT_REASONS.keys.map do |reason|
-      { reason: reason, label: reason.to_s.humanize, count: losses_scope.where(reason_for_defeat: reason).count }
+      { reason: reason, label: I18n.t("enums.reason_for_defeat.#{reason}"),
+        count: losses_scope.where(reason_for_defeat: reason).count }
     end
     unspecified = losses_scope.where(reason_for_defeat: nil).count
     { reasons: reasons, unspecified: unspecified }

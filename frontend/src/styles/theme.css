@@ -21,6 +21,11 @@ input[type="datetime-local"].form-ctrl{color-scheme:light}
 .nav-btn-g{border-color:var(--green);color:var(--green)}.nav-btn-g:hover{background:var(--green);color:#000}
 .nav-btn-r{border-color:var(--red);color:var(--red)}.nav-btn-r:hover{background:var(--red);color:#000}
 .nav-btn-b{border-color:var(--blue);color:var(--blue)}.nav-btn-b:hover{background:var(--blue);color:#000}
+.nav-lang{display:inline-flex;border:1px solid var(--gdim)}
+.nav-lang-btn{background:transparent;border:0;font-family:inherit;font-size:.72rem;letter-spacing:1px;color:var(--gdim);padding:3px 8px;cursor:pointer}
+.nav-lang-btn+.nav-lang-btn{border-left:1px solid var(--gdim)}
+.nav-lang-btn:hover{color:var(--green)}
+.nav-lang-btn.is-active{background:var(--green);color:#000}
 .flash{padding:8px 24px;font-size:.8rem;border-left:3px solid}
 .flash-ok{border-color:var(--green);background:rgba(255,0,232,.04);color:var(--green)}.flash-ok::before{content:'[OK]  '}
 .flash-err{border-color:var(--red);background:rgba(255,0,64,.04);color:var(--red)}.flash-err::before{content:'[ERR] '}

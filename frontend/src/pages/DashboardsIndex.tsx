@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
 import { useDashboards } from "../hooks/queries";
@@ -7,6 +8,8 @@ import { apiErrorMessage } from "../lib/errors";
 import type { DashboardSummary } from "../types";
 
 export default function DashboardsIndex() {
+  const { t } = useTranslation("dashboards");
+  const { t: tc } = useTranslation("common");
   const { data, isLoading, isError, error } = useDashboards();
   const queryClient = useQueryClient();
   const { notify } = useFlash();
@@ -15,13 +18,13 @@ export default function DashboardsIndex() {
     mutationFn: (id: number) => client.delete(`/dashboards/${id}`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["dashboards"] });
-      notify("ok", "Dashboard deleted");
+      notify("ok", t("index.deleted"));
     },
     onError: (err) => notify("err", apiErrorMessage(err)),
   });
 
   function handleDelete(d: DashboardSummary) {
-    if (window.confirm(`Delete dashboard "${d.name}"? This cannot be undone.`)) {
+    if (window.confirm(t("index.confirmDelete", { name: d.name }))) {
       destroy.mutate(d.id);
     }
   }
@@ -29,7 +32,7 @@ export default function DashboardsIndex() {
   if (isLoading)
     return (
       <div className="empty">
-        <p>Loading dashboards…</p>
+        <p>{t("index.loading")}</p>
       </div>
     );
   if (isError)
@@ -44,15 +47,15 @@ export default function DashboardsIndex() {
   return (
     <>
       <div className="page-hd">
-        <h1 className="page-title">Dashboards</h1>
+        <h1 className="page-title">{t("index.title")}</h1>
         <Link to="/dashboards/new" className="btn btn-g">
-          + New Dashboard
+          {t("index.new")}
         </Link>
       </div>
 
       {dashboards.length === 0 ? (
         <div className="empty">
-          <p>No dashboards yet — create one to start tracking</p>
+          <p>{t("index.empty")}</p>
         </div>
       ) : (
         <div className="db-grid">
@@ -65,30 +68,32 @@ export default function DashboardsIndex() {
                     to={`/dashboards/${d.id}/edit`}
                     className="btn-ghost c-blue"
                   >
-                    Edit
+                    {tc("actions.edit")}
                   </Link>
                   <button
                     type="button"
                     className="btn-ghost c-red"
                     onClick={() => handleDelete(d)}
                   >
-                    Delete
+                    {tc("actions.delete")}
                   </button>
                 </div>
               </div>
               <div className="db-card-stats">
                 <span>
-                  <span className="c-dim">TOTAL</span> {d.matches_count}
+                  <span className="c-dim">{t("index.total")}</span>{" "}
+                  {d.matches_count}
                 </span>
                 <span>
-                  <span className="c-green">W</span> {d.wins_count}
+                  <span className="c-green">{t("index.wins")}</span>{" "}
+                  {d.wins_count}
                 </span>
                 <span>
-                  <span className="c-gold">RATE</span> {d.win_rate}%
+                  <span className="c-gold">{t("index.rate")}</span> {d.win_rate}%
                 </span>
               </div>
               <Link to={`/dashboards/${d.id}`} className="db-card-link">
-                Access
+                {t("index.access")}
               </Link>
             </div>
           ))}

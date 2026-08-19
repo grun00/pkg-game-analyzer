@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useDashboard, useStats } from "../hooks/queries";
 import StatCard from "../components/StatCard";
 import DeckTable from "../components/DeckTable";
@@ -11,6 +12,8 @@ import { stars } from "../lib/labels";
 import { apiErrorMessage } from "../lib/errors";
 
 export default function DashboardShow() {
+  const { t } = useTranslation("dashboards");
+  const { t: tc } = useTranslation("common");
   const { id } = useParams();
   const db = useDashboard(id);
   const stats = useStats(id);
@@ -18,7 +21,7 @@ export default function DashboardShow() {
   if (db.isLoading || stats.isLoading)
     return (
       <div className="empty">
-        <p>Loading…</p>
+        <p>{tc("state.loading")}</p>
       </div>
     );
   if (db.isError || stats.isError || !db.data || !stats.data)
@@ -36,7 +39,8 @@ export default function DashboardShow() {
       <div className="page-hd">
         <div>
           <div className="breadcrumb">
-            <Link to="/dashboards">Dashboards</Link> / {dashboard.name}
+            <Link to="/dashboards">{tc("nav.dashboards")}</Link> /{" "}
+            {dashboard.name}
           </div>
           <h1 className="page-title">{dashboard.name}</h1>
           <div className="page-sub">
@@ -44,13 +48,13 @@ export default function DashboardShow() {
               className="btn btn-b btn-sm"
               to={`/dashboards/${id}/matches`}
             >
-              All Matches
+              {t("show.allMatches")}
             </Link>{" "}
             <Link
               className="btn btn-g btn-sm"
               to={`/dashboards/${id}/matches/new`}
             >
-              + Log Match
+              {t("show.logMatch")}
             </Link>{" "}
             <ExportButton dashboardId={id!} name={dashboard.name} />
           </div>
@@ -59,35 +63,39 @@ export default function DashboardShow() {
 
       {s.total === 0 ? (
         <div className="empty">
-          <p>No matches recorded yet</p>
+          <p>{t("show.emptyMatches")}</p>
         </div>
       ) : (
         <>
           <div className="stat-grid">
-            <StatCard label="Total" value={s.total} />
-            <StatCard label="Wins" value={s.wins} cls="c-green" />
-            <StatCard label="Losses" value={s.losses} cls="c-red" />
-            <StatCard label="Ties" value={s.ties} cls="c-blue" />
-            <StatCard label="Win Rate" value={`${s.win_rate}%`} cls="c-gold" />
+            <StatCard label={t("show.statTotal")} value={s.total} />
+            <StatCard label={t("show.statWins")} value={s.wins} cls="c-green" />
+            <StatCard label={t("show.statLosses")} value={s.losses} cls="c-red" />
+            <StatCard label={t("show.statTies")} value={s.ties} cls="c-blue" />
             <StatCard
-              label="Avg Hand"
+              label={t("show.statWinRate")}
+              value={`${s.win_rate}%`}
+              cls="c-gold"
+            />
+            <StatCard
+              label={t("show.statAvgHand")}
               value={stars(Math.round(s.average_hand_quality))}
             />
           </div>
 
-          <h2 className="sec-lbl">Results by Opponent Deck</h2>
+          <h2 className="sec-lbl">{t("show.secByDeck")}</h2>
           <DeckTable rows={s.by_deck} />
 
-          <h2 className="sec-lbl">Win Rate by Hand Quality</h2>
+          <h2 className="sec-lbl">{t("show.secByHandQuality")}</h2>
           <HandQualityCards rows={s.by_hand_quality} />
 
-          <h2 className="sec-lbl">Going First vs Second</h2>
+          <h2 className="sec-lbl">{t("show.secFirstVsSecond")}</h2>
           <SideCards rows={s.by_first_or_second} />
 
-          <h2 className="sec-lbl">Reasons for Defeat</h2>
+          <h2 className="sec-lbl">{t("show.secReasonsForDefeat")}</h2>
           <DefeatReasonCards data={s.by_defeat_reason} />
 
-          <h2 className="sec-lbl">Recent Battles</h2>
+          <h2 className="sec-lbl">{t("show.secRecentBattles")}</h2>
           <div className="match-log">
             {s.recent_matches.map((m) => (
               <MatchRow key={m.id} m={m} dashboardId={id!} showActions />

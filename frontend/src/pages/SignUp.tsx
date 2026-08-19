@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
 import { apiErrors } from "../lib/errors";
 
 export default function SignUp() {
+  const { t } = useTranslation("auth");
   const { register } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -29,9 +31,9 @@ export default function SignUp() {
   return (
     <div className="auth-wrap">
       <div className="auth-box">
-        <div className="auth-bar">// NEW TRAINER REGISTRATION</div>
+        <div className="auth-bar">{t("signUp.bar")}</div>
         <form className="auth-body" onSubmit={handleSubmit}>
-          <h1 className="auth-title">Sign Up</h1>
+          <h1 className="auth-title">{t("signUp.title")}</h1>
           {errors.length > 0 && (
             <div className="devise-errors">
               <ul>
@@ -43,7 +45,7 @@ export default function SignUp() {
           )}
           <div className="form-grp">
             <label className="form-lbl" htmlFor="email">
-              Trainer ID
+              {t("signUp.trainerId")}
             </label>
             <input
               id="email"
@@ -57,7 +59,7 @@ export default function SignUp() {
           </div>
           <div className="form-grp">
             <label className="form-lbl" htmlFor="password">
-              Access Code
+              {t("signUp.accessCode")}
             </label>
             <input
               id="password"
@@ -71,7 +73,7 @@ export default function SignUp() {
           </div>
           <div className="form-grp">
             <label className="form-lbl" htmlFor="confirmation">
-              Confirm Access Code
+              {t("signUp.confirmAccessCode")}
             </label>
             <input
               id="confirmation"
@@ -84,10 +86,10 @@ export default function SignUp() {
             />
           </div>
           <button type="submit" className="form-submit" disabled={submitting}>
-            {submitting ? "Registering…" : "[ Register ]"}
+            {submitting ? t("signUp.submitting") : t("signUp.submit")}
           </button>
           <div className="auth-links">
-            <Link to="/login">Existing trainer? Sign in</Link>
+            <Link to="/login">{t("signUp.toSignIn")}</Link>
           </div>
         </form>
       </div>

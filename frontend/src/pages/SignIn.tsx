@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
 import { apiErrors } from "../lib/errors";
 
 export default function SignIn() {
+  const { t } = useTranslation("auth");
   const { login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -29,9 +31,9 @@ export default function SignIn() {
   return (
     <div className="auth-wrap">
       <div className="auth-box">
-        <div className="auth-bar">// SECURE ACCESS TERMINAL</div>
+        <div className="auth-bar">{t("signIn.bar")}</div>
         <form className="auth-body" onSubmit={handleSubmit}>
-          <h1 className="auth-title">Sign In</h1>
+          <h1 className="auth-title">{t("signIn.title")}</h1>
           {errors.length > 0 && (
             <div className="devise-errors">
               <ul>
@@ -43,7 +45,7 @@ export default function SignIn() {
           )}
           <div className="form-grp">
             <label className="form-lbl" htmlFor="email">
-              Trainer ID
+              {t("signIn.trainerId")}
             </label>
             <input
               id="email"
@@ -57,7 +59,7 @@ export default function SignIn() {
           </div>
           <div className="form-grp">
             <label className="form-lbl" htmlFor="password">
-              Access Code
+              {t("signIn.accessCode")}
             </label>
             <input
               id="password"
@@ -75,13 +77,13 @@ export default function SignIn() {
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
             />
-            Remember this terminal
+            {t("signIn.remember")}
           </label>
           <button type="submit" className="form-submit" disabled={submitting}>
-            {submitting ? "Authenticating…" : "[ Access ]"}
+            {submitting ? t("signIn.submitting") : t("signIn.submit")}
           </button>
           <div className="auth-links">
-            <Link to="/signup">New trainer? Register</Link>
+            <Link to="/signup">{t("signIn.toSignUp")}</Link>
           </div>
         </form>
       </div>

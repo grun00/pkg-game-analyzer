@@ -1,4 +1,5 @@
 import axios from "axios";
+import i18n from "../i18n";
 
 const baseURL = import.meta.env.VITE_API_BASE_URL ?? "/api/v1";
 
@@ -9,6 +10,7 @@ client.interceptors.request.use((cfg) => {
   if (token) {
     cfg.headers.Authorization = `Bearer ${token}`;
   }
+  cfg.headers["Accept-Language"] = i18n.language;
   return cfg;
 });
 

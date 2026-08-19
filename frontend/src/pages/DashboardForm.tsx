@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
 import { useDashboard } from "../hooks/queries";
@@ -12,6 +13,8 @@ interface FormProps {
 }
 
 function DashboardFormInner({ id, initialName }: FormProps) {
+  const { t } = useTranslation("dashboards");
+  const { t: tc } = useTranslation("common");
   const isEdit = !!id;
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -28,7 +31,7 @@ function DashboardFormInner({ id, initialName }: FormProps) {
       queryClient.invalidateQueries({ queryKey: ["dashboards"] });
       if (isEdit)
         queryClient.invalidateQueries({ queryKey: ["dashboard", id] });
-      notify("ok", isEdit ? "Dashboard updated" : "Dashboard created");
+      notify("ok", isEdit ? t("form.updated") : t("form.created"));
       navigate(`/dashboards/${res.data.id}`);
     },
     onError: (err) => setErrors(apiErrors(err)),
@@ -45,11 +48,11 @@ function DashboardFormInner({ id, initialName }: FormProps) {
       <div className="page-hd">
         <div>
           <div className="breadcrumb">
-            <Link to="/dashboards">Dashboards</Link> /{" "}
-            {isEdit ? "Edit" : "New"}
+            <Link to="/dashboards">{tc("nav.dashboards")}</Link> /{" "}
+            {isEdit ? t("form.breadcrumbEdit") : t("form.breadcrumbNew")}
           </div>
           <h1 className="page-title">
-            {isEdit ? "Edit Dashboard" : "New Dashboard"}
+            {isEdit ? t("form.titleEdit") : t("form.titleNew")}
           </h1>
         </div>
       </div>
@@ -66,7 +69,7 @@ function DashboardFormInner({ id, initialName }: FormProps) {
         )}
         <div className="form-grp">
           <label className="form-lbl" htmlFor="name">
-            Dashboard Name
+            {t("form.name")}
           </label>
           <input
             id="name"
@@ -78,7 +81,7 @@ function DashboardFormInner({ id, initialName }: FormProps) {
           />
         </div>
         <button type="submit" className="form-submit" disabled={save.isPending}>
-          {save.isPending ? "Saving…" : "[ Save ]"}
+          {save.isPending ? tc("actions.saving") : tc("actions.save")}
         </button>
       </form>
     </>
@@ -86,13 +89,14 @@ function DashboardFormInner({ id, initialName }: FormProps) {
 }
 
 export default function DashboardForm() {
+  const { t } = useTranslation("common");
   const { id } = useParams();
   const { data: existing, isLoading } = useDashboard(id);
 
   if (id && isLoading)
     return (
       <div className="empty">
-        <p>Loading…</p>
+        <p>{t("state.loading")}</p>
       </div>
     );
 

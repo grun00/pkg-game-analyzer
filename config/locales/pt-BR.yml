@@ -1,0 +1,80 @@
+pt-BR:
+  errors:
+    not_found: "Não encontrado"
+  activerecord:
+    models:
+      match: "Partida"
+      dashboard: "Painel"
+    attributes:
+      match:
+        opponent_deck: "Deck adversário"
+        result: "Resultado"
+        game_mode: "Modo de jogo"
+        first_or_second: "Primeiro ou segundo"
+        reason_for_defeat: "Motivo da derrota"
+        hand_quality: "Qualidade da mão"
+        number_of_mulligans: "Número de mulligans"
+        description: "Descrição"
+        played_at: "Jogado em"
+      dashboard:
+        name: "Nome"
+  enums:
+    opponent_deck:
+      dragapult: "Dragapult"
+      dragapult_dusknoir: "Dragapult dusknoir"
+      dragapult_blaziken: "Dragapult blaziken"
+      tera_box: "Tera box"
+      team_rockets: "Team rockets"
+      raging_bolt: "Raging bolt"
+      alakazam: "Alakazam"
+      mega_lucario: "Mega lucario"
+      absol: "Absol"
+      green_ogerpon: "Green ogerpon"
+      clefairy_box: "Clefairy box"
+      garchomp: "Garchomp"
+      ns_zoroark: "Ns zoroark"
+      mega_starmie: "Mega starmie"
+      kengaskhan: "Kengaskhan"
+      festival_lead: "Festival lead"
+      grimmsnarl: "Grimmsnarl"
+      monkidori_froslass: "Monkidori froslass"
+      team_rocket_honchcrow: "Team rocket honchcrow"
+      crustle: "Crustle"
+      okidogi: "Okidogi"
+      ceruledge: "Ceruledge"
+      slowpoke: "Slowpoke"
+      slop_box: "Slop box"
+      greninja_ex: "Greninja ex"
+      mega_excradrill: "Mega excradrill"
+      other: "Outro"
+    result:
+      win: "VIT"
+      loss: "DER"
+      tie: "EMP"
+    game_mode:
+      in_person: "Presencial"
+      tcg_live: "Tcg live"
+    first_or_second:
+      uninformed: "Não informado"
+      first: "Primeiro"
+      second: "Segundo"
+    reason_for_defeat:
+      unknown: "Desconhecido"
+      minor_misplay: "Erro leve"
+      major_misplay: "Erro grave"
+      disconnected: "Desconectado"
+      unlucky: "Azar"
+  match:
+    csv_headers:
+      id: "id"
+      opponent_deck: "deck_adversario"
+      result: "resultado"
+      game_mode: "modo_de_jogo"
+      first_or_second: "primeiro_ou_segundo"
+      reason_for_defeat: "motivo_da_derrota"
+      hand_quality: "qualidade_da_mao"
+      number_of_mulligans: "numero_de_mulligans"
+      description: "descricao"
+      played_at: "jogado_em"
+      created_at: "criado_em"
+      updated_at: "atualizado_em"

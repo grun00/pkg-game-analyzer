@@ -1,0 +1,28 @@
+{
+  "brand": "⚡ TRAINER_OS",
+  "nav": {
+    "dashboards": "Painéis",
+    "signIn": "Entrar",
+    "signUp": "Cadastrar",
+    "signOut": "Sair",
+    "signedOut": "Sessão encerrada"
+  },
+  "lang": {
+    "label": "Idioma",
+    "en": "EN",
+    "pt-BR": "PT"
+  },
+  "actions": {
+    "view": "Ver",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "access": "Acessar",
+    "save": "[ Salvar ]",
+    "saving": "Salvando…",
+    "submit": "[ Enviar ]"
+  },
+  "state": {
+    "loading": "Carregando…",
+    "unexpectedError": "Erro inesperado"
+  }
+}

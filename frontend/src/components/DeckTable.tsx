@@ -1,21 +1,23 @@
+import { useTranslation } from "react-i18next";
 import type { DeckStat } from "../types";
 
 const pct = (v: number | null): string => (v === null ? "—" : `${v}%`);
 
 export default function DeckTable({ rows }: { rows: DeckStat[] }) {
+  const { t } = useTranslation("matches");
   return (
     <table className="term-table">
       <thead>
         <tr>
-          <th>Deck</th>
-          <th className="tc">Total</th>
-          <th className="tc">W</th>
-          <th className="tc">L</th>
-          <th className="tc">T</th>
-          <th className="tc">Win%</th>
-          <th className="tc">1st%</th>
-          <th className="tc">2nd%</th>
-          <th>Bar</th>
+          <th>{t("deckTable.deck")}</th>
+          <th className="tc">{t("deckTable.total")}</th>
+          <th className="tc">{t("deckTable.w")}</th>
+          <th className="tc">{t("deckTable.l")}</th>
+          <th className="tc">{t("deckTable.t")}</th>
+          <th className="tc">{t("deckTable.winPct")}</th>
+          <th className="tc">{t("deckTable.firstPct")}</th>
+          <th className="tc">{t("deckTable.secondPct")}</th>
+          <th>{t("deckTable.bar")}</th>
         </tr>
       </thead>
       <tbody>

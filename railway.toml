@@ -11,6 +11,10 @@
 #   RAILS_MASTER_KEY, DATABASE_URL (from the Postgres plugin),
 #   RAILS_ASSUME_SSL=1, RAILS_FORCE_SSL=1, RAILS_ALLOWED_HOSTS=<backend-domain>
 # CORS is NOT needed because the frontend nginx proxies /api same-origin.
+#
+# i18n default locale (must match the frontend's VITE_DEFAULT_LOCALE):
+#   APP_DEFAULT_LOCALE=en   # or pt-BR
+# This is a runtime variable read in config/application.rb; a restart applies it.
 
 [build]
 builder = "DOCKERFILE"

@@ -9,6 +9,12 @@ FROM node:${NODE_VERSION}-slim AS build
 
 WORKDIR /app
 
+# Default SPA locale, baked in at build time (Vite inlines import.meta.env.*).
+# Keep in sync with the backend's APP_DEFAULT_LOCALE. Defaults to "en".
+# On Railway, set the build-time variable VITE_DEFAULT_LOCALE on the frontend service.
+ARG VITE_DEFAULT_LOCALE=en
+ENV VITE_DEFAULT_LOCALE=${VITE_DEFAULT_LOCALE}
+
 # Install dependencies from the lockfile for reproducible builds.
 COPY package.json package-lock.json ./
 RUN npm ci

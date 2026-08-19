@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { DefeatReasonStats } from "../types";
 
 export default function DefeatReasonCards({
@@ -5,9 +6,10 @@ export default function DefeatReasonCards({
 }: {
   data: DefeatReasonStats;
 }) {
+  const { t } = useTranslation("matches");
   const cards = [
     ...data.reasons,
-    { reason: "unspecified", label: "Unspecified", count: data.unspecified },
+    { reason: "unspecified", label: t("defeat.unspecified"), count: data.unspecified },
   ];
 
   return (

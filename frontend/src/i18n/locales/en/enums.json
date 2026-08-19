@@ -1,0 +1,52 @@
+{
+  "result": {
+    "win": "[WIN]",
+    "loss": "[LOSS]",
+    "tie": "[TIE]"
+  },
+  "game_mode": {
+    "in_person": "In person",
+    "tcg_live": "Tcg live"
+  },
+  "first_or_second": {
+    "uninformed": "Uninformed",
+    "first": "First",
+    "second": "Second"
+  },
+  "reason_for_defeat": {
+    "unknown": "Unknown",
+    "minor_misplay": "Minor misplay",
+    "major_misplay": "Major misplay",
+    "disconnected": "Disconnected",
+    "unlucky": "Unlucky"
+  },
+  "opponent_deck": {
+    "dragapult": "Dragapult",
+    "dragapult_dusknoir": "Dragapult dusknoir",
+    "dragapult_blaziken": "Dragapult blaziken",
+    "tera_box": "Tera box",
+    "team_rockets": "Team rockets",
+    "raging_bolt": "Raging bolt",
+    "alakazam": "Alakazam",
+    "mega_lucario": "Mega lucario",
+    "absol": "Absol",
+    "green_ogerpon": "Green ogerpon",
+    "clefairy_box": "Clefairy box",
+    "garchomp": "Garchomp",
+    "ns_zoroark": "Ns zoroark",
+    "mega_starmie": "Mega starmie",
+    "kengaskhan": "Kengaskhan",
+    "festival_lead": "Festival lead",
+    "grimmsnarl": "Grimmsnarl",
+    "monkidori_froslass": "Monkidori froslass",
+    "team_rocket_honchcrow": "Team rocket honchcrow",
+    "crustle": "Crustle",
+    "okidogi": "Okidogi",
+    "ceruledge": "Ceruledge",
+    "slowpoke": "Slowpoke",
+    "slop_box": "Slop box",
+    "greninja_ex": "Greninja ex",
+    "mega_excradrill": "Mega excradrill",
+    "other": "Other"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "win": "[VIT]",
+    "loss": "[DER]",
+    "tie": "[EMP]"
+  },
+  "game_mode": {
+    "in_person": "Presencial",
+    "tcg_live": "Tcg live"
+  },
+  "first_or_second": {
+    "uninformed": "Não informado",
+    "first": "Primeiro",
+    "second": "Segundo"
+  },
+  "reason_for_defeat": {
+    "unknown": "Desconhecido",
+    "minor_misplay": "Erro leve",
+    "major_misplay": "Erro grave",
+    "disconnected": "Desconectado",
+    "unlucky": "Azar"
+  }
+}

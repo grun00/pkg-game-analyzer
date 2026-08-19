@@ -63,7 +63,7 @@ class Match < ApplicationRecord
 
   def self.to_csv
     CSV.generate(headers: true) do |csv|
-      csv << CSV_HEADERS
+      csv << CSV_HEADERS.map { |h| I18n.t("match.csv_headers.#{h}") }
       recent.each { |match| csv << match.to_csv_row }
     end
   end
@@ -71,11 +71,11 @@ class Match < ApplicationRecord
   def to_csv_row
     [
       id,
-      opponent_deck.to_s.humanize,
-      result,
-      game_mode.to_s.humanize,
-      first_or_second,
-      reason_for_defeat,
+      I18n.t("enums.opponent_deck.#{opponent_deck}"),
+      I18n.t("enums.result.#{result}"),
+      I18n.t("enums.game_mode.#{game_mode}"),
+      I18n.t("enums.first_or_second.#{first_or_second}"),
+      reason_for_defeat && I18n.t("enums.reason_for_defeat.#{reason_for_defeat}"),
       hand_quality,
       number_of_mulligans,
       description,

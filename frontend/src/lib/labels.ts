@@ -1,10 +1,5 @@
+import i18n from "../i18n";
 import type { Result } from "../types";
-
-const RESULT_LABELS: Record<string, string> = {
-  win: "[WIN]",
-  loss: "[LOSS]",
-  tie: "[TIE]",
-};
 
 const RESULT_COLORS: Record<string, string> = {
   win: "c-green",
@@ -18,8 +13,24 @@ const RESULT_ROWS: Record<string, string> = {
   tie: "row-tie",
 };
 
-export const resultLabel = (r: Result | string): string =>
-  RESULT_LABELS[r] ?? r.toUpperCase();
+type EnumGroup =
+  | "result"
+  | "game_mode"
+  | "first_or_second"
+  | "reason_for_defeat"
+  | "opponent_deck";
+
+export const enumLabel = (group: EnumGroup, key: string | null | undefined): string => {
+  if (!key) return "";
+  return i18n.t(`${group}.${key}`, { ns: "enums", defaultValue: key });
+};
+
+export const resultLabel = (r: Result | string): string => {
+  const path = `result.${r}`;
+  return i18n.exists(path, { ns: "enums" })
+    ? i18n.t(path, { ns: "enums" })
+    : r.toUpperCase();
+};
 
 export const resultColor = (r: Result | string): string =>
   RESULT_COLORS[r] ?? "c-dim";

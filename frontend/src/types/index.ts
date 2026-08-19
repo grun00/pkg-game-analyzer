@@ -25,13 +25,10 @@ export type FirstOrSecond = "uninformed" | "first" | "second";
 export interface Match {
   id: number;
   opponent_deck: string;
-  opponent_deck_label: string;
   result: Result;
   game_mode: string;
-  game_mode_label: string;
   first_or_second: FirstOrSecond;
   reason_for_defeat: string | null;
-  reason_for_defeat_label: string | null;
   hand_quality: number;
   number_of_mulligans: number | null;
   description: string | null;

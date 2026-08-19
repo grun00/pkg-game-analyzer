@@ -1,0 +1,39 @@
+{
+  "index": {
+    "title": "Dashboards",
+    "new": "+ New Dashboard",
+    "loading": "Loading dashboards…",
+    "empty": "No dashboards yet — create one to start tracking",
+    "deleted": "Dashboard deleted",
+    "confirmDelete": "Delete dashboard \"{{name}}\"? This cannot be undone.",
+    "total": "TOTAL",
+    "wins": "W",
+    "rate": "RATE",
+    "access": "Access"
+  },
+  "form": {
+    "breadcrumbEdit": "Edit",
+    "breadcrumbNew": "New",
+    "titleEdit": "Edit Dashboard",
+    "titleNew": "New Dashboard",
+    "name": "Dashboard Name",
+    "created": "Dashboard created",
+    "updated": "Dashboard updated"
+  },
+  "show": {
+    "allMatches": "All Matches",
+    "logMatch": "+ Log Match",
+    "emptyMatches": "No matches recorded yet",
+    "statTotal": "Total",
+    "statWins": "Wins",
+    "statLosses": "Losses",
+    "statTies": "Ties",
+    "statWinRate": "Win Rate",
+    "statAvgHand": "Avg Hand",
+    "secByDeck": "Results by Opponent Deck",
+    "secByHandQuality": "Win Rate by Hand Quality",
+    "secFirstVsSecond": "Going First vs Second",
+    "secReasonsForDefeat": "Reasons for Defeat",
+    "secRecentBattles": "Recent Battles"
+  }
+}

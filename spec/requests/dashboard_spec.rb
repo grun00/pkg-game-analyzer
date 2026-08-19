@@ -161,7 +161,7 @@ RSpec.describe "Api::V1::Dashboards", type: :request do
         get export_api_v1_dashboard_path(dashboard), headers: headers
         expect(response.body).to include("opponent_deck,result,game_mode")
         expect(response.body).to include("Dragapult")
-        expect(response.body).to include("win")
+        expect(response.body).to include("WIN")
       end
 
       it "only exports matches belonging to the dashboard" do

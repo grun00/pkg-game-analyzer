@@ -12,6 +12,11 @@
 #
 # Railway injects PORT; the nginx template listens on ${PORT}. No CORS needed
 # since the browser talks only to this same-origin frontend.
+#
+# i18n default locale (must match the backend's APP_DEFAULT_LOCALE):
+#   VITE_DEFAULT_LOCALE=en   # or pt-BR
+# NOTE: this is a BUILD-TIME variable (Vite inlines import.meta.env.* into the
+# static bundle), so changing it requires a rebuild/redeploy, not just a restart.
 
 [build]
 builder = "DOCKERFILE"

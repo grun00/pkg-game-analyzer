@@ -1,0 +1,39 @@
+{
+  "index": {
+    "title": "Painéis",
+    "new": "+ Novo Painel",
+    "loading": "Carregando painéis…",
+    "empty": "Nenhum painel ainda — crie um para começar a acompanhar",
+    "deleted": "Painel excluído",
+    "confirmDelete": "Excluir o painel \"{{name}}\"? Isso não pode ser desfeito.",
+    "total": "TOTAL",
+    "wins": "V",
+    "rate": "TAXA",
+    "access": "Acessar"
+  },
+  "form": {
+    "breadcrumbEdit": "Editar",
+    "breadcrumbNew": "Novo",
+    "titleEdit": "Editar Painel",
+    "titleNew": "Novo Painel",
+    "name": "Nome do Painel",
+    "created": "Painel criado",
+    "updated": "Painel atualizado"
+  },
+  "show": {
+    "allMatches": "Todas as Partidas",
+    "logMatch": "+ Registrar Partida",
+    "emptyMatches": "Nenhuma partida registrada ainda",
+    "statTotal": "Total",
+    "statWins": "Vitórias",
+    "statLosses": "Derrotas",
+    "statTies": "Empates",
+    "statWinRate": "Taxa de Vitória",
+    "statAvgHand": "Mão Média",
+    "secByDeck": "Resultados por Deck Adversário",
+    "secByHandQuality": "Taxa de Vitória por Qualidade de Mão",
+    "secFirstVsSecond": "Jogando Primeiro vs Segundo",
+    "secReasonsForDefeat": "Motivos de Derrota",
+    "secRecentBattles": "Batalhas Recentes"
+  }
+}

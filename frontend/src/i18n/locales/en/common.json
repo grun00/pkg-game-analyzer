@@ -1,0 +1,28 @@
+{
+  "brand": "⚡ TRAINER_OS",
+  "nav": {
+    "dashboards": "Dashboards",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "signedOut": "Signed out"
+  },
+  "lang": {
+    "label": "Language",
+    "en": "EN",
+    "pt-BR": "PT"
+  },
+  "actions": {
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "access": "Access",
+    "save": "[ Save ]",
+    "saving": "Saving…",
+    "submit": "[ Submit ]"
+  },
+  "state": {
+    "loading": "Loading…",
+    "unexpectedError": "Unexpected error"
+  }
+}

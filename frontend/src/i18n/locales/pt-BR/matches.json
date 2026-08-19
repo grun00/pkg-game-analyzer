@@ -1,0 +1,68 @@
+{
+  "index": {
+    "breadcrumbMatches": "Partidas",
+    "title": "Todas as Partidas",
+    "logMatch": "+ Registrar Partida",
+    "loading": "Carregando partidas…",
+    "empty": "Nenhuma partida registrada ainda"
+  },
+  "form": {
+    "breadcrumbEdit": "Editar",
+    "breadcrumbNew": "Nova",
+    "titleEdit": "Editar Partida",
+    "titleNew": "Registrar Partida",
+    "opponentDeck": "Deck Adversário",
+    "selectDeck": "— Selecione o deck —",
+    "gameMode": "Modo de Jogo",
+    "result": "Resultado",
+    "reasonForDefeat": "Motivo da Derrota",
+    "firstOrSecond": "Primeiro / Segundo",
+    "mulligans": "Número de Mulligans",
+    "handQuality": "Qualidade da Mão",
+    "selectHandQuality": "— Selecione —",
+    "notes": "Notas",
+    "playedAt": "Jogado em",
+    "logged": "Partida registrada",
+    "updated": "Partida atualizada"
+  },
+  "show": {
+    "breadcrumbMatches": "Partidas",
+    "confirmDelete": "Excluir esta partida?",
+    "deleted": "Partida excluída",
+    "result": "Resultado",
+    "gameMode": "Modo de Jogo",
+    "firstOrSecond": "Primeiro / Segundo",
+    "first": "1º",
+    "second": "2º",
+    "handQuality": "Qualidade da Mão",
+    "mulligans": "Mulligans",
+    "reasonForDefeat": "Motivo da Derrota",
+    "notes": "Notas"
+  },
+  "row": {
+    "view": "Ver",
+    "edit": "Editar"
+  },
+  "export": {
+    "button": "Exportar CSV",
+    "busy": "Exportando…"
+  },
+  "deckTable": {
+    "deck": "Deck",
+    "total": "Total",
+    "w": "V",
+    "l": "D",
+    "t": "E",
+    "winPct": "Vit%",
+    "firstPct": "1º%",
+    "secondPct": "2º%",
+    "bar": "Barra"
+  },
+  "side": {
+    "first": "Jogando Primeiro",
+    "second": "Jogando Segundo"
+  },
+  "defeat": {
+    "unspecified": "Não especificado"
+  }
+}

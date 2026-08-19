@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
 import { useMatch, useMeta } from "../hooks/queries";
@@ -18,6 +19,8 @@ interface FormProps {
 }
 
 function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
+  const { t } = useTranslation("matches");
+  const { t: tc } = useTranslation("common");
   const isEdit = !!matchId;
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -40,7 +43,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["matches", id] });
       queryClient.invalidateQueries({ queryKey: ["stats", id] });
-      notify("ok", isEdit ? "Match updated" : "Match logged");
+      notify("ok", isEdit ? t("form.updated") : t("form.logged"));
       navigate(`/dashboards/${id}`);
     },
     onError: (err) => setErrors(apiErrors(err)),
@@ -57,11 +60,13 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
       <div className="page-hd">
         <div>
           <div className="breadcrumb">
-            <Link to={`/dashboards/${id}/matches`}>Matches</Link> /{" "}
-            {isEdit ? "Edit" : "New"}
+            <Link to={`/dashboards/${id}/matches`}>
+              {t("index.breadcrumbMatches")}
+            </Link>{" "}
+            / {isEdit ? t("form.breadcrumbEdit") : t("form.breadcrumbNew")}
           </div>
           <h1 className="page-title">
-            {isEdit ? "Edit Match" : "Log Match"}
+            {isEdit ? t("form.titleEdit") : t("form.titleNew")}
           </h1>
         </div>
       </div>
@@ -78,14 +83,14 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         )}
 
         <div className="form-grp">
-          <label className="form-lbl">Opponent Deck</label>
+          <label className="form-lbl">{t("form.opponentDeck")}</label>
           <select
             className="form-ctrl"
             value={form.opponent_deck}
             onChange={(e) => set("opponent_deck", e.target.value)}
             required
           >
-            <option value="">— Select deck —</option>
+            <option value="">{t("form.selectDeck")}</option>
             {meta.opponent_decks.map((o) => (
               <option key={o.value} value={o.value}>
                 {o.label}
@@ -95,7 +100,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         </div>
 
         <RadioGroup
-          label="Game Mode"
+          label={t("form.gameMode")}
           name="game_mode"
           options={meta.game_modes}
           value={form.game_mode}
@@ -103,7 +108,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         />
 
         <RadioGroup
-          label="Result"
+          label={t("form.result")}
           name="result"
           options={meta.results}
           value={form.result}
@@ -112,7 +117,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 
         {form.result === "loss" && (
           <RadioGroup
-            label="Reason for Defeat"
+            label={t("form.reasonForDefeat")}
             name="reason_for_defeat"
             options={meta.reasons_for_defeat}
             value={form.reason_for_defeat}
@@ -121,7 +126,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         )}
 
         <RadioGroup
-          label="First / Second"
+          label={t("form.firstOrSecond")}
           name="first_or_second"
           options={meta.first_or_second}
           value={form.first_or_second}
@@ -130,7 +135,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 
         <div className="form-grp">
           <label className="form-lbl" htmlFor="mulligans">
-            Number of Mulligans
+            {t("form.mulligans")}
           </label>
           <input
             id="mulligans"
@@ -143,14 +148,14 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         </div>
 
         <div className="form-grp">
-          <label className="form-lbl">Hand Quality</label>
+          <label className="form-lbl">{t("form.handQuality")}</label>
           <select
             className="form-ctrl"
             value={form.hand_quality}
             onChange={(e) => set("hand_quality", e.target.value)}
             required
           >
-            <option value="">— Select —</option>
+            <option value="">{t("form.selectHandQuality")}</option>
             {meta.hand_qualities.map((o) => (
               <option key={o.value} value={o.value}>
                 {o.label}
@@ -161,7 +166,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 
         <div className="form-grp">
           <label className="form-lbl" htmlFor="description">
-            Notes
+            {t("form.notes")}
           </label>
           <textarea
             id="description"
@@ -174,7 +179,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 
         <div className="form-grp">
           <label className="form-lbl" htmlFor="played_at">
-            Played At
+            {t("form.playedAt")}
           </label>
           <input
             id="played_at"
@@ -187,7 +192,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
         </div>
 
         <button type="submit" className="form-submit" disabled={save.isPending}>
-          {save.isPending ? "Saving…" : "[ Submit ]"}
+          {save.isPending ? tc("actions.saving") : tc("actions.submit")}
         </button>
       </form>
     </>
@@ -195,6 +200,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 }
 
 export default function MatchForm() {
+  const { t } = useTranslation("common");
   const { id, matchId } = useParams();
   const { data: meta, isLoading: metaLoading } = useMeta();
   const { data: existing, isLoading: matchLoading } = useMatch(id, matchId);
@@ -202,7 +208,7 @@ export default function MatchForm() {
   if (metaLoading || !meta || (matchId && matchLoading))
     return (
       <div className="empty">
-        <p>Loading…</p>
+        <p>{t("state.loading")}</p>
       </div>
     );
 

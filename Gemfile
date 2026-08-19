@@ -50,3 +50,7 @@ end
 # JSON API auth + cross-origin support for the React SPA
 gem "devise-jwt", "~> 0.13.0"
 gem "rack-cors", "~> 3.0"
+
+gem "rails-i18n", "~> 7.0"
+gem "devise-i18n", "~> 1.16"
+gem "http_accept_language", "~> 2.1"

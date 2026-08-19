@@ -38,5 +38,10 @@ module PkmGameAnalyzer
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Internationalization: English (default) and Brazilian Portuguese.
+    config.i18n.available_locales = %i[en pt-BR]
+    config.i18n.default_locale = ENV.fetch("APP_DEFAULT_LOCALE", "en").to_sym
+    config.i18n.fallbacks = [:en]
   end
 end

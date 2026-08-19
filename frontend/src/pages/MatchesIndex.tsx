@@ -1,9 +1,12 @@
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useDashboard, useMatches } from "../hooks/queries";
 import MatchRow from "../components/MatchRow";
 import { apiErrorMessage } from "../lib/errors";
 
 export default function MatchesIndex() {
+  const { t } = useTranslation("matches");
+  const { t: tc } = useTranslation("common");
   const { id } = useParams();
   const db = useDashboard(id);
   const { data, isLoading, isError, error } = useMatches(id);
@@ -11,7 +14,7 @@ export default function MatchesIndex() {
   if (isLoading)
     return (
       <div className="empty">
-        <p>Loading matches…</p>
+        <p>{t("index.loading")}</p>
       </div>
     );
   if (isError)
@@ -28,20 +31,20 @@ export default function MatchesIndex() {
       <div className="page-hd">
         <div>
           <div className="breadcrumb">
-            <Link to="/dashboards">Dashboards</Link> /{" "}
-            <Link to={`/dashboards/${id}`}>{db.data?.name ?? "…"}</Link> /
-            Matches
+            <Link to="/dashboards">{tc("nav.dashboards")}</Link> /{" "}
+            <Link to={`/dashboards/${id}`}>{db.data?.name ?? "…"}</Link> /{" "}
+            {t("index.breadcrumbMatches")}
           </div>
-          <h1 className="page-title">All Matches</h1>
+          <h1 className="page-title">{t("index.title")}</h1>
         </div>
         <Link to={`/dashboards/${id}/matches/new`} className="btn btn-g">
-          + Log Match
+          {t("index.logMatch")}
         </Link>
       </div>
 
       {matches.length === 0 ? (
         <div className="empty">
-          <p>No matches recorded yet</p>
+          <p>{t("index.empty")}</p>
         </div>
       ) : (
         <div className="match-log">

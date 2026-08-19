@@ -1,9 +1,10 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
 import { useMatch } from "../hooks/queries";
 import { useFlash } from "../components/Flash";
-import { resultColor, resultLabel, stars } from "../lib/labels";
+import { enumLabel, resultColor, resultLabel, stars } from "../lib/labels";
 import { apiErrorMessage } from "../lib/errors";
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -16,6 +17,8 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 }
 
 export default function MatchShow() {
+  const { t } = useTranslation("matches");
+  const { t: tc } = useTranslation("common");
   const { id, matchId } = useParams();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -28,7 +31,7 @@ export default function MatchShow() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["matches", id] });
       queryClient.invalidateQueries({ queryKey: ["stats", id] });
-      notify("ok", "Match deleted");
+      notify("ok", t("show.deleted"));
       navigate(`/dashboards/${id}/matches`);
     },
     onError: (err) => notify("err", apiErrorMessage(err)),
@@ -37,7 +40,7 @@ export default function MatchShow() {
   if (isLoading)
     return (
       <div className="empty">
-        <p>Loading…</p>
+        <p>{tc("state.loading")}</p>
       </div>
     );
   if (isError || !m)
@@ -52,51 +55,60 @@ export default function MatchShow() {
       <div className="page-hd">
         <div>
           <div className="breadcrumb">
-            <Link to={`/dashboards/${id}/matches`}>Matches</Link> / #{m.id}
+            <Link to={`/dashboards/${id}/matches`}>
+              {t("show.breadcrumbMatches")}
+            </Link>{" "}
+            / #{m.id}
           </div>
-          <h1 className="page-title">{m.opponent_deck_label}</h1>
+          <h1 className="page-title">
+            {enumLabel("opponent_deck", m.opponent_deck)}
+          </h1>
         </div>
         <div className="db-card-acts">
           <Link
             to={`/dashboards/${id}/matches/${m.id}/edit`}
             className="btn btn-b btn-sm"
           >
-            Edit
+            {tc("actions.edit")}
           </Link>
           <button
             type="button"
             className="btn btn-r btn-sm"
             onClick={() => {
-              if (window.confirm("Delete this match?")) destroy.mutate();
+              if (window.confirm(t("show.confirmDelete"))) destroy.mutate();
             }}
           >
-            Delete
+            {tc("actions.delete")}
           </button>
         </div>
       </div>
 
       <div className="match-detail">
-        <Row label="Result">
+        <Row label={t("show.result")}>
           <span className={resultColor(m.result)}>
             {resultLabel(m.result)}
           </span>
         </Row>
-        <Row label="Game Mode">{m.game_mode_label}</Row>
+        <Row label={t("show.gameMode")}>
+          {enumLabel("game_mode", m.game_mode)}
+        </Row>
         {m.first_or_second !== "uninformed" && (
-          <Row label="First / Second">
-            {m.first_or_second === "first" ? "1st" : "2nd"}
+          <Row label={t("show.firstOrSecond")}>
+            {m.first_or_second === "first" ? t("show.first") : t("show.second")}
           </Row>
         )}
-        <Row label="Hand Quality">
+        <Row label={t("show.handQuality")}>
           {stars(m.hand_quality)} {m.hand_quality}/5
         </Row>
         {m.number_of_mulligans != null && (
-          <Row label="Mulligans">{m.number_of_mulligans}</Row>
+          <Row label={t("show.mulligans")}>{m.number_of_mulligans}</Row>
         )}
-        {m.result === "loss" && m.reason_for_defeat_label && (
-          <Row label="Reason for Defeat">{m.reason_for_defeat_label}</Row>
+        {m.result === "loss" && m.reason_for_defeat && (
+          <Row label={t("show.reasonForDefeat")}>
+            {enumLabel("reason_for_defeat", m.reason_for_defeat)}
+          </Row>
         )}
-        {m.description && <Row label="Notes">{m.description}</Row>}
+        {m.description && <Row label={t("show.notes")}>{m.description}</Row>}
       </div>
     </>
   );

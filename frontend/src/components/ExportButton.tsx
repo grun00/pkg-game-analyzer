@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import client from "../api/client";
 import { useFlash } from "./Flash";
 import { apiErrorMessage } from "../lib/errors";
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function ExportButton({ dashboardId, name }: Props) {
+  const { t } = useTranslation("matches");
   const [busy, setBusy] = useState(false);
   const { notify } = useFlash();
 
@@ -40,7 +42,7 @@ export default function ExportButton({ dashboardId, name }: Props) {
       onClick={download}
       disabled={busy}
     >
-      {busy ? "Exporting…" : "Export CSV"}
+      {busy ? t("export.busy") : t("export.button")}
     </button>
   );
 }

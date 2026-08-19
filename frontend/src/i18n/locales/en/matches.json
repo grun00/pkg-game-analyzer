@@ -1,0 +1,68 @@
+{
+  "index": {
+    "breadcrumbMatches": "Matches",
+    "title": "All Matches",
+    "logMatch": "+ Log Match",
+    "loading": "Loading matches…",
+    "empty": "No matches recorded yet"
+  },
+  "form": {
+    "breadcrumbEdit": "Edit",
+    "breadcrumbNew": "New",
+    "titleEdit": "Edit Match",
+    "titleNew": "Log Match",
+    "opponentDeck": "Opponent Deck",
+    "selectDeck": "— Select deck —",
+    "gameMode": "Game Mode",
+    "result": "Result",
+    "reasonForDefeat": "Reason for Defeat",
+    "firstOrSecond": "First / Second",
+    "mulligans": "Number of Mulligans",
+    "handQuality": "Hand Quality",
+    "selectHandQuality": "— Select —",
+    "notes": "Notes",
+    "playedAt": "Played At",
+    "logged": "Match logged",
+    "updated": "Match updated"
+  },
+  "show": {
+    "breadcrumbMatches": "Matches",
+    "confirmDelete": "Delete this match?",
+    "deleted": "Match deleted",
+    "result": "Result",
+    "gameMode": "Game Mode",
+    "firstOrSecond": "First / Second",
+    "first": "1st",
+    "second": "2nd",
+    "handQuality": "Hand Quality",
+    "mulligans": "Mulligans",
+    "reasonForDefeat": "Reason for Defeat",
+    "notes": "Notes"
+  },
+  "row": {
+    "view": "View",
+    "edit": "Edit"
+  },
+  "export": {
+    "button": "Export CSV",
+    "busy": "Exporting…"
+  },
+  "deckTable": {
+    "deck": "Deck",
+    "total": "Total",
+    "w": "W",
+    "l": "L",
+    "t": "T",
+    "winPct": "Win%",
+    "firstPct": "1st%",
+    "secondPct": "2nd%",
+    "bar": "Bar"
+  },
+  "side": {
+    "first": "Going First",
+    "second": "Going Second"
+  },
+  "defeat": {
+    "unspecified": "Unspecified"
+  }
+}

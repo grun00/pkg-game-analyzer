@@ -10,13 +10,10 @@ import type { Match } from "../types";
 const baseMatch: Match = {
   id: 1,
   opponent_deck: "dragapult",
-  opponent_deck_label: "Dragapult",
   result: "loss",
   game_mode: "in_person",
-  game_mode_label: "In person",
   first_or_second: "second",
   reason_for_defeat: "unlucky",
-  reason_for_defeat_label: "Unlucky",
   hand_quality: 4,
   number_of_mulligans: 1,
   description: "close game",

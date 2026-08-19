@@ -12,6 +12,13 @@ export interface MatchFormState {
   played_at: string;
 }
 
+// Today's local date as "YYYY-MM-DD" for <input type="date">.
+export function todayLocalDate(): string {
+  const d = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
 export const blankMatchForm: MatchFormState = {
   opponent_deck: "",
   game_mode: "in_person",
@@ -21,18 +28,16 @@ export const blankMatchForm: MatchFormState = {
   number_of_mulligans: "",
   hand_quality: "",
   description: "",
-  played_at: "",
+  played_at: todayLocalDate(),
 };
 
-// Convert an ISO timestamp to the value accepted by <input type="datetime-local">
-// (local time, no seconds/zone): "YYYY-MM-DDTHH:mm".
+// Convert an ISO timestamp to the value accepted by <input type="date">
+// (local date, no time/zone): "YYYY-MM-DD".
 export function isoToLocalInput(iso: string | null): string {
   if (!iso) return "";
   const d = new Date(iso);
   const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(
-    d.getHours(),
-  )}:${pad(d.getMinutes())}`;
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 export function matchToForm(m: Match): MatchFormState {
@@ -67,6 +72,12 @@ export function formToPayload(form: MatchFormState): Record<string, unknown> {
         : Number(form.number_of_mulligans),
     hand_quality: form.hand_quality === "" ? null : Number(form.hand_quality),
     description: form.description,
-    played_at: form.played_at ? new Date(form.played_at).toISOString() : null,
+    played_at: form.played_at ? localDateToIso(form.played_at) : null,
   };
+}
+
+// Convert a "YYYY-MM-DD" date-input value to an ISO timestamp at local midnight.
+function localDateToIso(date: string): string {
+  const [y, m, d] = date.split("-").map(Number);
+  return new Date(y, m - 1, d).toISOString();
 }

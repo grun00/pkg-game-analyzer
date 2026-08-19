@@ -30,7 +30,7 @@ describe("matchForm", () => {
       result: "win",
       reason_for_defeat: "unlucky",
       hand_quality: "3",
-      played_at: "2026-01-15T10:00",
+      played_at: "2026-01-15",
     });
     expect(payload.reason_for_defeat).toBeNull();
   });
@@ -41,7 +41,7 @@ describe("matchForm", () => {
       result: "loss",
       reason_for_defeat: "unlucky",
       hand_quality: "3",
-      played_at: "2026-01-15T10:00",
+      played_at: "2026-01-15",
     });
     expect(payload.reason_for_defeat).toBe("unlucky");
   });
@@ -52,7 +52,7 @@ describe("matchForm", () => {
       result: "tie",
       hand_quality: "5",
       number_of_mulligans: "",
-      played_at: "2026-01-15T10:00",
+      played_at: "2026-01-15",
     });
     expect(payload.hand_quality).toBe(5);
     expect(payload.number_of_mulligans).toBeNull();
@@ -67,10 +67,14 @@ describe("matchForm", () => {
     expect(form.number_of_mulligans).toBe("1");
   });
 
-  it("formats ISO timestamps for datetime-local inputs", () => {
+  it("formats ISO timestamps for date inputs", () => {
     expect(isoToLocalInput(null)).toBe("");
     expect(isoToLocalInput("2026-01-15T20:30:00.000Z")).toMatch(
-      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/,
+      /^\d{4}-\d{2}-\d{2}$/,
     );
+  });
+
+  it("defaults a blank form's played_at to today's date", () => {
+    expect(blankMatchForm.played_at).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 });

@@ -41,7 +41,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
       queryClient.invalidateQueries({ queryKey: ["matches", id] });
       queryClient.invalidateQueries({ queryKey: ["stats", id] });
       notify("ok", isEdit ? "Match updated" : "Match logged");
-      navigate(`/dashboards/${id}/matches`);
+      navigate(`/dashboards/${id}`);
     },
     onError: (err) => setErrors(apiErrors(err)),
   });
@@ -178,7 +178,7 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
           </label>
           <input
             id="played_at"
-            type="datetime-local"
+            type="date"
             className="form-ctrl"
             value={form.played_at}
             onChange={(e) => set("played_at", e.target.value)}

@@ -17,6 +17,19 @@ export interface CreatorRequest {
   user: User;
 }
 
+export interface Creator {
+  id: number;
+  email: string;
+  role: Role;
+  subscribed: boolean;
+}
+
+export interface Subscription {
+  id: number;
+  created_at: string;
+  creator: User;
+}
+
 export interface Dashboard {
   id: number;
   name: string;

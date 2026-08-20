@@ -2,6 +2,8 @@
   "brand": "WhiplashGameStats",
   "nav": {
     "dashboards": "Dashboards",
+    "creators": "Creators",
+    "following": "Following",
     "creatorDashboard": "Creator Dashboard",
     "applyCreator": "Apply to Creator Program",
     "admin": "Admin",

@@ -13,6 +13,9 @@ import MatchesIndex from "./pages/MatchesIndex";
 import MatchShow from "./pages/MatchShow";
 import MatchForm from "./pages/MatchForm";
 import CreatorDashboard from "./pages/CreatorDashboard";
+import CreatorsIndex from "./pages/CreatorsIndex";
+import CreatorShow from "./pages/CreatorShow";
+import Following from "./pages/Following";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/AdminDashboard";
 
@@ -47,6 +50,9 @@ export default function App() {
               path="/dashboards/:id/matches/:matchId/edit"
               element={<MatchForm />}
             />
+            <Route path="/creators" element={<CreatorsIndex />} />
+            <Route path="/creators/:id" element={<CreatorShow />} />
+            <Route path="/following" element={<Following />} />
             <Route path="/profile" element={<Profile />} />
             <Route element={<CreatorRoute />}>
               <Route path="/creator" element={<CreatorDashboard />} />

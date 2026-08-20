@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import client from "../api/client";
 import type {
+  Creator,
   CreatorRequest,
   Dashboard,
   DashboardSummary,
   Match,
   Meta,
   Stats,
+  Subscription,
 } from "../types";
 
 export function useMeta() {
@@ -75,5 +77,27 @@ export function usePendingCreatorRequests(enabled = true) {
     queryKey: ["admin", "creator_requests"],
     queryFn: () => client.get("/admin/creator_requests").then((r) => r.data),
     enabled,
+  });
+}
+
+export function useCreators() {
+  return useQuery<Creator[]>({
+    queryKey: ["creators"],
+    queryFn: () => client.get("/creators").then((r) => r.data),
+  });
+}
+
+export function useCreator(id: string | undefined) {
+  return useQuery<Creator>({
+    queryKey: ["creator", id],
+    queryFn: () => client.get(`/creators/${id}`).then((r) => r.data),
+    enabled: !!id,
+  });
+}
+
+export function useSubscriptions() {
+  return useQuery<Subscription[]>({
+    queryKey: ["subscriptions"],
+    queryFn: () => client.get("/subscriptions").then((r) => r.data),
   });
 }

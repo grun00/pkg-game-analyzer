@@ -1,0 +1,25 @@
+{
+  "index": {
+    "title": "Creators",
+    "empty": "// no creators yet",
+    "loading": "Loading…"
+  },
+  "show": {
+    "backToCreators": "Creators",
+    "loading": "Loading…"
+  },
+  "following": {
+    "title": "Following",
+    "empty": "// you are not following anyone yet",
+    "browse": "[ Browse creators ]",
+    "since": "Following since"
+  },
+  "actions": {
+    "subscribe": "[ Subscribe ]",
+    "unsubscribe": "[ Unsubscribe ]"
+  },
+  "flash": {
+    "subscribed": "Subscribed",
+    "unsubscribed": "Unsubscribed"
+  }
+}

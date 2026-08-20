@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :dashboards, dependent: :destroy
   has_many :matches, through: :dashboards
   has_many :creator_requests, dependent: :destroy
+
+  has_many :subscriptions, foreign_key: :subscriber_id, dependent: :destroy
+  has_many :subscribed_creators, through: :subscriptions, source: :creator
+  has_many :subscriber_subscriptions, class_name: "Subscription", foreign_key: :creator_id, dependent: :destroy
+  has_many :subscribers, through: :subscriber_subscriptions, source: :subscriber
 end

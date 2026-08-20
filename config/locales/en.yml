@@ -34,6 +34,9 @@ en:
     invalid_role: "Invalid role"
     creator_request:
       already_pending: "You already have a pending creator request"
+    subscription:
+      not_a_creator: "must be a content creator"
+      cannot_subscribe_to_self: "You cannot subscribe to yourself"
   activerecord:
     models:
       match: "Match"

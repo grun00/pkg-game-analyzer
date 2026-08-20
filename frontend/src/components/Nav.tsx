@@ -55,6 +55,12 @@ export default function Nav() {
             <Link to="/dashboards" className="nav-link">
               {t("nav.dashboards")}
             </Link>
+            <Link to="/creators" className="nav-link">
+              {t("nav.creators")}
+            </Link>
+            <Link to="/following" className="nav-link">
+              {t("nav.following")}
+            </Link>
             {role === "regular" && (
               <Link to="/profile" className="nav-link">
                 {t("nav.applyCreator")}

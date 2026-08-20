@@ -1,0 +1,25 @@
+{
+  "index": {
+    "title": "Criadores",
+    "empty": "// nenhum criador ainda",
+    "loading": "Carregando…"
+  },
+  "show": {
+    "backToCreators": "Criadores",
+    "loading": "Carregando…"
+  },
+  "following": {
+    "title": "Seguindo",
+    "empty": "// você ainda não segue ninguém",
+    "browse": "[ Explorar criadores ]",
+    "since": "Seguindo desde"
+  },
+  "actions": {
+    "subscribe": "[ Inscrever-se ]",
+    "unsubscribe": "[ Cancelar inscrição ]"
+  },
+  "flash": {
+    "subscribed": "Inscrito",
+    "unsubscribed": "Inscrição cancelada"
+  }
+}

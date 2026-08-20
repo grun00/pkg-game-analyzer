@@ -7,12 +7,14 @@ import enAuth from "./locales/en/auth.json";
 import enDashboards from "./locales/en/dashboards.json";
 import enMatches from "./locales/en/matches.json";
 import enEnums from "./locales/en/enums.json";
+import enSubscriptions from "./locales/en/subscriptions.json";
 
 import ptCommon from "./locales/pt-BR/common.json";
 import ptAuth from "./locales/pt-BR/auth.json";
 import ptDashboards from "./locales/pt-BR/dashboards.json";
 import ptMatches from "./locales/pt-BR/matches.json";
 import ptEnums from "./locales/pt-BR/enums.json";
+import ptSubscriptions from "./locales/pt-BR/subscriptions.json";
 
 export const SUPPORTED_LNGS = ["en", "pt-BR"] as const;
 
@@ -32,6 +34,7 @@ const resources = {
     dashboards: enDashboards,
     matches: enMatches,
     enums: enEnums,
+    subscriptions: enSubscriptions,
   },
   "pt-BR": {
     common: ptCommon,
@@ -39,6 +42,7 @@ const resources = {
     dashboards: ptDashboards,
     matches: ptMatches,
     enums: ptEnums,
+    subscriptions: ptSubscriptions,
   },
 } as const;
 
@@ -49,7 +53,7 @@ i18n
     resources,
     fallbackLng: DEFAULT_LNG,
     supportedLngs: SUPPORTED_LNGS as unknown as string[],
-    ns: ["common", "auth", "dashboards", "matches", "enums"],
+    ns: ["common", "auth", "dashboards", "matches", "enums", "subscriptions"],
     defaultNS: "common",
     detection: {
       order: ["localStorage", "navigator"],

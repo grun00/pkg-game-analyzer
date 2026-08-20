@@ -5,6 +5,9 @@ pt-BR:
     invalid_role: "Função inválida"
     creator_request:
       already_pending: "Você já possui uma solicitação de criador pendente"
+    subscription:
+      not_a_creator: "deve ser um criador de conteúdo"
+      cannot_subscribe_to_self: "Você não pode se inscrever em si mesmo"
   activerecord:
     models:
       match: "Partida"

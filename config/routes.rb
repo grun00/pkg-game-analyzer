@@ -15,6 +15,13 @@ Rails.application.routes.draw do
       namespace :admin do
         resources :creator_requests, only: %i[index update]
       end
+      resources :creators, only: %i[index show] do
+        member do
+          post :subscribe
+          delete :subscribe, action: :unsubscribe
+        end
+      end
+      resources :subscriptions, only: %i[index]
       resources :dashboards, only: %i[index show create update destroy] do
         member do
           get :export

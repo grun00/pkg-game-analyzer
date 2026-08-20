@@ -32,7 +32,9 @@ module Api
         def apply_decision(request, status)
           CreatorRequest.transaction do
             request.update!(status: status)
-            request.user.update!(role: :content_creator) if status == "approved"
+            if status == "approved" && request.user.role_regular?
+              request.user.update!(role: :content_creator)
+            end
           end
         end
 

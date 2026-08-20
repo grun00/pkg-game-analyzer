@@ -46,6 +46,19 @@ RSpec.describe "Api::V1::Admin::CreatorRequests", type: :request do
       expect(applicant.reload.role_content_creator?).to be(true)
     end
 
+    it "approves without demoting an admin applicant" do
+      admin_applicant = create(:user, :admin)
+      admin_request = create(:creator_request, user: admin_applicant)
+
+      patch "/api/v1/admin/creator_requests/#{admin_request.id}",
+            params: { creator_request: { status: "approved" } },
+            headers: auth_headers(admin), as: :json
+
+      expect(response).to have_http_status(:ok)
+      expect(admin_request.reload.status).to eq("approved")
+      expect(admin_applicant.reload.role_admin?).to be(true)
+    end
+
     it "rejects a request without promoting the user" do
       patch "/api/v1/admin/creator_requests/#{request_record.id}",
             params: { creator_request: { status: "rejected" } },

@@ -6,7 +6,9 @@
   },
   "show": {
     "backToCreators": "Criadores",
-    "loading": "Carregando…"
+    "loading": "Carregando…",
+    "content": "Conteúdo",
+    "contentEmpty": "// este criador ainda não publicou nenhum conteúdo"
   },
   "following": {
     "title": "Seguindo",

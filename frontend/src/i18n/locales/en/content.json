@@ -5,6 +5,13 @@
     "empty": "// no content yet — subscribe to creators to see their articles and guides",
     "loading": "Loading…"
   },
+  "manager": {
+    "title": "My content",
+    "new": "[ New content ]",
+    "empty": "// you have not written any content yet",
+    "loading": "Loading…",
+    "confirmDelete": "Delete \"{{title}}\"?"
+  },
   "show": {
     "back": "Content",
     "loading": "Loading…",

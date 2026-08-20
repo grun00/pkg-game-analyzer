@@ -31,6 +31,7 @@ export interface PublicCreator {
 
 export interface Creator extends PublicCreator {
   subscribed: boolean;
+  contents?: Content[];
 }
 
 export interface Subscription {

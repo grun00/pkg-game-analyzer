@@ -5,10 +5,12 @@ import client from "../api/client";
 import { useCreator } from "../hooks/queries";
 import { useFlash } from "../components/Flash";
 import { apiErrors } from "../lib/errors";
+import { stars } from "../lib/labels";
 
 export default function CreatorShow() {
   const { t } = useTranslation("subscriptions");
   const { t: tc } = useTranslation("common");
+  const { t: tco } = useTranslation("content");
   const { id } = useParams();
   const { data: creator, isLoading, isError, error } = useCreator(id);
   const queryClient = useQueryClient();
@@ -71,6 +73,32 @@ export default function CreatorShow() {
       <p className="c-dim">
         {tc("profile.role")}: {tc(`roles.contentCreator`)}
       </p>
+
+      <h2 className="page-title">{t("show.content")}</h2>
+      {creator.contents && creator.contents.length > 0 ? (
+        <div className="db-grid">
+          {creator.contents.map((c) => (
+            <div className="db-card" key={c.id}>
+              <div className="db-card-hd">
+                <Link to={`/contents/${c.id}`} className="db-card-name">
+                  {c.title}
+                </Link>
+                <span className="c-dim">{tco(`type.${c.content_type}`)}</span>
+              </div>
+              <p className="content-rating">
+                <span className="star-rating-ro">
+                  {stars(Math.round(c.average_rating))}
+                </span>{" "}
+                {c.average_rating} ({c.ratings_count})
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <p>{t("show.contentEmpty")}</p>
+        </div>
+      )}
     </>
   );
 }

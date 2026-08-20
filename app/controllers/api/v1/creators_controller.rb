@@ -1,7 +1,7 @@
 module Api
   module V1
     class CreatorsController < BaseController
-      include SubscriptionSerialization
+      include ContentSerialization
 
       before_action :set_creator, only: %i[show subscribe unsubscribe]
 
@@ -13,6 +13,7 @@ module Api
 
       def show
         render json: creator_json(@creator, subscribed: subscribed_to?(@creator))
+          .merge(contents: published_contents_json)
       end
 
       def subscribe
@@ -33,6 +34,16 @@ module Api
 
       def subscribed_to?(creator)
         current_user.subscriptions.exists?(creator: creator)
+      end
+
+      # A creator's public profile lists their published content only. Eager-load
+      # ratings + creator to avoid N+1 in serialization.
+      def published_contents_json
+        @creator.contents
+                .includes(:ratings, :creator)
+                .status_published
+                .recent
+                .map { |c| content_json(c, current_user: current_user) }
       end
     end
   end

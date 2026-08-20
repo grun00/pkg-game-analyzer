@@ -5,6 +5,13 @@
     "empty": "// nenhum conteúdo ainda — inscreva-se em criadores para ver seus artigos e guias",
     "loading": "Carregando…"
   },
+  "manager": {
+    "title": "Meu conteúdo",
+    "new": "[ Novo conteúdo ]",
+    "empty": "// você ainda não escreveu nenhum conteúdo",
+    "loading": "Carregando…",
+    "confirmDelete": "Excluir \"{{title}}\"?"
+  },
   "show": {
     "back": "Conteúdo",
     "loading": "Carregando…",

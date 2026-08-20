@@ -63,6 +63,21 @@ RSpec.describe "Api::V1::Creators", type: :request do
       get "/api/v1/creators/#{other.id}", headers: auth_headers(user), as: :json
       expect(response).to have_http_status(:not_found)
     end
+
+    it "includes the creator's published content but not their drafts" do
+      published = create(:content, creator: creator, status: :published)
+      create(:content, :draft, creator: creator)
+
+      get "/api/v1/creators/#{creator.id}", headers: auth_headers(user), as: :json
+
+      ids = JSON.parse(response.body)["contents"].map { |c| c["id"] }
+      expect(ids).to eq([published.id])
+    end
+
+    it "returns an empty content list when the creator has none" do
+      get "/api/v1/creators/#{creator.id}", headers: auth_headers(user), as: :json
+      expect(JSON.parse(response.body)["contents"]).to eq([])
+    end
   end
 
   describe "POST /api/v1/creators/:id/subscribe" do

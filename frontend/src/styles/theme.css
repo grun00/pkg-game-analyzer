@@ -118,11 +118,16 @@ input[type="datetime-local"].form-ctrl{color-scheme:light}
 .badge-pending{border-color:var(--blue);color:var(--blue)}
 .badge-approved{border-color:var(--green);color:var(--green)}
 .badge-rejected{border-color:var(--red);color:var(--red)}
-.admin-requests{list-style:none;display:flex;flex-direction:column;gap:16px;max-width:720px}
-.admin-request{background:var(--bg-card);border:1px solid var(--border);padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
-.admin-request-body{display:flex;flex-direction:column;gap:6px}
-.admin-request-body strong{font-family:'VT323',monospace;font-size:1.4rem}
-.admin-request-body time{font-size:.72rem;color:var(--gdim);text-transform:uppercase;letter-spacing:1px}
-.admin-request-body blockquote{font-size:.82rem;color:var(--gmid);border-left:2px solid var(--gdim);padding-left:10px;margin-top:4px}
-.admin-request-actions{display:flex;gap:10px}
+.admin-layout{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:20px;align-items:start;max-width:900px}
+.admin-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.admin-list-item{width:100%;text-align:left;background:var(--bg-card);border:1px solid var(--border);padding:12px 14px;display:flex;flex-direction:column;gap:4px;cursor:pointer;color:var(--text-card);font-family:inherit}
+.admin-list-item:hover{border-color:var(--green)}
+.admin-list-item.is-active{border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.admin-list-item strong{font-family:'VT323',monospace;font-size:1.3rem;color:var(--green)}
+.admin-list-item time{font-size:.7rem;color:var(--gdim);text-transform:uppercase;letter-spacing:1px}
+.admin-detail{background:var(--bg-card);border:1px solid var(--border);padding:24px;display:flex;flex-direction:column;gap:8px;color:var(--text-card);min-height:180px}
+.admin-detail .detail-lbl{margin-top:8px}
+.admin-detail-msg{font-size:.9rem;color:var(--gmid);border-left:2px solid var(--gdim);padding-left:12px;white-space:pre-wrap}
+.admin-request-actions{display:flex;gap:10px;margin-top:16px}
+@media(max-width:640px){.admin-layout{grid-template-columns:1fr}}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border)}::-webkit-scrollbar-thumb:hover{background:var(--green)}

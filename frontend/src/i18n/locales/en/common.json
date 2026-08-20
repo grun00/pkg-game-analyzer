@@ -3,6 +3,7 @@
   "nav": {
     "dashboards": "Dashboards",
     "creatorDashboard": "Creator Dashboard",
+    "applyCreator": "Apply to Creator Program",
     "admin": "Admin",
     "profile": "Profile",
     "signIn": "Sign in",
@@ -39,6 +40,10 @@
   "admin": {
     "title": "Creator Requests",
     "empty": "// no pending requests",
+    "selectPrompt": "// select an applicant",
+    "applicant": "Applicant",
+    "messageLabel": "Message",
+    "noMessage": "// no message provided",
     "approve": "[ Approve ]",
     "reject": "[ Reject ]",
     "approved": "Request approved",

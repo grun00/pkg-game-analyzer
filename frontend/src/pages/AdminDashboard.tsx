@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
@@ -11,6 +12,9 @@ export default function AdminDashboard() {
   const queryClient = useQueryClient();
   const { notify } = useFlash();
   const { data: requests, isLoading } = usePendingCreatorRequests();
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+
+  const selected = requests?.find((r) => r.id === selectedId) ?? null;
 
   const decide = useMutation({
     mutationFn: ({ id, status }: { id: number; status: CreatorRequestStatus }) =>
@@ -19,6 +23,7 @@ export default function AdminDashboard() {
       }),
     onSuccess: (_res, { status }) => {
       queryClient.invalidateQueries({ queryKey: ["admin", "creator_requests"] });
+      setSelectedId(null);
       notify(
         "ok",
         status === "approved" ? t("admin.approved") : t("admin.rejected"),
@@ -45,35 +50,59 @@ export default function AdminDashboard() {
           <p>{t("admin.empty")}</p>
         </div>
       ) : (
-        <ul className="admin-requests">
-          {requests.map((r) => (
-            <li key={r.id} className="admin-request">
-              <div className="admin-request-body">
-                <strong>{r.user.email}</strong>
-                <time>{new Date(r.created_at).toLocaleDateString()}</time>
-                {r.message && <blockquote>{r.message}</blockquote>}
-              </div>
-              <div className="admin-request-actions">
+        <div className="admin-layout">
+          <ul className="admin-list">
+            {requests.map((r) => (
+              <li key={r.id}>
                 <button
                   type="button"
-                  className="nav-btn nav-btn-g"
-                  disabled={decide.isPending}
-                  onClick={() => decide.mutate({ id: r.id, status: "approved" })}
+                  className={`admin-list-item${r.id === selectedId ? " is-active" : ""}`}
+                  onClick={() => setSelectedId(r.id)}
                 >
-                  {t("admin.approve")}
+                  <strong>{r.user.email}</strong>
+                  <time>{new Date(r.created_at).toLocaleDateString()}</time>
                 </button>
-                <button
-                  type="button"
-                  className="nav-btn nav-btn-r"
-                  disabled={decide.isPending}
-                  onClick={() => decide.mutate({ id: r.id, status: "rejected" })}
-                >
-                  {t("admin.reject")}
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+
+          <div className="admin-detail">
+            {selected ? (
+              <>
+                <p className="detail-lbl">{t("admin.applicant")}</p>
+                <p className="detail-val">{selected.user.email}</p>
+                <p className="detail-lbl">{t("admin.messageLabel")}</p>
+                <blockquote className="admin-detail-msg">
+                  {selected.message || t("admin.noMessage")}
+                </blockquote>
+                <div className="admin-request-actions">
+                  <button
+                    type="button"
+                    className="nav-btn nav-btn-g"
+                    disabled={decide.isPending}
+                    onClick={() =>
+                      decide.mutate({ id: selected.id, status: "approved" })
+                    }
+                  >
+                    {t("admin.approve")}
+                  </button>
+                  <button
+                    type="button"
+                    className="nav-btn nav-btn-r"
+                    disabled={decide.isPending}
+                    onClick={() =>
+                      decide.mutate({ id: selected.id, status: "rejected" })
+                    }
+                  >
+                    {t("admin.reject")}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <p className="empty">{t("admin.selectPrompt")}</p>
+            )}
+          </div>
+        </div>
       )}
     </>
   );

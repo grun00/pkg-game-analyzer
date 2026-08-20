@@ -3,6 +3,7 @@
   "nav": {
     "dashboards": "Painéis",
     "creatorDashboard": "Painel do criador",
+    "applyCreator": "Programa de Criador",
     "admin": "Admin",
     "profile": "Perfil",
     "signIn": "Entrar",
@@ -39,6 +40,10 @@
   "admin": {
     "title": "Solicitações de criador",
     "empty": "// nenhuma solicitação pendente",
+    "selectPrompt": "// selecione um candidato",
+    "applicant": "Candidato",
+    "messageLabel": "Mensagem",
+    "noMessage": "// nenhuma mensagem enviada",
     "approve": "[ Aprovar ]",
     "reject": "[ Rejeitar ]",
     "approved": "Solicitação aprovada",

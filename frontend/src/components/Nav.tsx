@@ -32,7 +32,7 @@ function LangSwitcher() {
 export default function Nav() {
   const { t } = useTranslation("common");
   const { user, logout } = useAuth();
-  const { isCreator, isAdmin } = useRole();
+  const { role, isCreator, isAdmin } = useRole();
   const navigate = useNavigate();
   const { notify } = useFlash();
 
@@ -55,6 +55,11 @@ export default function Nav() {
             <Link to="/dashboards" className="nav-link">
               {t("nav.dashboards")}
             </Link>
+            {role === "regular" && (
+              <Link to="/profile" className="nav-link">
+                {t("nav.applyCreator")}
+              </Link>
+            )}
             {isCreator && (
               <Link to="/creator" className="nav-link">
                 {t("nav.creatorDashboard")}

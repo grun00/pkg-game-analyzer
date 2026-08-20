@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_20_140001) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_20_140002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_20_140001) do
     t.integer "reason_for_defeat"
     t.integer "number_of_mulligans"
     t.integer "game_mode", default: 0, null: false
+    t.string "my_battlefield"
+    t.string "opponent_battlefield"
     t.index ["dashboard_id"], name: "index_matches_on_dashboard_id"
   end
 

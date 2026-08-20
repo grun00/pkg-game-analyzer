@@ -8,6 +8,8 @@ export interface MatchFormState {
   first_or_second: string;
   number_of_mulligans: string;
   hand_quality: string;
+  my_battlefield: string;
+  opponent_battlefield: string;
   description: string;
   played_at: string;
 }
@@ -25,8 +27,10 @@ export const blankMatchForm: MatchFormState = {
   result: "",
   reason_for_defeat: "",
   first_or_second: "uninformed",
-  number_of_mulligans: "",
+  number_of_mulligans: "0",
   hand_quality: "",
+  my_battlefield: "",
+  opponent_battlefield: "",
   description: "",
   played_at: todayLocalDate(),
 };
@@ -50,6 +54,8 @@ export function matchToForm(m: Match): MatchFormState {
     number_of_mulligans:
       m.number_of_mulligans != null ? String(m.number_of_mulligans) : "",
     hand_quality: m.hand_quality != null ? String(m.hand_quality) : "",
+    my_battlefield: m.my_battlefield ?? "",
+    opponent_battlefield: m.opponent_battlefield ?? "",
     description: m.description ?? "",
     played_at: isoToLocalInput(m.played_at),
   };
@@ -71,6 +77,8 @@ export function formToPayload(form: MatchFormState): Record<string, unknown> {
         ? null
         : Number(form.number_of_mulligans),
     hand_quality: form.hand_quality === "" ? null : Number(form.hand_quality),
+    my_battlefield: form.my_battlefield || null,
+    opponent_battlefield: form.opponent_battlefield || null,
     description: form.description,
     played_at: form.played_at ? localDateToIso(form.played_at) : null,
   };

@@ -92,6 +92,16 @@ export default function MatchShow() {
         <Row label={t("show.gameMode")}>
           {enumLabel("game_mode", m.game_mode)}
         </Row>
+        {m.my_battlefield && (
+          <Row label={t("show.myBattlefield")}>
+            {enumLabel("battlefield", m.my_battlefield)}
+          </Row>
+        )}
+        {m.opponent_battlefield && (
+          <Row label={t("show.opponentBattlefield")}>
+            {enumLabel("battlefield", m.opponent_battlefield)}
+          </Row>
+        )}
         {m.first_or_second !== "uninformed" && (
           <Row label={t("show.firstOrSecond")}>
             {m.first_or_second === "first" ? t("show.first") : t("show.second")}

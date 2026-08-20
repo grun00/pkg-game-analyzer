@@ -89,6 +89,30 @@ RSpec.describe "Api::V1::Matches", type: :request do
         post api_v1_dashboard_matches_path(other_db), params: valid_params, headers: headers
         expect(response).to have_http_status(:not_found)
       end
+
+      it "creates a match with optional battlefields and serializes them" do
+        params = valid_params.deep_merge(
+          match: { my_battlefield: "kinkou_temple", opponent_battlefield: "void_gate" }
+        )
+        post api_v1_dashboard_matches_path(dashboard), params: params, headers: headers
+        expect(response).to have_http_status(:created)
+        expect(json["my_battlefield"]).to eq("kinkou_temple")
+        expect(json["opponent_battlefield"]).to eq("void_gate")
+      end
+
+      it "serializes null battlefields when omitted" do
+        post api_v1_dashboard_matches_path(dashboard), params: valid_params, headers: headers
+        expect(response).to have_http_status(:created)
+        expect(json).to have_key("my_battlefield")
+        expect(json["my_battlefield"]).to be_nil
+        expect(json["opponent_battlefield"]).to be_nil
+      end
+
+      it "rejects an unknown battlefield value" do
+        params = valid_params.deep_merge(match: { my_battlefield: "not_a_place" })
+        post api_v1_dashboard_matches_path(dashboard), params: params, headers: headers
+        expect(response).to have_http_status(:unprocessable_content)
+      end
     end
 
     describe "GET /api/v1/dashboards/:dashboard_id/matches/:id" do

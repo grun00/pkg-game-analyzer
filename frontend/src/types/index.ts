@@ -90,6 +90,8 @@ export interface Match {
   reason_for_defeat: string | null;
   hand_quality: number;
   number_of_mulligans: number | null;
+  my_battlefield: string | null;
+  opponent_battlefield: string | null;
   description: string | null;
   played_at: string | null;
 }
@@ -169,4 +171,5 @@ export interface Meta {
   first_or_second: EnumOption[];
   reasons_for_defeat: EnumOption[];
   hand_qualities: EnumOption[];
+  battlefields?: EnumOption[];
 }

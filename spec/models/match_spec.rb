@@ -32,6 +32,31 @@ RSpec.describe Match, type: :model do
     it "rejects non-integer number_of_mulligans" do
       expect(build(:match, number_of_mulligans: 1.5)).not_to be_valid
     end
+
+    it "allows my_battlefield to be nil" do
+      expect(build(:match, my_battlefield: nil)).to be_valid
+    end
+
+    it "allows opponent_battlefield to be nil" do
+      expect(build(:match, opponent_battlefield: nil)).to be_valid
+    end
+
+    it "treats a blank battlefield as nil" do
+      match = build(:match, my_battlefield: "", opponent_battlefield: "")
+      expect(match).to be_valid
+      match.validate
+      expect(match.my_battlefield).to be_nil
+      expect(match.opponent_battlefield).to be_nil
+    end
+
+    it "allows a valid battlefield value" do
+      expect(build(:match, my_battlefield: "kinkou_temple",
+                           opponent_battlefield: "void_gate")).to be_valid
+    end
+
+    it "rejects an unknown battlefield value" do
+      expect(build(:match, my_battlefield: "not_a_place")).not_to be_valid
+    end
   end
 
   describe "enums" do
@@ -39,13 +64,30 @@ RSpec.describe Match, type: :model do
       expected_decks = %w[dragapult dragapult_dusknoir dragapult_blaziken tera_box team_rockets
                           raging_bolt alakazam mega_lucario absol green_ogerpon
                           clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke slop_box greninja_ex mega_excradrill other
-                          kaisa master_yi ahri viktor jinx lee_sin yasuo vi darius volibear annie garen]
+                          kaisa master_yi ahri viktor jinx lee_sin yasuo vi darius volibear annie garen
+                          ahri_nine_tailed_fox akali_rogue_assassin ambessa_matriarch_of_war annie_dark_child
+                          azir_emperor_of_the_sands darius_hand_of_noxus diana_scorn_of_the_moon
+                          draven_glorious_executioner ezreal_prodigal_explorer fiora_grand_duelist
+                          garen_might_of_demacia irelia_blade_dancer ivern_green_father jax_grandmaster_at_arms
+                          jayce_defender_of_tomorrow jhin_virtuoso jinx_loose_cannon kaisa_daughter_of_the_void
+                          khazix_voidreaver leblanc_deceiver lee_sin_blind_monk leona_radiant_dawn
+                          lillia_bashful_bloom lucian_purifier lux_lady_of_luminosity master_yi_wuju_bladesman
+                          master_yi_wuju_master mel_souls_reflection miss_fortune_bounty_hunter
+                          nasus_curator_of_the_sands ornn_fire_below_the_mountain poppy_keeper_of_the_hammer
+                          pyke_bloodharbor_ripper reksai_void_burrower renata_glasc_chem_baroness
+                          renekton_butcher_of_the_sands rengar_pridestalker rumble_mechanized_menace
+                          sett_the_boss shen_eye_of_twilight sivir_battle_mistress teemo_swift_scout
+                          vex_gloomist vi_piltover_enforcer viktor_herald_of_the_arcane
+                          volibear_relentless_storm yasuo_unforgiven yordle_kennen_heart_of_the_tempest
+                          zed_master_of_shadows]
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
     end
 
     it "assigns new riftbound deck integers without reusing existing ones" do
       expect(Match::OPPONENT_DECKS[:kaisa]).to eq(27)
       expect(Match::OPPONENT_DECKS[:garen]).to eq(38)
+      expect(Match::OPPONENT_DECKS[:ahri_nine_tailed_fox]).to eq(39)
+      expect(Match::OPPONENT_DECKS[:zed_master_of_shadows]).to eq(87)
     end
 
     it "defines result enum with win, loss, and tie" do
@@ -56,13 +98,15 @@ RSpec.describe Match, type: :model do
       expect(Match.first_or_seconds.keys).to match_array(%w[uninformed first second])
     end
 
-    it "defines game_mode enum with in_person, tcg_live, standard, and limited" do
-      expect(Match.game_modes.keys).to match_array(%w[in_person tcg_live standard limited])
+    it "defines game_mode enum with in_person, tcg_live, standard, limited, bo1, and bo3" do
+      expect(Match.game_modes.keys).to match_array(%w[in_person tcg_live standard limited bo1 bo3])
     end
 
     it "assigns new riftbound game_mode integers" do
       expect(Match::GAME_MODES[:standard]).to eq(2)
       expect(Match::GAME_MODES[:limited]).to eq(3)
+      expect(Match::GAME_MODES[:bo1]).to eq(4)
+      expect(Match::GAME_MODES[:bo3]).to eq(5)
     end
 
     it "defaults game_mode to in_person" do

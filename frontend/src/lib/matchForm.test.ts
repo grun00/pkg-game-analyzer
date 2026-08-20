@@ -16,6 +16,8 @@ const baseMatch: Match = {
   reason_for_defeat: "unlucky",
   hand_quality: 4,
   number_of_mulligans: 1,
+  my_battlefield: null,
+  opponent_battlefield: null,
   description: "close game",
   played_at: "2026-01-15T20:30:00.000Z",
 };
@@ -62,6 +64,27 @@ describe("matchForm", () => {
     expect(form.reason_for_defeat).toBe("unlucky");
     expect(form.hand_quality).toBe("4");
     expect(form.number_of_mulligans).toBe("1");
+    expect(form.my_battlefield).toBe("");
+    expect(form.opponent_battlefield).toBe("");
+  });
+
+  it("maps battlefields to/from payload, nulling empties", () => {
+    const form = matchToForm({
+      ...baseMatch,
+      my_battlefield: "kinkou_temple",
+      opponent_battlefield: "void_gate",
+    });
+    expect(form.my_battlefield).toBe("kinkou_temple");
+    expect(form.opponent_battlefield).toBe("void_gate");
+
+    const payload = formToPayload({
+      ...blankMatchForm,
+      result: "win",
+      hand_quality: "3",
+      played_at: "2026-01-15",
+    });
+    expect(payload.my_battlefield).toBeNull();
+    expect(payload.opponent_battlefield).toBeNull();
   });
 
   it("formats ISO timestamps for date inputs", () => {
@@ -73,5 +96,16 @@ describe("matchForm", () => {
 
   it("defaults a blank form's played_at to today's date", () => {
     expect(blankMatchForm.played_at).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it("defaults a blank form's number_of_mulligans to 0", () => {
+    expect(blankMatchForm.number_of_mulligans).toBe("0");
+    const payload = formToPayload({
+      ...blankMatchForm,
+      result: "win",
+      hand_quality: "3",
+      played_at: "2026-01-15",
+    });
+    expect(payload.number_of_mulligans).toBe(0);
   });
 });

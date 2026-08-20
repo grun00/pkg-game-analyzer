@@ -18,7 +18,8 @@ type EnumGroup =
   | "game_mode"
   | "first_or_second"
   | "reason_for_defeat"
-  | "opponent_deck";
+  | "opponent_deck"
+  | "battlefield";
 
 export const enumLabel = (group: EnumGroup, key: string | null | undefined): string => {
   if (!key) return "";

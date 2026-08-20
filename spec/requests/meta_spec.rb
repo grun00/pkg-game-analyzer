@@ -27,7 +27,8 @@ RSpec.describe "Api::V1::Meta", type: :request do
 
       expect(response).to have_http_status(:ok)
       expect(deck_values).to include("dragapult", "other")
-      expect(deck_values).not_to include("kaisa")
+      expect(deck_values).not_to include("kaisa_daughter_of_the_void")
+      expect(json["battlefields"]).to eq([])
       expect(mode_values).to match_array(%w[in_person tcg_live])
       expect(json["results"].map { |o| o["value"] }).to match_array(%w[win loss tie])
       expect(json["reasons_for_defeat"].map { |o| o["value"] })
@@ -41,11 +42,14 @@ RSpec.describe "Api::V1::Meta", type: :request do
       get "/api/v1/meta", params: { game_type: "riftbound" }, headers: headers, as: :json
 
       expect(response).to have_http_status(:ok)
-      expect(deck_values).to include("kaisa", "other")
+      expect(deck_values).to include("kaisa_daughter_of_the_void", "other")
       expect(deck_values).not_to include("dragapult")
-      expect(mode_values).to match_array(%w[standard limited])
+      expect(mode_values).to match_array(%w[bo1 bo3])
       expect(json["reasons_for_defeat"].map { |o| o["value"] })
         .to match_array(%w[unknown minor_misplay major_misplay disconnected unlucky])
+      bf_values = json["battlefields"].map { |o| o["value"] }
+      expect(bf_values).to include("kinkou_temple", "void_gate")
+      expect(bf_values.size).to eq(Match::RIFTBOUND_BATTLEFIELDS.size)
     end
   end
 

@@ -9,7 +9,8 @@ module Api
           game_modes: options(:game_mode, cfg[:game_modes]),
           first_or_second: options(:first_or_second, %i[uninformed first second]),
           reasons_for_defeat: options(:reason_for_defeat, Match::DEFEAT_REASONS.keys),
-          hand_qualities: (1..5).map { |n| { value: n, label: "#{n} #{'★' * n}" } }
+          hand_qualities: (1..5).map { |n| { value: n, label: "#{n} #{'★' * n}" } },
+          battlefields: options(:battlefield, cfg[:battlefields] || []).sort_by { |o| o[:label] }
         }
       end
 

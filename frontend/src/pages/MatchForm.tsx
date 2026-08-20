@@ -16,9 +16,10 @@ interface FormProps {
   matchId?: string;
   meta: Meta;
   initial: MatchFormState;
+  gameType?: string;
 }
 
-function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
+function MatchFormInner({ id, matchId, meta, initial, gameType }: FormProps) {
   const { t } = useTranslation("matches");
   const { t: tc } = useTranslation("common");
   const isEdit = !!matchId;
@@ -82,6 +83,14 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
           </div>
         )}
 
+        <RadioGroup
+          label={t("form.gameMode")}
+          name="game_mode"
+          options={meta.game_modes}
+          value={form.game_mode}
+          onChange={(v) => set("game_mode", v)}
+        />
+
         <div className="form-grp">
           <label className="form-lbl">{t("form.opponentDeck")}</label>
           <select
@@ -99,13 +108,43 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
           </select>
         </div>
 
-        <RadioGroup
-          label={t("form.gameMode")}
-          name="game_mode"
-          options={meta.game_modes}
-          value={form.game_mode}
-          onChange={(v) => set("game_mode", v)}
-        />
+        {gameType === "riftbound" && meta.battlefields && (
+          <>
+            <div className="form-grp">
+              <label className="form-lbl">{t("form.myBattlefield")}</label>
+              <select
+                className="form-ctrl"
+                value={form.my_battlefield}
+                onChange={(e) => set("my_battlefield", e.target.value)}
+              >
+                <option value="">{t("form.selectBattlefield")}</option>
+                {meta.battlefields.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-grp">
+              <label className="form-lbl">
+                {t("form.opponentBattlefield")}
+              </label>
+              <select
+                className="form-ctrl"
+                value={form.opponent_battlefield}
+                onChange={(e) => set("opponent_battlefield", e.target.value)}
+              >
+                <option value="">{t("form.selectBattlefield")}</option>
+                {meta.battlefields.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </>
+        )}
 
         <RadioGroup
           label={t("form.result")}
@@ -227,6 +266,7 @@ export default function MatchForm() {
       matchId={matchId}
       meta={meta}
       initial={existing ? matchToForm(existing) : blankMatchForm}
+      gameType={dashboard.game_type}
     />
   );
 }

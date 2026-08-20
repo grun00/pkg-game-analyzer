@@ -10,15 +10,15 @@ RSpec.describe GameMeta do
   describe ".for" do
     it "returns riftbound decks and modes for riftbound" do
       cfg = described_class.for(:riftbound)
-      expect(cfg[:opponent_decks]).to include(:kaisa, :other)
+      expect(cfg[:opponent_decks]).to include(:kaisa_daughter_of_the_void, :other)
       expect(cfg[:opponent_decks]).not_to include(:dragapult)
-      expect(cfg[:game_modes]).to eq(%i[standard limited])
+      expect(cfg[:game_modes]).to eq(%i[bo1 bo3])
     end
 
-    it "returns pokemon decks disjoint from riftbound champions" do
+    it "returns pokemon decks disjoint from riftbound legends" do
       cfg = described_class.for(:pokemon)
       expect(cfg[:opponent_decks]).to include(:dragapult, :other)
-      expect(cfg[:opponent_decks]).not_to include(:kaisa)
+      expect(cfg[:opponent_decks]).not_to include(:kaisa_daughter_of_the_void)
     end
 
     it "returns only the other deck and no modes for magic" do

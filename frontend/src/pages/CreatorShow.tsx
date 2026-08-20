@@ -11,6 +11,7 @@ export default function CreatorShow() {
   const { t } = useTranslation("subscriptions");
   const { t: tc } = useTranslation("common");
   const { t: tco } = useTranslation("content");
+  const { t: te } = useTranslation("enums");
   const { id } = useParams();
   const { data: creator, isLoading, isError, error } = useCreator(id);
   const queryClient = useQueryClient();
@@ -83,7 +84,10 @@ export default function CreatorShow() {
                 <Link to={`/contents/${c.id}`} className="db-card-name">
                   {c.title}
                 </Link>
-                <span className="c-dim">{tco(`type.${c.content_type}`)}</span>
+                <span className="c-dim">
+                  {tco(`type.${c.content_type}`)} ·{" "}
+                  {te(`game_type.${c.game_type}`)}
+                </span>
               </div>
               <p className="content-rating">
                 <span className="star-rating-ro">

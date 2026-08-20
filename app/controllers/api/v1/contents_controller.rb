@@ -77,7 +77,7 @@ module Api
       end
 
       def content_params
-        params.require(:content).permit(:title, :body, :content_type, :status)
+        params.require(:content).permit(:title, :body, :content_type, :status, :game_type)
       end
     end
   end

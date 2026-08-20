@@ -8,6 +8,7 @@ import type { Content } from "../types";
 
 export default function ContentIndex() {
   const { t } = useTranslation("content");
+  const { t: te } = useTranslation("enums");
   const { data, isLoading, isError, error } = useContents();
   const { isCreator } = useRole();
 
@@ -49,7 +50,10 @@ export default function ContentIndex() {
                 <Link to={`/contents/${c.id}`} className="db-card-name">
                   {c.title}
                 </Link>
-                <span className="c-dim">{t(`type.${c.content_type}`)}</span>
+                <span className="c-dim">
+                  {t(`type.${c.content_type}`)} ·{" "}
+                  {te(`game_type.${c.game_type}`)}
+                </span>
               </div>
               <p className="c-dim">
                 {c.creator.name}

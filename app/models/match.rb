@@ -36,12 +36,24 @@ class Match < ApplicationRecord
     slop_box:                 24,
     greninja_ex:              25,
     mega_excradrill:          26,
-    other:               15
+    other:               15,
+    kaisa:                    27,
+    master_yi:                28,
+    ahri:                     29,
+    viktor:                   30,
+    jinx:                     31,
+    lee_sin:                  32,
+    yasuo:                    33,
+    vi:                       34,
+    darius:                   35,
+    volibear:                 36,
+    annie:                    37,
+    garen:                    38
   }.freeze
 
   DEFEAT_REASONS = { unknown: 0, minor_misplay: 1, major_misplay: 2, disconnected: 3, unlucky: 4 }.freeze
 
-  GAME_MODES = { in_person: 0, tcg_live: 1 }.freeze
+  GAME_MODES = { in_person: 0, tcg_live: 1, standard: 2, limited: 3 }.freeze
 
   enum :opponent_deck, OPPONENT_DECKS
   enum :result, { win: "win", loss: "loss", tie: "tie" }, prefix: true

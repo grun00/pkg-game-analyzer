@@ -6,7 +6,14 @@
   },
   "game_mode": {
     "in_person": "In person",
-    "tcg_live": "Tcg live"
+    "tcg_live": "Tcg live",
+    "standard": "Standard",
+    "limited": "Limited"
+  },
+  "game_type": {
+    "pokemon": "Pokémon",
+    "magic": "Magic",
+    "riftbound": "Riftbound"
   },
   "first_or_second": {
     "uninformed": "Uninformed",
@@ -47,6 +54,18 @@
     "slop_box": "Slop box",
     "greninja_ex": "Greninja ex",
     "mega_excradrill": "Mega excradrill",
-    "other": "Other"
+    "other": "Other",
+    "kaisa": "Kai'Sa",
+    "master_yi": "Master Yi",
+    "ahri": "Ahri",
+    "viktor": "Viktor",
+    "jinx": "Jinx",
+    "lee_sin": "Lee Sin",
+    "yasuo": "Yasuo",
+    "vi": "Vi",
+    "darius": "Darius",
+    "volibear": "Volibear",
+    "annie": "Annie",
+    "garen": "Garen"
   }
 }

@@ -17,6 +17,7 @@
     "titleEdit": "Edit Dashboard",
     "titleNew": "New Dashboard",
     "name": "Dashboard Name",
+    "gameType": "Game",
     "created": "Dashboard created",
     "updated": "Dashboard updated"
   },

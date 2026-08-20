@@ -26,6 +26,7 @@
     "title": "Título",
     "type": "Tipo",
     "status": "Status",
+    "gameType": "Jogo",
     "body": "Conteúdo",
     "bodyPlaceholder": "Escreva seu artigo ou guia em Markdown…",
     "markdownHint": "// Markdown suportado",

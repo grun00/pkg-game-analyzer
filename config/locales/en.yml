@@ -51,6 +51,7 @@ en:
         body: "Body"
         content_type: "Type"
         status: "Status"
+        game_type: "Game"
         published_at: "Published at"
       rating:
         stars: "Stars"
@@ -66,6 +67,7 @@ en:
         played_at: "Played at"
       dashboard:
         name: "Name"
+        game_type: "Game"
   enums:
     opponent_deck:
       dragapult: "Dragapult"
@@ -95,6 +97,18 @@ en:
       greninja_ex: "Greninja ex"
       mega_excradrill: "Mega excradrill"
       other: "Other"
+      kaisa: "Kai'Sa"
+      master_yi: "Master Yi"
+      ahri: "Ahri"
+      viktor: "Viktor"
+      jinx: "Jinx"
+      lee_sin: "Lee Sin"
+      yasuo: "Yasuo"
+      vi: "Vi"
+      darius: "Darius"
+      volibear: "Volibear"
+      annie: "Annie"
+      garen: "Garen"
     result:
       win: "WIN"
       loss: "LOSS"
@@ -102,6 +116,12 @@ en:
     game_mode:
       in_person: "In person"
       tcg_live: "Tcg live"
+      standard: "Standard"
+      limited: "Limited"
+    game_type:
+      pokemon: "Pokémon"
+      magic: "Magic"
+      riftbound: "Riftbound"
     first_or_second:
       uninformed: "Uninformed"
       first: "First"

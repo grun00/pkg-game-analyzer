@@ -42,6 +42,7 @@ export interface Subscription {
 
 export type ContentType = "article" | "guide";
 export type ContentStatus = "draft" | "published";
+export type GameType = "pokemon" | "magic" | "riftbound";
 
 export interface Content {
   id: number;
@@ -49,6 +50,7 @@ export interface Content {
   body: string;
   content_type: ContentType;
   status: ContentStatus;
+  game_type: GameType;
   published_at: string | null;
   created_at: string;
   updated_at: string;
@@ -61,6 +63,7 @@ export interface Content {
 export interface Dashboard {
   id: number;
   name: string;
+  game_type: GameType;
   created_at: string;
   updated_at: string;
 }
@@ -68,6 +71,7 @@ export interface Dashboard {
 export interface DashboardSummary {
   id: number;
   name: string;
+  game_type: GameType;
   created_at: string;
   matches_count: number;
   wins_count: number;

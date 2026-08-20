@@ -6,16 +6,20 @@ import type {
   CreatorRequest,
   Dashboard,
   DashboardSummary,
+  GameType,
   Match,
   Meta,
   Stats,
   Subscription,
 } from "../types";
 
-export function useMeta() {
+export function useMeta(gameType: GameType = "pokemon") {
   return useQuery<Meta>({
-    queryKey: ["meta"],
-    queryFn: () => client.get("/meta").then((r) => r.data),
+    queryKey: ["meta", gameType],
+    queryFn: () =>
+      client
+        .get("/meta", { params: { game_type: gameType } })
+        .then((r) => r.data),
     staleTime: 1000 * 60 * 60,
   });
 }

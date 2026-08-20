@@ -16,6 +16,7 @@ module ContentSerialization
       body: content.body,
       content_type: content.content_type,
       status: content.status,
+      game_type: content.game_type,
       published_at: content.published_at&.iso8601,
       created_at: content.created_at,
       updated_at: content.updated_at,

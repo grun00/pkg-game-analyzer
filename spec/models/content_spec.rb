@@ -20,6 +20,15 @@ RSpec.describe Content, type: :model do
       expect(Content.statuses.keys).to match_array(%w[draft published])
     end
 
+    it {
+      is_expected.to define_enum_for(:game_type)
+        .with_values(pokemon: 0, magic: 1, riftbound: 2).with_prefix
+    }
+
+    it "defaults game_type to pokemon" do
+      expect(build(:content).game_type).to eq("pokemon")
+    end
+
     it "defaults content_type to article and status to draft" do
       content = build(:content, :draft)
       expect(content.content_type).to eq("article")

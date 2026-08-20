@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { Route, Routes } from "react-router-dom";
 import type { Meta } from "../types";
 
 const get = vi.fn();
@@ -28,13 +29,28 @@ describe("MatchForm", () => {
   beforeEach(() => {
     get.mockReset();
     get.mockImplementation((url: string) => {
+      if (url === "/dashboards/1")
+        return Promise.resolve({
+          data: {
+            id: 1,
+            name: "D",
+            game_type: "pokemon",
+            created_at: "",
+            updated_at: "",
+          },
+        });
       if (url === "/meta") return Promise.resolve({ data: meta });
       return Promise.reject(new Error(`unexpected ${url}`));
     });
   });
 
   it("shows the defeat reason only after selecting a loss result", async () => {
-    renderWithProviders(<MatchForm />, { route: "/dashboards/1/matches/new" });
+    renderWithProviders(
+      <Routes>
+        <Route path="/dashboards/:id/matches/new" element={<MatchForm />} />
+      </Routes>,
+      { route: "/dashboards/1/matches/new" },
+    );
 
     await waitFor(() =>
       expect(screen.getByText("Log Match")).toBeInTheDocument(),

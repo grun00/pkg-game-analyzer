@@ -71,6 +71,16 @@ RSpec.describe "Api::V1::Contents", type: :request do
         post "/api/v1/contents", params: params, headers: auth_headers(creator), as: :json
       }.to change(Content, :count).by(1)
       expect(response).to have_http_status(:created)
+      expect(JSON.parse(response.body)["game_type"]).to eq("pokemon")
+    end
+
+    it "round-trips a non-default game_type" do
+      post "/api/v1/contents",
+           params: { content: params[:content].merge(game_type: "riftbound") },
+           headers: auth_headers(creator), as: :json
+      expect(response).to have_http_status(:created)
+      expect(JSON.parse(response.body)["game_type"]).to eq("riftbound")
+      expect(Content.last.game_type).to eq("riftbound")
     end
 
     it "forbids a regular user from creating content" do

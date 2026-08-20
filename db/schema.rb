@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_20_135524) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_20_140001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_20_135524) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_type", default: 0, null: false
     t.index ["creator_id", "published_at"], name: "index_contents_on_creator_id_and_published_at"
     t.index ["creator_id", "status"], name: "index_contents_on_creator_id_and_status"
     t.index ["creator_id"], name: "index_contents_on_creator_id"
@@ -45,6 +46,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_20_135524) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_type", default: 0, null: false
+    t.index ["game_type"], name: "index_dashboards_on_game_type"
     t.index ["user_id"], name: "index_dashboards_on_user_id"
   end
 

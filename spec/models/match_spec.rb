@@ -38,8 +38,14 @@ RSpec.describe Match, type: :model do
     it "defines opponent_deck enum with all expected decks" do
       expected_decks = %w[dragapult dragapult_dusknoir dragapult_blaziken tera_box team_rockets
                           raging_bolt alakazam mega_lucario absol green_ogerpon
-                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke slop_box greninja_ex mega_excradrill other]
+                          clefairy_box garchomp ns_zoroark mega_starmie kengaskhan festival_lead grimmsnarl monkidori_froslass team_rocket_honchcrow crustle okidogi ceruledge slowpoke slop_box greninja_ex mega_excradrill other
+                          kaisa master_yi ahri viktor jinx lee_sin yasuo vi darius volibear annie garen]
       expect(Match.opponent_decks.keys).to match_array(expected_decks)
+    end
+
+    it "assigns new riftbound deck integers without reusing existing ones" do
+      expect(Match::OPPONENT_DECKS[:kaisa]).to eq(27)
+      expect(Match::OPPONENT_DECKS[:garen]).to eq(38)
     end
 
     it "defines result enum with win, loss, and tie" do
@@ -50,8 +56,13 @@ RSpec.describe Match, type: :model do
       expect(Match.first_or_seconds.keys).to match_array(%w[uninformed first second])
     end
 
-    it "defines game_mode enum with in_person and tcg_live" do
-      expect(Match.game_modes.keys).to match_array(%w[in_person tcg_live])
+    it "defines game_mode enum with in_person, tcg_live, standard, and limited" do
+      expect(Match.game_modes.keys).to match_array(%w[in_person tcg_live standard limited])
+    end
+
+    it "assigns new riftbound game_mode integers" do
+      expect(Match::GAME_MODES[:standard]).to eq(2)
+      expect(Match::GAME_MODES[:limited]).to eq(3)
     end
 
     it "defaults game_mode to in_person" do

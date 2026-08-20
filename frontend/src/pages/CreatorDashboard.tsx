@@ -12,6 +12,7 @@ import type { Content } from "../types";
 export default function CreatorDashboard() {
   const { t } = useTranslation("content");
   const { t: tc } = useTranslation("common");
+  const { t: te } = useTranslation("enums");
   const { data, isLoading, isError, error } = useContents();
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -86,7 +87,8 @@ export default function CreatorDashboard() {
               </div>
               <p className="c-dim">
                 {t(`type.${c.content_type}`)} ·{" "}
-                {t(`status.${c.status}`)}
+                {t(`status.${c.status}`)} ·{" "}
+                {te(`game_type.${c.game_type}`)}
               </p>
               <p className="content-rating">
                 <span className="star-rating-ro">

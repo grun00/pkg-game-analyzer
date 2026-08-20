@@ -4,6 +4,7 @@ class Content < ApplicationRecord
 
   enum :content_type, CONTENT_TYPES, prefix: true
   enum :status, STATUSES, prefix: true
+  enum :game_type, GameMeta::GAME_TYPES, prefix: true
 
   belongs_to :creator, class_name: "User"
   has_many :ratings, dependent: :destroy

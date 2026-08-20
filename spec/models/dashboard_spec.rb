@@ -10,6 +10,17 @@ RSpec.describe Dashboard, type: :model do
     it { is_expected.to validate_presence_of(:name) }
   end
 
+  describe "enums" do
+    it {
+      is_expected.to define_enum_for(:game_type)
+        .with_values(pokemon: 0, magic: 1, riftbound: 2).with_prefix
+    }
+
+    it "defaults game_type to pokemon" do
+      expect(build(:dashboard).game_type).to eq("pokemon")
+    end
+  end
+
   describe "factory" do
     it "is valid with default attributes" do
       expect(build(:dashboard)).to be_valid

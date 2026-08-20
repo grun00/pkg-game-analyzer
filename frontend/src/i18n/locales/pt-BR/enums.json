@@ -6,7 +6,14 @@
   },
   "game_mode": {
     "in_person": "Presencial",
-    "tcg_live": "Tcg live"
+    "tcg_live": "Tcg live",
+    "standard": "Padrão",
+    "limited": "Limitado"
+  },
+  "game_type": {
+    "pokemon": "Pokémon",
+    "magic": "Magic",
+    "riftbound": "Riftbound"
   },
   "first_or_second": {
     "uninformed": "Não informado",
@@ -19,5 +26,19 @@
     "major_misplay": "Erro grave",
     "disconnected": "Desconectado",
     "unlucky": "Azar"
+  },
+  "opponent_deck": {
+    "kaisa": "Kai'Sa",
+    "master_yi": "Master Yi",
+    "ahri": "Ahri",
+    "viktor": "Viktor",
+    "jinx": "Jinx",
+    "lee_sin": "Lee Sin",
+    "yasuo": "Yasuo",
+    "vi": "Vi",
+    "darius": "Darius",
+    "volibear": "Volibear",
+    "annie": "Annie",
+    "garen": "Garen"
   }
 }

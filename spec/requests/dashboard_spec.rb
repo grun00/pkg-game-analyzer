@@ -45,6 +45,7 @@ RSpec.describe "Api::V1::Dashboards", type: :request do
         expect(summary["matches_count"]).to eq(2)
         expect(summary["wins_count"]).to eq(1)
         expect(summary["win_rate"]).to eq(50.0)
+        expect(summary["game_type"]).to eq("pokemon")
       end
     end
 
@@ -54,7 +55,16 @@ RSpec.describe "Api::V1::Dashboards", type: :request do
           .to change(Dashboard, :count).by(1)
         expect(response).to have_http_status(:created)
         expect(json["name"]).to eq("Regionals")
+        expect(json["game_type"]).to eq("pokemon")
         expect(Dashboard.last.user).to eq(user)
+      end
+
+      it "round-trips a non-default game_type" do
+        post api_v1_dashboards_path,
+             params: { dashboard: { name: "Riftbound Ladder", game_type: "riftbound" } }, headers: headers
+        expect(response).to have_http_status(:created)
+        expect(json["game_type"]).to eq("riftbound")
+        expect(Dashboard.last.game_type).to eq("riftbound")
       end
 
       it "returns unprocessable_content when name is blank" do
@@ -73,6 +83,7 @@ RSpec.describe "Api::V1::Dashboards", type: :request do
         expect(response).to have_http_status(:ok)
         expect(json["id"]).to eq(dashboard.id)
         expect(json["name"]).to eq(dashboard.name)
+        expect(json["game_type"]).to eq(dashboard.game_type)
       end
 
       it "returns 404 when accessing another user's dashboard" do

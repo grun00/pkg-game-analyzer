@@ -6,13 +6,19 @@ import client from "../api/client";
 import { useContent } from "../hooks/queries";
 import { useFlash } from "../components/Flash";
 import { apiErrors } from "../lib/errors";
-import type { Content, ContentStatus, ContentType } from "../types";
+import type {
+  Content,
+  ContentStatus,
+  ContentType,
+  GameType,
+} from "../types";
 
 interface FormState {
   title: string;
   body: string;
   content_type: ContentType;
   status: ContentStatus;
+  game_type: GameType;
 }
 
 const BLANK: FormState = {
@@ -20,7 +26,10 @@ const BLANK: FormState = {
   body: "",
   content_type: "article",
   status: "draft",
+  game_type: "pokemon",
 };
+
+const GAME_TYPES: GameType[] = ["pokemon", "magic", "riftbound"];
 
 function ContentFormInner({
   id,
@@ -31,6 +40,7 @@ function ContentFormInner({
 }) {
   const { t } = useTranslation("content");
   const { t: tc } = useTranslation("common");
+  const { t: te } = useTranslation("enums");
   const isEdit = !!id;
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -131,6 +141,24 @@ function ContentFormInner({
         </div>
 
         <div className="form-grp">
+          <label className="form-lbl" htmlFor="game_type">
+            {t("form.gameType")}
+          </label>
+          <select
+            id="game_type"
+            className="form-ctrl"
+            value={form.game_type}
+            onChange={(e) => set("game_type", e.target.value as GameType)}
+          >
+            {GAME_TYPES.map((g) => (
+              <option key={g} value={g}>
+                {te(`game_type.${g}`)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-grp">
           <label className="form-lbl" htmlFor="body">
             {t("form.body")}
           </label>
@@ -172,6 +200,7 @@ export default function ContentForm() {
         body: existing.body,
         content_type: existing.content_type,
         status: existing.status,
+        game_type: existing.game_type,
       }
     : BLANK;
 

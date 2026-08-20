@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
-import { useMatch, useMeta } from "../hooks/queries";
+import { useDashboard, useMatch, useMeta } from "../hooks/queries";
 import { useFlash } from "../components/Flash";
 import { apiErrors } from "../lib/errors";
 import RadioGroup from "../components/RadioGroup";
@@ -202,10 +202,17 @@ function MatchFormInner({ id, matchId, meta, initial }: FormProps) {
 export default function MatchForm() {
   const { t } = useTranslation("common");
   const { id, matchId } = useParams();
-  const { data: meta, isLoading: metaLoading } = useMeta();
+  const { data: dashboard, isLoading: dashLoading } = useDashboard(id);
+  const { data: meta, isLoading: metaLoading } = useMeta(dashboard?.game_type);
   const { data: existing, isLoading: matchLoading } = useMatch(id, matchId);
 
-  if (metaLoading || !meta || (matchId && matchLoading))
+  if (
+    dashLoading ||
+    !dashboard ||
+    metaLoading ||
+    !meta ||
+    (matchId && matchLoading)
+  )
     return (
       <div className="empty">
         <p>{t("state.loading")}</p>

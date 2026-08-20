@@ -12,6 +12,7 @@ import { apiErrors } from "../lib/errors";
 export default function ContentShow() {
   const { t } = useTranslation("content");
   const { t: tc } = useTranslation("common");
+  const { t: te } = useTranslation("enums");
   const { id } = useParams();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -64,7 +65,8 @@ export default function ContentShow() {
           </div>
           <h1 className="page-title">{content.title}</h1>
           <p className="c-dim">
-            {content.creator.name} · {t(`type.${content.content_type}`)}
+            {content.creator.name} · {t(`type.${content.content_type}`)} ·{" "}
+            {te(`game_type.${content.game_type}`)}
             {content.status === "draft" && ` · ${t("status.draft")}`}
           </p>
         </div>

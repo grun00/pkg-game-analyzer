@@ -6,24 +6,35 @@ import client from "../api/client";
 import { useDashboard } from "../hooks/queries";
 import { useFlash } from "../components/Flash";
 import { apiErrors } from "../lib/errors";
+import type { GameType } from "../types";
 
 interface FormProps {
   id?: string;
   initialName: string;
+  initialGameType: GameType;
 }
 
-function DashboardFormInner({ id, initialName }: FormProps) {
+const GAME_TYPES: GameType[] = ["pokemon", "magic", "riftbound"];
+
+function DashboardFormInner({ id, initialName, initialGameType }: FormProps) {
   const { t } = useTranslation("dashboards");
   const { t: tc } = useTranslation("common");
+  const { t: te } = useTranslation("enums");
   const isEdit = !!id;
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { notify } = useFlash();
   const [name, setName] = useState(initialName);
+  const [gameType, setGameType] = useState<GameType>(initialGameType);
   const [errors, setErrors] = useState<string[]>([]);
 
+  const gameTypeOptions = GAME_TYPES.map((g) => ({
+    value: g,
+    label: te(`game_type.${g}`),
+  }));
+
   const save = useMutation({
-    mutationFn: (payload: { name: string }) =>
+    mutationFn: (payload: { name: string; game_type: GameType }) =>
       isEdit
         ? client.patch(`/dashboards/${id}`, { dashboard: payload })
         : client.post("/dashboards", { dashboard: payload }),
@@ -40,7 +51,7 @@ function DashboardFormInner({ id, initialName }: FormProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setErrors([]);
-    save.mutate({ name });
+    save.mutate({ name, game_type: gameType });
   }
 
   return (
@@ -80,6 +91,23 @@ function DashboardFormInner({ id, initialName }: FormProps) {
             required
           />
         </div>
+        <div className="form-grp">
+          <label className="form-lbl" htmlFor="game_type">
+            {t("form.gameType")}
+          </label>
+          <select
+            id="game_type"
+            className="form-ctrl"
+            value={gameType}
+            onChange={(e) => setGameType(e.target.value as GameType)}
+          >
+            {gameTypeOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <button type="submit" className="form-submit" disabled={save.isPending}>
           {save.isPending ? tc("actions.saving") : tc("actions.save")}
         </button>
@@ -106,6 +134,7 @@ export default function DashboardForm() {
       key={existing?.id ?? "new"}
       id={id}
       initialName={existing?.name ?? ""}
+      initialGameType={existing?.game_type ?? "pokemon"}
     />
   );
 }

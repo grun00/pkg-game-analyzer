@@ -44,7 +44,7 @@ module Api
       end
 
       def dashboard_params
-        params.require(:dashboard).permit(:name)
+        params.require(:dashboard).permit(:name, :game_type)
       end
 
       def dashboard_summary(d)
@@ -53,14 +53,14 @@ module Api
         losses = m.losses.count
         decisive = wins + losses
         {
-          id: d.id, name: d.name, created_at: d.created_at,
+          id: d.id, name: d.name, game_type: d.game_type, created_at: d.created_at,
           matches_count: m.count, wins_count: wins,
           win_rate: decisive.zero? ? 0.0 : (wins.to_f / decisive * 100).round(1)
         }
       end
 
       def dashboard_json(d)
-        { id: d.id, name: d.name, created_at: d.created_at, updated_at: d.updated_at }
+        { id: d.id, name: d.name, game_type: d.game_type, created_at: d.created_at, updated_at: d.updated_at }
       end
 
       # Convert MatchStatsService hash to JSON-safe structures.

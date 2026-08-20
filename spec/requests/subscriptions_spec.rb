@@ -22,6 +22,8 @@ RSpec.describe "Api::V1::Subscriptions", type: :request do
       body = JSON.parse(response.body)
       expect(body.map { |s| s["id"] }).to eq([recent.id, old.id])
       expect(body.first["creator"]["id"]).to eq(c2.id)
+      expect(body.first["creator"]["name"]).to eq(c2.display_name)
+      expect(body.first["creator"]).not_to have_key("email")
     end
   end
 end

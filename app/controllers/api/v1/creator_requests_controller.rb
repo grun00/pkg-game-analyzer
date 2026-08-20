@@ -18,7 +18,7 @@ module Api
       private
 
       def creator_request_params
-        params.require(:creator_request).permit(:message)
+        params.require(:creator_request).permit(:message, :proposed_name, :proposed_bio)
       end
     end
   end

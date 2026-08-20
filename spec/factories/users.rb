@@ -6,6 +6,8 @@ FactoryBot.define do
 
     trait :content_creator do
       role { :content_creator }
+      sequence(:name) { |n| "Creator #{n}" }
+      bio { "I stream Pokémon TCG matches weekly." }
     end
 
     trait :admin do

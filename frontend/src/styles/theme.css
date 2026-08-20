@@ -69,6 +69,8 @@ input[type="datetime-local"].form-ctrl{color-scheme:light}
 .db-card{background:var(--bg-card);border:1px solid var(--border);border-top:2px solid var(--green);padding:18px;display:flex;flex-direction:column;gap:12px;color:var(--text-card)}
 .db-card-hd{display:flex;justify-content:space-between;align-items:flex-start}
 .db-card-name{font-family:'VT323',monospace;font-size:1.3rem;letter-spacing:2px;text-transform:uppercase}
+.creator-bio{margin:8px 0 16px;max-width:60ch;line-height:1.5}
+.form-hint{display:block;margin-top:4px;font-size:.72rem;text-align:right}
 .db-card-acts{display:flex;gap:10px}
 .db-card-stats{display:flex;gap:14px;font-size:.78rem;border-top:1px solid var(--bg-hl);padding-top:10px}
 .db-card-link{border:1px solid var(--green);color:var(--green);text-align:center;padding:6px;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;display:block}

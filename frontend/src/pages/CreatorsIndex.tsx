@@ -60,7 +60,7 @@ export default function CreatorsIndex() {
             <div className="db-card" key={c.id}>
               <div className="db-card-hd">
                 <Link to={`/creators/${c.id}`} className="db-card-name">
-                  {c.email}
+                  {c.name}
                 </Link>
                 <button
                   type="button"
@@ -75,6 +75,7 @@ export default function CreatorsIndex() {
                     : t("actions.subscribe")}
                 </button>
               </div>
+              {c.bio && <p className="c-dim">{c.bio}</p>}
             </div>
           ))}
         </div>

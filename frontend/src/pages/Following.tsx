@@ -42,7 +42,7 @@ export default function Following() {
             <div className="db-card" key={s.id}>
               <div className="db-card-hd">
                 <Link to={`/creators/${s.creator.id}`} className="db-card-name">
-                  {s.creator.email}
+                  {s.creator.name}
                 </Link>
               </div>
               <p className="c-dim">

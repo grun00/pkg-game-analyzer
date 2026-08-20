@@ -4,6 +4,8 @@ export interface User {
   id: number;
   email: string;
   role: Role;
+  name: string | null;
+  bio: string | null;
 }
 
 export type CreatorRequestStatus = "pending" | "approved" | "rejected";
@@ -12,22 +14,29 @@ export interface CreatorRequest {
   id: number;
   status: CreatorRequestStatus;
   message: string | null;
+  proposed_name: string | null;
+  proposed_bio: string | null;
   created_at: string;
   updated_at: string;
   user: User;
 }
 
-export interface Creator {
+// Public creator representation. Never includes the creator's email.
+export interface PublicCreator {
   id: number;
-  email: string;
+  name: string;
+  bio: string | null;
   role: Role;
+}
+
+export interface Creator extends PublicCreator {
   subscribed: boolean;
 }
 
 export interface Subscription {
   id: number;
   created_at: string;
-  creator: User;
+  creator: PublicCreator;
 }
 
 export interface Dashboard {

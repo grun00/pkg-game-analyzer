@@ -50,9 +50,9 @@ export default function CreatorShow() {
         <div>
           <div className="breadcrumb">
             <Link to="/creators">{t("show.backToCreators")}</Link> /{" "}
-            {creator.email}
+            {creator.name}
           </div>
-          <h1 className="page-title">{creator.email}</h1>
+          <h1 className="page-title">{creator.name}</h1>
         </div>
         <button
           type="button"
@@ -65,6 +65,8 @@ export default function CreatorShow() {
             : t("actions.subscribe")}
         </button>
       </div>
+
+      {creator.bio && <p className="creator-bio">{creator.bio}</p>}
 
       <p className="c-dim">
         {tc("profile.role")}: {tc(`roles.contentCreator`)}

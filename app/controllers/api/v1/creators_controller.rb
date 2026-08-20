@@ -6,7 +6,7 @@ module Api
       before_action :set_creator, only: %i[show subscribe unsubscribe]
 
       def index
-        creators = User.where(role: :content_creator).order(:email)
+        creators = User.where(role: :content_creator).order(Arel.sql("name NULLS LAST"), :id)
         subscribed_ids = current_user.subscriptions.pluck(:creator_id).to_set
         render json: creators.map { |c| creator_json(c, subscribed: subscribed_ids.include?(c.id)) }
       end

@@ -46,6 +46,18 @@ RSpec.describe "Api::V1::Admin::CreatorRequests", type: :request do
       expect(applicant.reload.role_content_creator?).to be(true)
     end
 
+    it "copies the proposed name and bio onto the promoted creator" do
+      request_record.update!(proposed_name: "Ash", proposed_bio: "Pallet Town")
+
+      patch "/api/v1/admin/creator_requests/#{request_record.id}",
+            params: { creator_request: { status: "approved" } },
+            headers: auth_headers(admin), as: :json
+
+      applicant.reload
+      expect(applicant.name).to eq("Ash")
+      expect(applicant.bio).to eq("Pallet Town")
+    end
+
     it "approves without demoting an admin applicant" do
       admin_applicant = create(:user, :admin)
       admin_request = create(:creator_request, user: admin_applicant)

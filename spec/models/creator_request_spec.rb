@@ -5,6 +5,10 @@ RSpec.describe CreatorRequest, type: :model do
     it { is_expected.to belong_to(:user) }
   end
 
+  describe "validations" do
+    it { is_expected.to validate_length_of(:proposed_bio).is_at_most(200) }
+  end
+
   describe "enums" do
     it "defines status enum with pending, approved and rejected" do
       expect(CreatorRequest.statuses.keys).to match_array(%w[pending approved rejected])

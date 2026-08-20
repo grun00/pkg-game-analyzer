@@ -33,9 +33,18 @@ module Api
           CreatorRequest.transaction do
             request.update!(status: status)
             if status == "approved" && request.user.role_regular?
-              request.user.update!(role: :content_creator)
+              request.user.update!(role: :content_creator, **proposed_profile(request))
             end
           end
+        end
+
+        # Copy the applicant's proposed public profile onto the new creator,
+        # skipping blanks so an empty proposal never clobbers existing values.
+        def proposed_profile(request)
+          {
+            name: request.proposed_name,
+            bio: request.proposed_bio
+          }.compact_blank
         end
 
         def decision_params

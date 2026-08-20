@@ -3,6 +3,8 @@ class CreatorRequest < ApplicationRecord
 
   enum :status, { pending: 0, approved: 1, rejected: 2 }, prefix: true
 
+  validates :proposed_bio, length: { maximum: User::BIO_MAX_LENGTH }, allow_nil: true
+
   validate :no_other_pending_request, on: :create
 
   private

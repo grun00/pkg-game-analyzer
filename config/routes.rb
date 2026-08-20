@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "meta", to: "meta#index"                # enum options
+      patch "profile", to: "profiles#update"
       resources :creator_requests, only: %i[index create]
       namespace :admin do
         resources :creator_requests, only: %i[index update]

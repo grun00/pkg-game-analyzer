@@ -31,8 +31,17 @@
     "pending": "// sua solicitação está em análise",
     "messageLabel": "Mensagem (opcional)",
     "messagePlaceholder": "Conte-nos sobre o conteúdo que você cria…",
+    "nameLabel": "Nome público",
+    "namePlaceholder": "Como você aparecerá para os inscritos",
+    "bioLabel": "Bio",
+    "bioPlaceholder": "Uma breve apresentação (máx. 200 caracteres)",
     "applyCta": "[ Solicitar acesso ]",
     "submitted": "Solicitação enviada",
+    "creatorProfile": {
+      "heading": "Perfil público de criador",
+      "hint": "// seu e-mail permanece privado — os inscritos veem seu nome e bio",
+      "saved": "Perfil atualizado"
+    },
     "status": {
       "pending": "Pendente",
       "approved": "Aprovada",

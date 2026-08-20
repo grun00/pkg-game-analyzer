@@ -11,6 +11,18 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_length_of(:bio).is_at_most(200) }
+  end
+
+  describe "#display_name" do
+    it "returns the name when present" do
+      expect(build(:user, name: "Ash Ketchum").display_name).to eq("Ash Ketchum")
+    end
+
+    it "falls back to Creator #<id> when name is blank" do
+      user = create(:user, name: nil)
+      expect(user.display_name).to eq("Creator ##{user.id}")
+    end
   end
 
   describe "enums" do

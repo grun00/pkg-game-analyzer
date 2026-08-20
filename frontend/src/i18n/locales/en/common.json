@@ -31,8 +31,17 @@
     "pending": "// your request is pending review",
     "messageLabel": "Message (optional)",
     "messagePlaceholder": "Tell us about the content you create…",
+    "nameLabel": "Public name",
+    "namePlaceholder": "How you'll appear to subscribers",
+    "bioLabel": "Bio",
+    "bioPlaceholder": "A short introduction (max 200 characters)",
     "applyCta": "[ Request access ]",
     "submitted": "Request submitted",
+    "creatorProfile": {
+      "heading": "Public creator profile",
+      "hint": "// your email stays private — subscribers see your name and bio",
+      "saved": "Profile updated"
+    },
     "status": {
       "pending": "Pending",
       "approved": "Approved",

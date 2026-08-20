@@ -22,6 +22,25 @@ RSpec.describe "Api::V1::Creators", type: :request do
       expect(body.first["subscribed"]).to be(false)
     end
 
+    it "exposes name and bio but never the creator's email" do
+      creator.update!(name: "Ash Ketchum", bio: "Gotta catch 'em all")
+
+      get "/api/v1/creators", headers: auth_headers(user), as: :json
+
+      row = JSON.parse(response.body).first
+      expect(row["name"]).to eq("Ash Ketchum")
+      expect(row["bio"]).to eq("Gotta catch 'em all")
+      expect(row).not_to have_key("email")
+    end
+
+    it "falls back to Creator #<id> when the creator has no name" do
+      creator.update!(name: nil)
+
+      get "/api/v1/creators", headers: auth_headers(user), as: :json
+
+      expect(JSON.parse(response.body).first["name"]).to eq("Creator ##{creator.id}")
+    end
+
     it "marks creators the user follows as subscribed" do
       create(:subscription, subscriber: user, creator: creator)
 

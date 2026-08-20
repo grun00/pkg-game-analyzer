@@ -1,9 +1,20 @@
-export type Role = "regular" | "content_creator";
+export type Role = "regular" | "content_creator" | "admin";
 
 export interface User {
   id: number;
   email: string;
   role: Role;
+}
+
+export type CreatorRequestStatus = "pending" | "approved" | "rejected";
+
+export interface CreatorRequest {
+  id: number;
+  status: CreatorRequestStatus;
+  message: string | null;
+  created_at: string;
+  updated_at: string;
+  user: User;
 }
 
 export interface Dashboard {

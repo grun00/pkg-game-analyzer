@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import client from "../api/client";
 import type {
+  CreatorRequest,
   Dashboard,
   DashboardSummary,
   Match,
@@ -59,5 +60,20 @@ export function useMatch(
         .get(`/dashboards/${dashboardId}/matches/${matchId}`)
         .then((r) => r.data),
     enabled: !!dashboardId && !!matchId,
+  });
+}
+
+export function useMyCreatorRequests() {
+  return useQuery<CreatorRequest[]>({
+    queryKey: ["creator_requests"],
+    queryFn: () => client.get("/creator_requests").then((r) => r.data),
+  });
+}
+
+export function usePendingCreatorRequests(enabled = true) {
+  return useQuery<CreatorRequest[]>({
+    queryKey: ["admin", "creator_requests"],
+    queryFn: () => client.get("/admin/creator_requests").then((r) => r.data),
+    enabled,
   });
 }

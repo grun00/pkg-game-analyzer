@@ -20,6 +20,12 @@ module Api
 
         render json: { error: I18n.t("errors.forbidden") }, status: :forbidden
       end
+
+      def require_admin!
+        return if current_user&.role_admin?
+
+        render json: { error: I18n.t("errors.forbidden") }, status: :forbidden
+      end
     end
   end
 end

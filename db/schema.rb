@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_19_210632) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_19_212651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "creator_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "status", default: 0, null: false
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_creator_requests_on_status"
+    t.index ["user_id"], name: "index_creator_requests_on_user_id"
+  end
 
   create_table "dashboards", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +68,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_19_210632) do
     t.index ["role"], name: "index_users_on_role"
   end
 
+  add_foreign_key "creator_requests", "users"
   add_foreign_key "dashboards", "users"
   add_foreign_key "matches", "dashboards"
 end

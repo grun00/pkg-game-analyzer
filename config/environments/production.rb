@@ -75,6 +75,26 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  # Outbound email over generic SMTP. Credentials come from Railway env vars;
+  # never hardcode secrets. Only enabled when SMTP_ADDRESS is present.
+  if ENV["SMTP_ADDRESS"].present?
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+      address: ENV["SMTP_ADDRESS"],
+      port: ENV.fetch("SMTP_PORT", "587").to_i,
+      user_name: ENV["SMTP_USER_NAME"],
+      password: ENV["SMTP_PASSWORD"],
+      domain: ENV["SMTP_DOMAIN"],
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+    if ENV["MAILER_HOST"].present?
+      config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"], protocol: "https" }
+    end
+  end
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

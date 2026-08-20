@@ -102,7 +102,15 @@ export function useAuth(): AuthState {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function useRole(): { role: Role | null; isCreator: boolean } {
+export function useRole(): {
+  role: Role | null;
+  isCreator: boolean;
+  isAdmin: boolean;
+} {
   const { user } = useAuth();
-  return { role: user?.role ?? null, isCreator: user?.role === "content_creator" };
+  return {
+    role: user?.role ?? null,
+    isCreator: user?.role === "content_creator",
+    isAdmin: user?.role === "admin",
+  };
 }

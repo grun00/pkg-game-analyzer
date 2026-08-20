@@ -1,0 +1,9 @@
+<%= t("creator_request_mailer.decision_email.heading") %>
+
+<% if @approved %>
+<%= t("creator_request_mailer.decision_email.approved") %>
+<% else %>
+<%= t("creator_request_mailer.decision_email.rejected") %>
+<% end %>
+
+<%= t("creator_request_mailer.decision_email.signoff") %>

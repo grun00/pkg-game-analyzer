@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "meta", to: "meta#index"                # enum options
-      patch "profile", to: "profile#update"       # role opt-in / opt-out
+      resources :creator_requests, only: %i[index create]
+      namespace :admin do
+        resources :creator_requests, only: %i[index update]
+      end
       resources :dashboards, only: %i[index show create update destroy] do
         member do
           get :export

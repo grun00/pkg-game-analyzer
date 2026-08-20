@@ -3,6 +3,8 @@
   "nav": {
     "dashboards": "Dashboards",
     "creatorDashboard": "Creator Dashboard",
+    "admin": "Admin",
+    "profile": "Profile",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "signOut": "Sign out",
@@ -10,11 +12,37 @@
   },
   "roles": {
     "regular": "Regular",
-    "contentCreator": "Content creator"
+    "contentCreator": "Content creator",
+    "admin": "Admin"
   },
   "creator": {
     "title": "Creator Dashboard",
     "comingSoon": "// creator tools coming soon"
+  },
+  "profile": {
+    "title": "Profile",
+    "email": "Email",
+    "role": "Role",
+    "creatorHeading": "Become a Creator",
+    "alreadyCreator": "// you already have creator access",
+    "pending": "// your request is pending review",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "Tell us about the content you create…",
+    "applyCta": "[ Request access ]",
+    "submitted": "Request submitted",
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    }
+  },
+  "admin": {
+    "title": "Creator Requests",
+    "empty": "// no pending requests",
+    "approve": "[ Approve ]",
+    "reject": "[ Reject ]",
+    "approved": "Request approved",
+    "rejected": "Request rejected"
   },
   "lang": {
     "label": "Language",

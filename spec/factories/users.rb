@@ -7,5 +7,9 @@ FactoryBot.define do
     trait :content_creator do
       role { :content_creator }
     end
+
+    trait :admin do
+      role { :admin }
+    end
   end
 end

@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   describe "associations" do
     it { is_expected.to have_many(:dashboards).dependent(:destroy) }
     it { is_expected.to have_many(:matches).through(:dashboards) }
+    it { is_expected.to have_many(:creator_requests).dependent(:destroy) }
   end
 
   describe "validations" do
@@ -13,8 +14,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "enums" do
-    it "defines role enum with regular and content_creator" do
-      expect(User.roles.keys).to match_array(%w[regular content_creator])
+    it "defines role enum with regular, content_creator and admin" do
+      expect(User.roles.keys).to match_array(%w[regular content_creator admin])
     end
 
     it "defaults new users to regular" do
@@ -23,6 +24,10 @@ RSpec.describe User, type: :model do
 
     it "supports the content_creator trait" do
       expect(create(:user, :content_creator).role_content_creator?).to be(true)
+    end
+
+    it "supports the admin trait" do
+      expect(create(:user, :admin).role_admin?).to be(true)
     end
   end
 

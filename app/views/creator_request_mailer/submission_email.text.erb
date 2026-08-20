@@ -1,0 +1,11 @@
+<%= t("creator_request_mailer.submission_email.heading") %>
+
+<%= t("creator_request_mailer.submission_email.intro", email: @user.email) %>
+
+<%= t("creator_request_mailer.fields.user") %>: <%= @user.email %>
+<%= t("creator_request_mailer.fields.request_id") %>: <%= @creator_request.id %>
+<%= t("creator_request_mailer.fields.submitted_at") %>: <%= @creator_request.created_at %>
+<% if @creator_request.message.present? %>
+<%= t("creator_request_mailer.fields.message") %>:
+<%= @creator_request.message %>
+<% end %>

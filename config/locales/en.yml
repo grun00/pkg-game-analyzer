@@ -32,6 +32,8 @@ en:
     not_found: "Not found"
     forbidden: "You are not allowed to perform this action"
     invalid_role: "Invalid role"
+    creator_request:
+      already_pending: "You already have a pending creator request"
   activerecord:
     models:
       match: "Match"
@@ -98,6 +100,29 @@ en:
     role:
       regular: "Regular"
       content_creator: "Content creator"
+      admin: "Admin"
+    creator_request_status:
+      pending: "Pending"
+      approved: "Approved"
+      rejected: "Rejected"
+  creator_request_mailer:
+    fields:
+      user: "User"
+      request_id: "Request ID"
+      submitted_at: "Submitted at"
+      message: "Message"
+    submission_email:
+      subject: "New creator request: %{email}"
+      heading: "New creator request"
+      intro: "%{email} has requested to become a content creator."
+    decision_email:
+      subject:
+        approved: "Your creator request was approved"
+        rejected: "Your creator request was rejected"
+      heading: "Creator request update"
+      approved: "Good news! Your request to become a content creator has been approved. You now have access to the creator dashboard."
+      rejected: "Thank you for your interest. Unfortunately, your request to become a content creator was not approved at this time."
+      signoff: "— Whiplash Game Stats"
   match:
     csv_headers:
       id: "id"

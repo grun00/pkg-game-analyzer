@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import { Flash } from "./components/Flash";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CreatorRoute from "./components/CreatorRoute";
+import AdminRoute from "./components/AdminRoute";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import DashboardsIndex from "./pages/DashboardsIndex";
@@ -12,6 +13,8 @@ import MatchesIndex from "./pages/MatchesIndex";
 import MatchShow from "./pages/MatchShow";
 import MatchForm from "./pages/MatchForm";
 import CreatorDashboard from "./pages/CreatorDashboard";
+import Profile from "./pages/Profile";
+import AdminDashboard from "./pages/AdminDashboard";
 
 export default function App() {
   return (
@@ -44,8 +47,12 @@ export default function App() {
               path="/dashboards/:id/matches/:matchId/edit"
               element={<MatchForm />}
             />
+            <Route path="/profile" element={<Profile />} />
             <Route element={<CreatorRoute />}>
               <Route path="/creator" element={<CreatorDashboard />} />
+            </Route>
+            <Route element={<AdminRoute />}>
+              <Route path="/admin" element={<AdminDashboard />} />
             </Route>
           </Route>
           <Route path="*" element={<Navigate to="/dashboards" replace />} />

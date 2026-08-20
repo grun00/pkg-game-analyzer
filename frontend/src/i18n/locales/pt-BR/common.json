@@ -3,6 +3,8 @@
   "nav": {
     "dashboards": "Painéis",
     "creatorDashboard": "Painel do criador",
+    "admin": "Admin",
+    "profile": "Perfil",
     "signIn": "Entrar",
     "signUp": "Cadastrar",
     "signOut": "Sair",
@@ -10,11 +12,37 @@
   },
   "roles": {
     "regular": "Comum",
-    "contentCreator": "Criador de conteúdo"
+    "contentCreator": "Criador de conteúdo",
+    "admin": "Administrador"
   },
   "creator": {
     "title": "Painel do criador",
     "comingSoon": "// ferramentas do criador em breve"
+  },
+  "profile": {
+    "title": "Perfil",
+    "email": "E-mail",
+    "role": "Função",
+    "creatorHeading": "Torne-se um criador",
+    "alreadyCreator": "// você já tem acesso de criador",
+    "pending": "// sua solicitação está em análise",
+    "messageLabel": "Mensagem (opcional)",
+    "messagePlaceholder": "Conte-nos sobre o conteúdo que você cria…",
+    "applyCta": "[ Solicitar acesso ]",
+    "submitted": "Solicitação enviada",
+    "status": {
+      "pending": "Pendente",
+      "approved": "Aprovada",
+      "rejected": "Rejeitada"
+    }
+  },
+  "admin": {
+    "title": "Solicitações de criador",
+    "empty": "// nenhuma solicitação pendente",
+    "approve": "[ Aprovar ]",
+    "reject": "[ Rejeitar ]",
+    "approved": "Solicitação aprovada",
+    "rejected": "Solicitação rejeitada"
   },
   "lang": {
     "label": "Idioma",

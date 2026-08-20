@@ -3,6 +3,8 @@ pt-BR:
     not_found: "Não encontrado"
     forbidden: "Você não tem permissão para realizar esta ação"
     invalid_role: "Função inválida"
+    creator_request:
+      already_pending: "Você já possui uma solicitação de criador pendente"
   activerecord:
     models:
       match: "Partida"
@@ -69,6 +71,29 @@ pt-BR:
     role:
       regular: "Comum"
       content_creator: "Criador de conteúdo"
+      admin: "Administrador"
+    creator_request_status:
+      pending: "Pendente"
+      approved: "Aprovada"
+      rejected: "Rejeitada"
+  creator_request_mailer:
+    fields:
+      user: "Usuário"
+      request_id: "ID da solicitação"
+      submitted_at: "Enviada em"
+      message: "Mensagem"
+    submission_email:
+      subject: "Nova solicitação de criador: %{email}"
+      heading: "Nova solicitação de criador"
+      intro: "%{email} solicitou tornar-se um criador de conteúdo."
+    decision_email:
+      subject:
+        approved: "Sua solicitação de criador foi aprovada"
+        rejected: "Sua solicitação de criador foi rejeitada"
+      heading: "Atualização da solicitação de criador"
+      approved: "Boas notícias! Sua solicitação para se tornar um criador de conteúdo foi aprovada. Agora você tem acesso ao painel de criador."
+      rejected: "Obrigado pelo seu interesse. Infelizmente, sua solicitação para se tornar um criador de conteúdo não foi aprovada neste momento."
+      signoff: "— Whiplash Game Stats"
   match:
     csv_headers:
       id: "id"

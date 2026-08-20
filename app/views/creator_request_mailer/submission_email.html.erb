@@ -1,0 +1,14 @@
+<h1><%= t("creator_request_mailer.submission_email.heading") %></h1>
+
+<p><%= t("creator_request_mailer.submission_email.intro", email: @user.email) %></p>
+
+<ul>
+  <li><strong><%= t("creator_request_mailer.fields.user") %>:</strong> <%= @user.email %></li>
+  <li><strong><%= t("creator_request_mailer.fields.request_id") %>:</strong> <%= @creator_request.id %></li>
+  <li><strong><%= t("creator_request_mailer.fields.submitted_at") %>:</strong> <%= @creator_request.created_at %></li>
+</ul>
+
+<% if @creator_request.message.present? %>
+  <p><strong><%= t("creator_request_mailer.fields.message") %>:</strong></p>
+  <blockquote><%= @creator_request.message %></blockquote>
+<% end %>

@@ -1,0 +1,40 @@
+{
+  "index": {
+    "title": "Content",
+    "new": "[ New content ]",
+    "empty": "// no content yet — subscribe to creators to see their articles and guides",
+    "loading": "Loading…"
+  },
+  "show": {
+    "back": "Content",
+    "loading": "Loading…",
+    "yourRating": "Your rating",
+    "average": "Average"
+  },
+  "form": {
+    "titleNew": "New content",
+    "titleEdit": "Edit content",
+    "breadcrumbNew": "New",
+    "breadcrumbEdit": "Edit",
+    "title": "Title",
+    "type": "Type",
+    "status": "Status",
+    "body": "Body",
+    "bodyPlaceholder": "Write your article or guide in Markdown…",
+    "markdownHint": "// Markdown supported",
+    "created": "Content created",
+    "updated": "Content updated"
+  },
+  "type": {
+    "article": "Article",
+    "guide": "Guide"
+  },
+  "status": {
+    "draft": "Draft",
+    "published": "Published"
+  },
+  "flash": {
+    "rated": "Rating saved",
+    "deleted": "Content deleted"
+  }
+}

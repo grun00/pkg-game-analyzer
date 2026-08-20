@@ -8,11 +8,23 @@ pt-BR:
     subscription:
       not_a_creator: "deve ser um criador de conteúdo"
       cannot_subscribe_to_self: "Você não pode se inscrever em si mesmo"
+    content:
+      not_subscribed: "Inscreva-se neste criador para ver o conteúdo dele"
   activerecord:
     models:
       match: "Partida"
       dashboard: "Painel"
+      content: "Conteúdo"
+      rating: "Avaliação"
     attributes:
+      content:
+        title: "Título"
+        body: "Conteúdo"
+        content_type: "Tipo"
+        status: "Status"
+        published_at: "Publicado em"
+      rating:
+        stars: "Estrelas"
       match:
         opponent_deck: "Deck adversário"
         result: "Resultado"
@@ -79,6 +91,12 @@ pt-BR:
       pending: "Pendente"
       approved: "Aprovada"
       rejected: "Rejeitada"
+    content_type:
+      article: "Artigo"
+      guide: "Guia"
+    content_status:
+      draft: "Rascunho"
+      published: "Publicado"
   creator_request_mailer:
     fields:
       user: "Usuário"

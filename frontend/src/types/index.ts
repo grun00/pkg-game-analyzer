@@ -39,6 +39,24 @@ export interface Subscription {
   creator: PublicCreator;
 }
 
+export type ContentType = "article" | "guide";
+export type ContentStatus = "draft" | "published";
+
+export interface Content {
+  id: number;
+  title: string;
+  body: string;
+  content_type: ContentType;
+  status: ContentStatus;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+  creator: PublicCreator;
+  average_rating: number;
+  ratings_count: number;
+  my_rating: number | null;
+}
+
 export interface Dashboard {
   id: number;
   name: string;

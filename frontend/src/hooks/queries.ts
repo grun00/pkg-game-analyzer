@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import client from "../api/client";
 import type {
+  Content,
   Creator,
   CreatorRequest,
   Dashboard,
@@ -99,5 +100,20 @@ export function useSubscriptions() {
   return useQuery<Subscription[]>({
     queryKey: ["subscriptions"],
     queryFn: () => client.get("/subscriptions").then((r) => r.data),
+  });
+}
+
+export function useContents() {
+  return useQuery<Content[]>({
+    queryKey: ["contents"],
+    queryFn: () => client.get("/contents").then((r) => r.data),
+  });
+}
+
+export function useContent(id: string | undefined) {
+  return useQuery<Content>({
+    queryKey: ["content", id],
+    queryFn: () => client.get(`/contents/${id}`).then((r) => r.data),
+    enabled: !!id,
   });
 }

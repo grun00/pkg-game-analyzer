@@ -16,6 +16,9 @@ import CreatorDashboard from "./pages/CreatorDashboard";
 import CreatorsIndex from "./pages/CreatorsIndex";
 import CreatorShow from "./pages/CreatorShow";
 import Following from "./pages/Following";
+import ContentIndex from "./pages/ContentIndex";
+import ContentShow from "./pages/ContentShow";
+import ContentForm from "./pages/ContentForm";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/AdminDashboard";
 
@@ -53,9 +56,13 @@ export default function App() {
             <Route path="/creators" element={<CreatorsIndex />} />
             <Route path="/creators/:id" element={<CreatorShow />} />
             <Route path="/following" element={<Following />} />
+            <Route path="/contents" element={<ContentIndex />} />
+            <Route path="/contents/:id" element={<ContentShow />} />
             <Route path="/profile" element={<Profile />} />
             <Route element={<CreatorRoute />}>
               <Route path="/creator" element={<CreatorDashboard />} />
+              <Route path="/contents/new" element={<ContentForm />} />
+              <Route path="/contents/:id/edit" element={<ContentForm />} />
             </Route>
             <Route element={<AdminRoute />}>
               <Route path="/admin" element={<AdminDashboard />} />

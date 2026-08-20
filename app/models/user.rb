@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :subscriber_subscriptions, class_name: "Subscription", foreign_key: :creator_id, dependent: :destroy
   has_many :subscribers, through: :subscriber_subscriptions, source: :subscriber
 
+  has_many :contents, foreign_key: :creator_id, class_name: "Content", dependent: :destroy
+  has_many :ratings, dependent: :destroy
+
   def display_name
     name.presence || "Creator ##{id}"
   end

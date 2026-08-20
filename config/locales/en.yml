@@ -37,11 +37,23 @@ en:
     subscription:
       not_a_creator: "must be a content creator"
       cannot_subscribe_to_self: "You cannot subscribe to yourself"
+    content:
+      not_subscribed: "Subscribe to this creator to view their content"
   activerecord:
     models:
       match: "Match"
       dashboard: "Dashboard"
+      content: "Content"
+      rating: "Rating"
     attributes:
+      content:
+        title: "Title"
+        body: "Body"
+        content_type: "Type"
+        status: "Status"
+        published_at: "Published at"
+      rating:
+        stars: "Stars"
       match:
         opponent_deck: "Opponent deck"
         result: "Result"
@@ -108,6 +120,12 @@ en:
       pending: "Pending"
       approved: "Approved"
       rejected: "Rejected"
+    content_type:
+      article: "Article"
+      guide: "Guide"
+    content_status:
+      draft: "Draft"
+      published: "Published"
   creator_request_mailer:
     fields:
       user: "User"

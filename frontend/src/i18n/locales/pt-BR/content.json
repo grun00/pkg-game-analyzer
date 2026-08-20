@@ -1,0 +1,40 @@
+{
+  "index": {
+    "title": "Conteúdo",
+    "new": "[ Novo conteúdo ]",
+    "empty": "// nenhum conteúdo ainda — inscreva-se em criadores para ver seus artigos e guias",
+    "loading": "Carregando…"
+  },
+  "show": {
+    "back": "Conteúdo",
+    "loading": "Carregando…",
+    "yourRating": "Sua avaliação",
+    "average": "Média"
+  },
+  "form": {
+    "titleNew": "Novo conteúdo",
+    "titleEdit": "Editar conteúdo",
+    "breadcrumbNew": "Novo",
+    "breadcrumbEdit": "Editar",
+    "title": "Título",
+    "type": "Tipo",
+    "status": "Status",
+    "body": "Conteúdo",
+    "bodyPlaceholder": "Escreva seu artigo ou guia em Markdown…",
+    "markdownHint": "// Markdown suportado",
+    "created": "Conteúdo criado",
+    "updated": "Conteúdo atualizado"
+  },
+  "type": {
+    "article": "Artigo",
+    "guide": "Guia"
+  },
+  "status": {
+    "draft": "Rascunho",
+    "published": "Publicado"
+  },
+  "flash": {
+    "rated": "Avaliação salva",
+    "deleted": "Conteúdo excluído"
+  }
+}

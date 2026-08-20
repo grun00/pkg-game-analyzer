@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_20_133016) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_20_135524) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contents", force: :cascade do |t|
+    t.bigint "creator_id", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "content_type", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id", "published_at"], name: "index_contents_on_creator_id_and_published_at"
+    t.index ["creator_id", "status"], name: "index_contents_on_creator_id_and_status"
+    t.index ["creator_id"], name: "index_contents_on_creator_id"
+  end
 
   create_table "creator_requests", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -56,6 +70,17 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_20_133016) do
     t.index ["dashboard_id"], name: "index_matches_on_dashboard_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "content_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "stars", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_ratings_on_content_id"
+    t.index ["user_id", "content_id"], name: "index_ratings_on_user_id_and_content_id", unique: true
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "subscriber_id", null: false
     t.bigint "creator_id", null: false
@@ -82,9 +107,12 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_20_133016) do
     t.index ["role"], name: "index_users_on_role"
   end
 
+  add_foreign_key "contents", "users", column: "creator_id"
   add_foreign_key "creator_requests", "users"
   add_foreign_key "dashboards", "users"
   add_foreign_key "matches", "dashboards"
+  add_foreign_key "ratings", "contents"
+  add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "users", column: "creator_id"
   add_foreign_key "subscriptions", "users", column: "subscriber_id"
 end

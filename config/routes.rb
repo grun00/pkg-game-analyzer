@@ -23,6 +23,12 @@ Rails.application.routes.draw do
         end
       end
       resources :subscriptions, only: %i[index]
+      resources :contents, only: %i[index show create update destroy] do
+        member do
+          post :rating, to: "ratings#create"
+          delete :rating, to: "ratings#destroy"
+        end
+      end
       resources :dashboards, only: %i[index show create update destroy] do
         member do
           get :export
